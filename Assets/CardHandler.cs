@@ -4,7 +4,7 @@ using UnityEngine;
 public class CardHandler : MonoBehaviour
 {
     // List of Cards
-    public static List<object> Cards = new List<object>();
+    public List<Object> Cards;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
