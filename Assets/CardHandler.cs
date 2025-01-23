@@ -5,6 +5,7 @@ public class CardHandler : MonoBehaviour
 {
     // List of Cards
     public List<Object> Cards;
+    public List<Object> CardSpawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
