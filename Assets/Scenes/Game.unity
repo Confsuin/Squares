@@ -2370,7 +2370,7 @@ GameObject:
   - component: {fileID: 1685548131243610982}
   - component: {fileID: 5686254569441175680}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Cards Picker Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4104,6 +4104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb5c56651b51b09429d3455e77fbb0fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardSpawnAmount: 0
   Cards:
   - {fileID: 8421034208990630424, guid: 966a796c8b0d5cf4ab08f0ec3f6857c9, type: 3}
   - {fileID: 8421034208990630424, guid: 010bbba88e075a2479b1327a0966e07d, type: 3}

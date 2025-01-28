@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Intergers. Numbers in Decimal form.
+    // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
     public float Health = 1;
     public float Damage = 1;
@@ -16,7 +16,7 @@ public class Card : MonoBehaviour
 
     public float Range = 1;
     
-    // Intergers. Numbers in flat amount form.
+    // Floats. Numbers in flat amount form.
     public float BulletPoison;
     public float BulletBounces;
     public float BulletCount;
