@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 484056922016707206}
   m_Layer: 5
-  m_Name: Ralgun
+  m_Name: Railgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

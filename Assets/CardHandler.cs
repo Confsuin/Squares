@@ -6,14 +6,16 @@ public class CardHandler : MonoBehaviour
     // Intergars
     public int CardSpawnAmount;
 
+    
+
     // List of Cards
     public List<GameObject> Cards = new();
-    public List<GameObject> CardSpawnPoint = new();
-
+    public List<Transform> CardSpawnPoint = new();
+    public Transform pos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        SpawnCardsPlayer1();
     }
 
     // Update is called once per frame
@@ -21,15 +23,18 @@ public class CardHandler : MonoBehaviour
     {
 
     }
-    private void SpawnCardsPlayer1()
+    public void SpawnCardsPlayer1()
     {
         for (int i = 0; i < CardSpawnAmount; i++)
         {
-            /*index = Random.Range(0, CardSpawnPoint.Count);
-            objActual = CardSpawnPoint[index];
-            CardSpawnPoint.Remove(objActual);
-            CreateCard();*/
+            pos = CardSpawnPoint[i];
+            int n = Random.Range(0, Cards.Count);
+            GameObject g = Instantiate(Cards[n]);
+            Debug.Log(g.transform.parent);
+            g.transform.SetParent(pos, false);
+            Debug.Log(g.transform.parent);
         }
+
     }
     private void SpawnCardsPlayer2()
     {
@@ -37,6 +42,6 @@ public class CardHandler : MonoBehaviour
     }
     public void CreateCard()
     {
-        //Instantiate(Cards, objActual.transform.position, objActual.transform.rotation);
+        
     }
 }
