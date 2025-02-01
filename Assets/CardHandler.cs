@@ -10,8 +10,8 @@ public class CardHandler : MonoBehaviour
 
     // List of Cards
     public List<GameObject> Cards = new();
-    public List<Transform> CardSpawnPoint = new();
-    public Transform pos;
+    public List<GameObject> CardSpawnPoint = new();
+    public GameObject pos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,10 +29,7 @@ public class CardHandler : MonoBehaviour
         {
             pos = CardSpawnPoint[i];
             int n = Random.Range(0, Cards.Count);
-            GameObject g = Instantiate(Cards[n]);
-            Debug.Log(g.transform.parent);
-            g.transform.SetParent(pos, false);
-            Debug.Log(g.transform.parent);
+            GameObject g = Instantiate(Cards[n], pos.transform);
         }
 
     }
