@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 448fd314b9e7b0443a07c25de501e037
+guid: 9d5961981659dd24fbb682f5b856556d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1413617390780662207
-    second: Bouncy bullets_0
+      213: 6989642852348889387
+    second: images-removebg-preview_0
+  - first:
+      213: -3982800708494914934
+    second: images-removebg-preview_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bouncy bullets_0
+      name: images-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 550
-        height: 504
+        width: 78
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14e34360972d16ce0800000000000000
-      internalID: -1413617390780662207
+      spriteID: b298a193423300160800000000000000
+      internalID: 6989642852348889387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: images-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 75
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a8cfe7bdf3ab8c0800000000000000
+      internalID: -3982800708494914934
       vertices: []
       indices: 
       edges: []
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bouncy bullets_0: -1413617390780662207
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

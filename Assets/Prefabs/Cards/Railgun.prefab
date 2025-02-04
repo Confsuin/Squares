@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5278745195056009524, guid: 9fb2a3e888ad6fa49b6d9ee5835ef1ef, type: 3}
+  m_Sprite: {fileID: -3718922171475060214, guid: 0ec0a6a2a97e63d429729e6f549d7266, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -283,7 +283,7 @@ MonoBehaviour:
     <color=green>+100%</color> Bullet
     Speed
 
-    <color=red>-2</color> Ammo'
+    <color=red>-2</color> Ammo <color=red>-35%</color> atk speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -419,7 +419,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Faster!, harder!.
+  m_text: 'Harder!, Better!,
+
+    Faster!, Stronger!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -446,8 +448,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -547,16 +549,18 @@ MonoBehaviour:
   MovementSpeed: 1
   Health: 1
   Damage: 1.35
+  BulletLifeSteal: 0
+  BulletPoison: 0
   BulletSpeed: 1.5
   BulletSize: 1
   BulletSlow: 1
-  AttackSpeed: 1
+  AttackSpeed: 0.65
   Range: 1
-  BulletPoison: 0
+  TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
   FireRadius: 0
-  ExplosiveRadius: 0
+  ExplosionRadius: 0
   ReloadSpeed: 0
   Ammo: -2
   BlockCoolDown: 0

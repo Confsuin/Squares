@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sniper
+  m_text: Bomb
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3552595813687925262, guid: 5d4c0ea45d430df47a80f70b001c1ada, type: 3}
+  m_Sprite: {fileID: -6338535407761039977, guid: 778cba10f02655e47b9cbf68d7270269, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -276,12 +276,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+35%</color> Damage
+  m_text: '<color=green>+15%</color> Damage
 
-    <color=green>+50%</color> Bullet
-    Speed
-
-    <color=red>-1</color> Ammo <color=red>-25%</color> Atk speed'
+    <color=red>-25%</color> Bullet Speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,9 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Harder, Better,
-
-    Faster, Stronger'
+  m_text: Explosi<b>on</b> hit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -446,8 +441,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -500,9 +495,9 @@ GameObject:
   m_Component:
   - component: {fileID: 937345975838681025}
   - component: {fileID: 9102833504841212013}
-  - component: {fileID: 8435837765025777312}
+  - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: Sniper
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,10 +541,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 1
   Health: 1
-  Damage: 1.35
+  Damage: 1
   BulletLifeSteal: 0
   BulletPoison: 0
-  BulletSpeed: 1.5
+  BulletSpeed: 1
   BulletSize: 1
   BulletSlow: 1
   AttackSpeed: 1
@@ -560,10 +555,10 @@ MonoBehaviour:
   FireRadius: 0
   ExplosionRadius: 0
   ReloadSpeed: 0
-  Ammo: -1
+  Ammo: 0
   BlockCoolDown: 0
   BlockCount: 0
---- !u!114 &8435837765025777312
+--- !u!114 &2001907742883547328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

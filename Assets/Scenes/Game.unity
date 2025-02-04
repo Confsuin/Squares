@@ -748,7 +748,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1040979107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1437,12 +1437,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardSpawnAmount: 5
   Cards:
-  - {fileID: 8421034208990630424, guid: 966a796c8b0d5cf4ab08f0ec3f6857c9, type: 3}
+  - {fileID: 8421034208990630424, guid: 6d3870419fd090543b4d948744d643d0, type: 3}
+  - {fileID: 8421034208990630424, guid: e4b39333683861f49b43fc10d6ecc06e, type: 3}
   - {fileID: 8421034208990630424, guid: 010bbba88e075a2479b1327a0966e07d, type: 3}
+  - {fileID: 8421034208990630424, guid: dada7af1678703c41b42985dcd2f8554, type: 3}
+  - {fileID: 8421034208990630424, guid: 5d52740beb8c33f40b97701cfa5ba0f4, type: 3}
+  - {fileID: 8421034208990630424, guid: fe76d6bd3fe46f34ca65d1529cf1c9b8, type: 3}
   - {fileID: 7143588706635471266, guid: bcf29430794abca4388a37caa95ff38f, type: 3}
-  - {fileID: 8421034208990630424, guid: 5bcd5eccaff8e4e4099f5b5d8ea42701, type: 3}
+  - {fileID: 8421034208990630424, guid: 54516160d9d57d443af6c974c053110d, type: 3}
+  - {fileID: 8421034208990630424, guid: c2efa6af8c04e6f4e98638e82959af2a, type: 3}
   - {fileID: 8421034208990630424, guid: c5ab5cb6d08378d43ad33ce323aa2a88, type: 3}
+  - {fileID: 8421034208990630424, guid: 5bcd5eccaff8e4e4099f5b5d8ea42701, type: 3}
   - {fileID: 8421034208990630424, guid: 654c83378c5e9bb42b89f1cc622ca7e6, type: 3}
+  - {fileID: 8421034208990630424, guid: ae230e5db1cc1f041b533e160167155f, type: 3}
   CardSpawnPoint:
   - {fileID: 5126128024721074105}
   - {fileID: 201614777687709003}

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Big Bullets
+  m_text: Teleport
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5623194428626525839, guid: 85dafa9db727a80458ea890e37dbb38c, type: 3}
+  m_Sprite: {fileID: 6652240752788528491, guid: e0b0b4aad07383f49aba17e7e484c08e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -276,12 +276,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+75%</color> Bullet Size
+  m_text: '<color=green>+10</color> Teleport Distance
 
-    <color=green>+25%</color> Damage
-
-    <color=red>+0.25s</color>
-    Reload Speed'
+    <color=red>+0.5s</color>
+    Bloock Cooldown'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BIGGER!
+  m_text: Teleport On Block
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -498,9 +496,9 @@ GameObject:
   m_Component:
   - component: {fileID: 937345975838681025}
   - component: {fileID: 9102833504841212013}
-  - component: {fileID: 4949555940188540924}
+  - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: Big Bullets
+  m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,21 +543,23 @@ MonoBehaviour:
   MovementSpeed: 1
   Health: 1
   Damage: 1
+  BulletLifeSteal: 0
+  BulletPoison: 0
   BulletSpeed: 1
   BulletSize: 1
   BulletSlow: 1
   AttackSpeed: 1
   Range: 1
-  BulletPoison: 0
+  TeleportDistance: 10
   BulletBounces: 0
   BulletCount: 0
   FireRadius: 0
-  ExplosiveRadius: 0
+  ExplosionRadius: 0
   ReloadSpeed: 0
   Ammo: 0
-  BlockCoolDown: 0
+  BlockCoolDown: 0.5
   BlockCount: 0
---- !u!114 &4949555940188540924
+--- !u!114 &2001907742883547328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

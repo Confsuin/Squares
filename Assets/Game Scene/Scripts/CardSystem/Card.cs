@@ -6,23 +6,25 @@ public class Card : MonoBehaviour
     public float MovementSpeed = 1;
     public float Health = 1;
     public float Damage = 1;
-    
+
+    public float BulletLifeSteal;
+    public float BulletPoison;
     public float BulletSpeed = 1;
     public float BulletSize = 1;
     public float BulletSlow = 1;
 
-    
     public float AttackSpeed = 1;
 
     public float Range = 1;
-    
+
     // Floats. Numbers in flat amount form.
-    public float BulletPoison;
+    public float TeleportDistance;
+
     public float BulletBounces;
     public float BulletCount;
 
     public float FireRadius;
-    public float ExplosiveRadius;
+    public float ExplosionRadius;
 
     // Reload Speed is in 0.25 second intervals.
     public float ReloadSpeed;
