@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 266505423}
   - component: {fileID: 266505427}
   - component: {fileID: 266505426}
-  - component: {fileID: 266505425}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -209,21 +208,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &266505425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266505422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef96067311ae4e841967cafa46770b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  moveSpeed: 10
 --- !u!61 &266505426
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -982,7 +966,6 @@ GameObject:
   - component: {fileID: 2035683850}
   - component: {fileID: 2035683854}
   - component: {fileID: 2035683853}
-  - component: {fileID: 2035683852}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -1060,21 +1043,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2035683852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035683849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f30f87abe7f95fd49a8c0edc4cd24377, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 0
-  moveSpeed: 10
 --- !u!61 &2035683853
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1440,14 +1408,17 @@ MonoBehaviour:
   - {fileID: 8421034208990630424, guid: 6d3870419fd090543b4d948744d643d0, type: 3}
   - {fileID: 8421034208990630424, guid: e4b39333683861f49b43fc10d6ecc06e, type: 3}
   - {fileID: 8421034208990630424, guid: 010bbba88e075a2479b1327a0966e07d, type: 3}
+  - {fileID: 8421034208990630424, guid: 401b3fb616fb2634aba39a88d51d1b10, type: 3}
   - {fileID: 8421034208990630424, guid: dada7af1678703c41b42985dcd2f8554, type: 3}
   - {fileID: 8421034208990630424, guid: 5d52740beb8c33f40b97701cfa5ba0f4, type: 3}
   - {fileID: 8421034208990630424, guid: fe76d6bd3fe46f34ca65d1529cf1c9b8, type: 3}
+  - {fileID: 8421034208990630424, guid: b27f5198dd785af48a099e7fbc12b411, type: 3}
   - {fileID: 7143588706635471266, guid: bcf29430794abca4388a37caa95ff38f, type: 3}
   - {fileID: 8421034208990630424, guid: 54516160d9d57d443af6c974c053110d, type: 3}
   - {fileID: 8421034208990630424, guid: c2efa6af8c04e6f4e98638e82959af2a, type: 3}
   - {fileID: 8421034208990630424, guid: c5ab5cb6d08378d43ad33ce323aa2a88, type: 3}
   - {fileID: 8421034208990630424, guid: 5bcd5eccaff8e4e4099f5b5d8ea42701, type: 3}
+  - {fileID: 8421034208990630424, guid: 9e31b8dadac45924c85c2220e1ef0678, type: 3}
   - {fileID: 8421034208990630424, guid: 654c83378c5e9bb42b89f1cc622ca7e6, type: 3}
   - {fileID: 8421034208990630424, guid: ae230e5db1cc1f041b533e160167155f, type: 3}
   CardSpawnPoint:
