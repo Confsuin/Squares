@@ -5,6 +5,13 @@ public class FireZone : MonoBehaviour
     public Player1 player1;
     public Player2 player2;
 
+
+    private void Start()
+    {
+        Destroy(gameObject, 5);
+    }
+
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == ("Player"))

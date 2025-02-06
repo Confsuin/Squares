@@ -1,9 +1,15 @@
 using UnityEngine;
+using System.Collections;
 
 public class Explosion : MonoBehaviour
 {
     public Player1 player1;
     public Player2 player2;
+
+    private void Start()
+    {
+        Destroy(gameObject, 1);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -17,5 +23,10 @@ public class Explosion : MonoBehaviour
             player2.TakeDamage(10);
             Debug.Log("Boom2");
         }
+    }
+
+    IEnumerator Wait(float delay)
+    {
+        yield return new WaitForSeconds(delay);
     }
 }
