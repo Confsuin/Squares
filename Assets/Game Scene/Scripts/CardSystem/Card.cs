@@ -22,9 +22,11 @@ public class Card : MonoBehaviour
 
     public float BulletBounces;
     public float BulletCount;
+    public float ShotgunCount;
 
     public float FireRadius;
     public float ExplosionRadius;
+    public float GunInnaccuracy;
 
     // Reload Speed is in 0.25 second intervals.
     public float ReloadSpeed;

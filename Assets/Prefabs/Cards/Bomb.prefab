@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+15%</color> Damage
+  m_text: '<color=green>+15%</color> Dmg
 
     <color=red>-25%</color> Bullet Speed'
   m_isRightToLeft: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
   BulletBounces: 0
   BulletCount: 0
   FireRadius: 0
-  ExplosionRadius: 0
+  ExplosionRadius: 1
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0

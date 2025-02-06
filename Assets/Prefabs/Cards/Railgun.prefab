@@ -278,12 +278,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+50%</color> Damage
+  m_text: '<color=green>+50%</color> Dmg
 
-    <color=green>+100%</color> Bullet
-    Speed
+    <color=green>+100%</color> Bullet Speed
 
-    <color=red>-2</color> Ammo <color=red>-35%</color> atk speed'
+    <color=red>-2</color>
+    Ammo <color=red>-35%</color> atk speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}

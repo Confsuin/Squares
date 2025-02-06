@@ -552,10 +552,11 @@ MonoBehaviour:
   BulletSlow: 1
   AttackSpeed: 1
   Range: 1
+  TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
   FireRadius: 0
-  ExplosiveRadius: 0
+  ExplosionRadius: 0
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0

@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Damage
+  m_text: '<color=green>+x%</color> Dmg
 
     <color=green>+x</color> Bullet Speed
 
@@ -545,16 +545,19 @@ MonoBehaviour:
   MovementSpeed: 1
   Health: 1
   Damage: 1
+  BulletLifeSteal: 0
+  BulletPoison: 0
   BulletSpeed: 1
   BulletSize: 1
   BulletSlow: 1
   AttackSpeed: 1
   Range: 1
-  BulletPoison: 0
+  TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
   FireRadius: 0
-  ExplosiveRadius: 0
+  ExplosionRadius: 0
+  GunInnaccuracy: 0
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0
