@@ -6,21 +6,24 @@ public class CardHandler : MonoBehaviour
     // Intergars
     public int CardSpawnAmount;
 
-    // List of Cards
+    // List of GameObjects
     public List<GameObject> Cards = new();
     public List<GameObject> CardSpawnPoint = new();
     public GameObject pos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject CardsPickerBackground;
+
     void Start()
     {
+        CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
+        CardsPickerBackground.SetActive(false);
         SpawnCards();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
+    // Picks random card and then spawns selected card at card spawn position doing so for every spawn position.
     public void SpawnCards()
     {
         for (int i = 0; i < CardSpawnAmount; i++)
@@ -30,10 +33,6 @@ public class CardHandler : MonoBehaviour
             GameObject g = Instantiate(Cards[n], pos.transform);
             Cards.Remove(Cards[n]);
         }
-
-    }
-    public void CreateCard()
-    {
-        
+        CardsPickerBackground.SetActive(true);
     }
 }

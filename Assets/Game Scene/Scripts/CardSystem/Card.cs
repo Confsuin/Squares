@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
+    // GameObjects
+    public GameObject CardsPickerBackground;
+
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
     public float Health = 1;
@@ -38,7 +41,7 @@ public class Card : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
     }
     
     // Update is called once per frame
@@ -48,7 +51,8 @@ public class Card : MonoBehaviour
     }
     public void DoSelectCard()
     {
-        
+        Destroy(GameObject.FindWithTag("Cards Menu"));
+        CardsPickerBackground.SetActive(false);
         Debug.Log("Card Clicked");
     }
 }
