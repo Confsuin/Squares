@@ -11,11 +11,13 @@ public class ParticleCollisionDetection : MonoBehaviour
         {
             player1.TakeDamage(25);
             Debug.Log("hit");
+            
         }
         if (other.tag == ("PlayerAlt"))
         {
             player2.TakeDamage(25);
             Debug.Log("hit");
+            
         }
     }
 }
