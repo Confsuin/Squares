@@ -6051,6 +6051,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 529004808112645263, guid: 3ea30e5d9082b354d8946a0e222dbaeb, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 529004808112645263, guid: 3ea30e5d9082b354d8946a0e222dbaeb, type: 3}
       propertyPath: m_SleepingMode
       value: 0
       objectReference: {fileID: 0}

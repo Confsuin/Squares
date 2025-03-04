@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Railgun_0: 6241454495075796874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
