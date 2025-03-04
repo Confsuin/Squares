@@ -1,6 +1,7 @@
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Player2 : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Player2 : MonoBehaviour
     public int currentHealth;
     public float moveSpeed = 10f;
     public GameObject weapon;
-    public ParticleSystem bullet;
+    public GameObject bullet;
 
     private Vector2 aimDirection;
     private PlayerInputs input = null;
@@ -16,7 +17,25 @@ public class Player2 : MonoBehaviour
     private Rigidbody2D rb = null;
 
     private InputAction shootAction;
+
+
+
+
+    //public List<GameObject> BulletSpawnPoint = new();
+    public GameObject bulpos;
+
+
+    public void BulletSpawner()
+    {
+       GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
+       Destroy(spawnedBullet, 1f);
+    }
+
+   
     
+
+
+
 
     private void Awake()
     {
@@ -24,8 +43,8 @@ public class Player2 : MonoBehaviour
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
-        var inputActions = new InputActions();
-        shootAction = inputActions.Player2.Shoot;
+        //var inputActions = new InputAction();
+        shootAction = input.Player2.Shoot;
         shootAction.Enable();
     }
 
@@ -42,7 +61,7 @@ public class Player2 : MonoBehaviour
         input.Player2.Aim.canceled += OnAimCanceled;
 
         //Shooting
-        shootAction.performed += _ => Shooting();
+        shootAction.performed += _ => BulletSpawner();
     }
 
     private void OnDisable()
@@ -53,7 +72,7 @@ public class Player2 : MonoBehaviour
         input.Player2.Movement.canceled -= OnMovementCancelled;
 
         //Shooting
-        shootAction.performed -= _ => Shooting();
+        shootAction.performed -= _ => BulletSpawner();
     }
 
     private void FixedUpdate()
@@ -81,16 +100,17 @@ public class Player2 : MonoBehaviour
 
 
 
-
+    /*
     private void Shooting()
     {
-        Debug.Log("Right Trigger Pressed!");
+        //Debug.Log("Right Trigger Pressed!");
         if (bullet != null)
         {
             bullet.Play();
+            Debug.Log("Sex");
         }
     }
-
+    */
 
 
 

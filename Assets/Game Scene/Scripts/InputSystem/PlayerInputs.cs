@@ -197,7 +197,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""731a65ce-7218-4d2d-9e8e-641e27449e50"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
