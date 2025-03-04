@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert name
+  m_text: 'Shotgun
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -276,12 +278,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Dmg
+  m_text: '<color=green>+5</color> Bullets
 
-    <color=green>+x</color> Bullet Speed
+    <color=red>-30%</color> Dmg <color=red>-1</color>
+    Ammo
 
-    <color=red>+xs</color>
-    Reload speed'
+    <color=red>+0.5s</color> Reload speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -500,7 +502,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: Card Prefab
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,22 +546,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 1
   Health: 1
-  Damage: 1
+  Damage: 0.7
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 1
   BulletSize: 1
   BulletSlow: 1
   AttackSpeed: 1
-  Range: 1
+  Range: 0.2
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
+  ShotgunCount: 5
   FireRadius: 0
   ExplosionRadius: 0
-  GunInnaccuracy: 0
-  ReloadSpeed: 0
-  Ammo: 0
+  GunInnaccuracy: 1
+  ReloadSpeed: 0.5
+  Ammo: -1
   BlockCoolDown: 0
   BlockCount: 0
 --- !u!114 &2001907742883547328

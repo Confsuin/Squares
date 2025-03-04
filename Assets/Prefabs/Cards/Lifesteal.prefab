@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert name
+  m_text: Lifesteal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5623194428626525839, guid: 85dafa9db727a80458ea890e37dbb38c, type: 3}
+  m_Sprite: {fileID: 4328343480898289126, guid: e31e8e31a1dbab541a77a1ea64479d70, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -276,11 +276,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Dmg
+  m_text: '<color=green>+25%</color> Lifesteal
 
-    <color=green>+x</color> Bullet Speed
+    <color=green>+25%</color> Health
 
-    <color=red>+xs</color>
+    <color=red>+0.5s</color>
     Reload speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Description
+  m_text: Dmg = Heal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: Card Prefab
+  m_Name: Lifesteal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,9 +543,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 1
-  Health: 1
+  Health: 1.25
   Damage: 1
-  BulletLifeSteal: 0
+  BulletLifeSteal: 0.25
   BulletPoison: 0
   BulletSpeed: 1
   BulletSize: 1
@@ -557,8 +557,7 @@ MonoBehaviour:
   BulletCount: 0
   FireRadius: 0
   ExplosionRadius: 0
-  GunInnaccuracy: 0
-  ReloadSpeed: 0
+  ReloadSpeed: 0.5
   Ammo: 0
   BlockCoolDown: 0
   BlockCount: 0

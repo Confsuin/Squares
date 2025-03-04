@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert name
+  m_text: Quick Reload
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5623194428626525839, guid: 85dafa9db727a80458ea890e37dbb38c, type: 3}
+  m_Sprite: {fileID: -5328104982336953044, guid: 131eaec761217af4a96932fa9eb22a27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -276,12 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Dmg
-
-    <color=green>+x</color> Bullet Speed
-
-    <color=red>+xs</color>
-    Reload speed'
+  m_text: <color=green>-0.75s</color> reload speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Description
+  m_text: Reload Faster
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -497,10 +492,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937345975838681025}
-  - component: {fileID: 9102833504841212013}
-  - component: {fileID: 2001907742883547328}
+  - component: {fileID: 7109660871098350204}
+  - component: {fileID: 7481180005674866424}
   m_Layer: 5
-  m_Name: Card Prefab
+  m_Name: Quick Reload
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +525,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &9102833504841212013
+--- !u!114 &7109660871098350204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -557,12 +552,11 @@ MonoBehaviour:
   BulletCount: 0
   FireRadius: 0
   ExplosionRadius: 0
-  GunInnaccuracy: 0
-  ReloadSpeed: 0
+  ReloadSpeed: -0.75
   Ammo: 0
   BlockCoolDown: 0
   BlockCount: 0
---- !u!114 &2001907742883547328
+--- !u!114 &7481180005674866424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -606,7 +600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9102833504841212013}
+      - m_Target: {fileID: 7109660871098350204}
         m_TargetAssemblyTypeName: Card, Assembly-CSharp
         m_MethodName: DoSelectCard
         m_Mode: 1

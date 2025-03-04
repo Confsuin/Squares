@@ -278,7 +278,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<color=green>+75%</color> Bullet Size
 
-    <color=green>+25%</color> Damage
+    <color=green>+25%</color> Dmg
 
     <color=red>+0.25s</color>
     Reload Speed'
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 4949555940188540924}
   m_Layer: 5
-  m_Name: Big Bullets
+  m_Name: Big Bullets(Scrapped)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,18 +544,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 1
   Health: 1
-  Damage: 1
+  Damage: 1.25
+  BulletLifeSteal: 0
+  BulletPoison: 0
   BulletSpeed: 1
-  BulletSize: 1
+  BulletSize: 1.75
   BulletSlow: 1
   AttackSpeed: 1
   Range: 1
-  BulletPoison: 0
+  TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
   FireRadius: 0
-  ExplosiveRadius: 0
-  ReloadSpeed: 0
+  ExplosionRadius: 0
+  ReloadSpeed: 0.25
   Ammo: 0
   BlockCoolDown: 0
   BlockCount: 0

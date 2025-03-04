@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert name
+  m_text: 'Burst
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -276,12 +278,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Dmg
+  m_text: '<color=green>+3</color> Bullet Count
 
-    <color=green>+x</color> Bullet Speed
+    <color=green>+4</color> Ammo
+    <color=red>-35%</color> Dmg
 
-    <color=red>+xs</color>
-    Reload speed'
+    <color=red>+0.5s</color> Reload speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Description
+  m_text: Gun go PEWPEWPEW
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -500,7 +502,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: Card Prefab
+  m_Name: Burst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 1
   Health: 1
-  Damage: 1
+  Damage: 0.65
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 1
@@ -554,12 +556,11 @@ MonoBehaviour:
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
-  BulletCount: 0
+  BulletCount: 3
   FireRadius: 0
   ExplosionRadius: 0
-  GunInnaccuracy: 0
-  ReloadSpeed: 0
-  Ammo: 0
+  ReloadSpeed: 0.5
+  Ammo: 4
   BlockCoolDown: 0
   BlockCount: 0
 --- !u!114 &2001907742883547328

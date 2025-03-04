@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MainMenuButtons : MonoBehaviour
@@ -37,13 +38,13 @@ public class MainMenuButtons : MonoBehaviour
         Debug.Log("Application closed");
     }
     // Main Menu Local
-    public void doMainMenu()
+    public void doMainMenuVersus()
     {
-
+        SceneManager.LoadScene(1);
     }
-    public void DoMainMenuOptionsSandbox()
+    public void DoMainMenuSandbox()
     {
-
+        SceneManager.LoadScene(2);
     }
     public void DoMainMenuLocalBack()
     {

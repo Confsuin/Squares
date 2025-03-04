@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert name
+  m_text: 'Railgun
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5623194428626525839, guid: 85dafa9db727a80458ea890e37dbb38c, type: 3}
+  m_Sprite: {fileID: 6241454495075796874, guid: 069ed4542ffcb034ab3c2db1eaec07c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -276,12 +278,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Dmg
+  m_text: '<color=green>+50%</color> Dmg
 
-    <color=green>+x</color> Bullet Speed
+    <color=green>+100%</color> Bullet Speed
 
-    <color=red>+xs</color>
-    Reload speed'
+    <color=red>-2</color>
+    Ammo <color=red>-35%</color> atk speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +419,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Description
+  m_text: 'Harder!, Better!,
+
+    Faster!, Stronger!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -444,8 +448,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -498,9 +502,9 @@ GameObject:
   m_Component:
   - component: {fileID: 937345975838681025}
   - component: {fileID: 9102833504841212013}
-  - component: {fileID: 2001907742883547328}
+  - component: {fileID: 484056922016707206}
   m_Layer: 5
-  m_Name: Card Prefab
+  m_Name: Railgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,27 +546,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardsPickerBackground: {fileID: 0}
   MovementSpeed: 1
   Health: 1
-  Damage: 1
+  Damage: 1.35
   BulletLifeSteal: 0
   BulletPoison: 0
-  BulletSpeed: 1
+  BulletSpeed: 1.5
   BulletSize: 1
   BulletSlow: 1
-  AttackSpeed: 1
+  AttackSpeed: 0.65
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
+  ShotgunCount: 0
   FireRadius: 0
   ExplosionRadius: 0
-  GunInnaccuracy: 0
+  GunInaccuracy: 0
   ReloadSpeed: 0
-  Ammo: 0
+  Ammo: -2
   BlockCoolDown: 0
   BlockCount: 0
---- !u!114 &2001907742883547328
+--- !u!114 &484056922016707206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert name
+  m_text: "Block\xB2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -276,12 +276,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+x%</color> Dmg
+  m_text: '<color=green>+1</color> Block
 
-    <color=green>+x</color> Bullet Speed
+    <color=red>-25%</color> Health
 
-    <color=red>+xs</color>
-    Reload speed'
+    <color=red>+0.25s</color>
+    Block Cooldown'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Insert Description
+  m_text: More blocks!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: Card Prefab
+  m_Name: "Block\xB2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 1
-  Health: 1
+  Health: 0.75
   Damage: 1
   BulletLifeSteal: 0
   BulletPoison: 0
@@ -557,11 +557,10 @@ MonoBehaviour:
   BulletCount: 0
   FireRadius: 0
   ExplosionRadius: 0
-  GunInnaccuracy: 0
   ReloadSpeed: 0
   Ammo: 0
-  BlockCoolDown: 0
-  BlockCount: 0
+  BlockCoolDown: 0.25
+  BlockCount: 1
 --- !u!114 &2001907742883547328
 MonoBehaviour:
   m_ObjectHideFlags: 0
