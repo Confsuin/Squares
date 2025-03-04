@@ -27,8 +27,8 @@ public class Player2 : MonoBehaviour
 
     public void BulletSpawner()
     {
-       GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
-       Destroy(spawnedBullet, 1f);
+        GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
+        Destroy(spawnedBullet, 1f);
     }
 
    
@@ -78,12 +78,11 @@ public class Player2 : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = moveVector * moveSpeed;
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            //PlayParticleEffect();
-        }
     }
+
+
+
+
 
     private void OnAimPerformed(InputAction.CallbackContext value)
     {
@@ -98,19 +97,6 @@ public class Player2 : MonoBehaviour
         aimDirection = value.ReadValue<Vector2>();
     }
 
-
-
-    /*
-    private void Shooting()
-    {
-        //Debug.Log("Right Trigger Pressed!");
-        if (bullet != null)
-        {
-            bullet.Play();
-            Debug.Log("Sex");
-        }
-    }
-    */
 
 
 

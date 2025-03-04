@@ -1,22 +1,50 @@
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Player1 : MonoBehaviour
 {
     public int maxHealth = 10;
     public int currentHealth;
     public float moveSpeed = 10f;
+    public GameObject weapon;
+    public GameObject bullet;
 
-
+    private Vector2 aimDirection;
     private PlayerInputs input = null;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb = null;
+
+    private InputAction shootAction;
+
+
+
+
+    //public List<GameObject> BulletSpawnPoint = new();
+    public GameObject bulpos;
+
+
+    public void BulletSpawner()
+    {
+        GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
+        Destroy(spawnedBullet, 1f);
+    }
+
+
+
+
+
 
     private void Awake()
     {
         currentHealth = maxHealth;
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
+
+        //var inputActions = new InputAction();
+        shootAction = input.Player1.Shoot;
+        shootAction.Enable();
     }
 
     private void OnEnable()
@@ -25,7 +53,12 @@ public class Player1 : MonoBehaviour
         input.Player1.Movement.performed += OnMovementPerformed;
         input.Player1.Movement.canceled += OnMovementCancelled;
 
-        //input.Player1.ShootingShield.started += ShootPressed;
+        //Aiming
+        input.Player1.Aim.performed += OnAimPerformed;
+        input.Player1.Aim.canceled += OnAimCanceled;
+
+        //Shooting
+        shootAction.performed += _ => BulletSpawner();
     }
 
     private void OnDisable()
@@ -34,7 +67,8 @@ public class Player1 : MonoBehaviour
         input.Player1.Movement.performed -= OnMovementPerformed;
         input.Player1.Movement.canceled -= OnMovementCancelled;
 
-        //input.Player1.ShootingShield.started -= ShootPressed;
+        //Shooting
+        shootAction.performed -= _ => BulletSpawner();
     }
 
     private void FixedUpdate()
@@ -42,15 +76,45 @@ public class Player1 : MonoBehaviour
         rb.linearVelocity = moveVector * moveSpeed;
     }
 
+
+
+
+
+    private void OnAimPerformed(InputAction.CallbackContext value)
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+        Vector2 aimDirection = mousePosition - (Vector2)weapon.transform.position;
+
+        //Rotation of Gun
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        weapon.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+    private void OnAimCanceled(InputAction.CallbackContext value)
+    {
+        aimDirection = value.ReadValue<Vector2>();
+    }
+
+
+
+
+
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
         moveVector = value.ReadValue<Vector2>();
+
+
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext value)
     {
         moveVector = Vector2.zero;
     }
+
+
+
+
+
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
