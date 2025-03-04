@@ -33,12 +33,15 @@ public class Player1 : MonoBehaviour
 
 
 
-
+    private void Start()
+    {
+        currentHealth = maxHealth;
+    }
 
 
     private void Awake()
     {
-        currentHealth = maxHealth;
+        
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
