@@ -10,12 +10,9 @@ public class CardHandler : MonoBehaviour
     public List<GameObject> Cards = new();
     public List<GameObject> CardSpawnPoint = new();
     public GameObject pos;
-    public GameObject CardsPickerBackground;
 
     void Start()
     {
-        CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
-        CardsPickerBackground.SetActive(false);
         SpawnCards();
     }
 
@@ -33,6 +30,5 @@ public class CardHandler : MonoBehaviour
             GameObject g = Instantiate(Cards[n], pos.transform);
             Cards.Remove(Cards[n]);
         }
-        CardsPickerBackground.SetActive(true);
     }
 }

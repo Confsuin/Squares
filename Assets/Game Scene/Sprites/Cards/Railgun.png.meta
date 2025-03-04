@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 59c277881b77c374ca47ce70274c2110
+guid: 069ed4542ffcb034ab3c2db1eaec07c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4347532159779508366
-    second: Poison_0
+      213: 6241454495075796874
+    second: Railgun_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Poison_0
+      name: Railgun_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27f61cee8867aa3c0800000000000000
-      internalID: -4347532159779508366
+      spriteID: a8702cc6bc91e9650800000000000000
+      internalID: 6241454495075796874
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Poison_0: -4347532159779508366
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
