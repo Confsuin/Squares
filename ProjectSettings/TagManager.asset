@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Bullet
   - PlayerAlt
+  - Cards Menu
+  - Cards Picker Background
+  - Points To Win Slider
   layers:
   - Default
   - TransparentFX
