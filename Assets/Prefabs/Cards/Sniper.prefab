@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3552595813687925262, guid: 5d4c0ea45d430df47a80f70b001c1ada, type: 3}
+  m_Sprite: {fileID: -7040960777665541239, guid: 68ddff2c67a763e4aa9ec6ba4b4b3191, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardsPickerBackground: {fileID: 0}
   MovementSpeed: 1
   Health: 1
   Damage: 1.35
@@ -557,8 +558,10 @@ MonoBehaviour:
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
+  ShotgunCount: 0
   FireRadius: 0
   ExplosionRadius: 0
+  GunInaccuracy: 0
   ReloadSpeed: 0
   Ammo: -1
   BlockCoolDown: 0

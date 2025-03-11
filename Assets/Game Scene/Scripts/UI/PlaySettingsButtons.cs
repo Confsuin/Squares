@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class PlaySettingsButtons : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject PlaySettings;
+    public GameObject Player1;
+    public GameObject Player2;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void StartGame()
     {
         Time.timeScale = 1;
+
+        Destroy(PlaySettings);
+
+        Player1.SetActive(true);
+        Player2.SetActive(true);
     }
 }
