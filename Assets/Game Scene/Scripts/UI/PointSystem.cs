@@ -36,21 +36,14 @@ public class PointSystem : MonoBehaviour
     {
         for (int i = 0; i < PointsToWin; i++)
         {
-            // Instantiate PointPlayer1 and PointPlayer2 at the Player1PointSpawnPoint's and Player2PointSpawnPoint's position
-            GameObject g = Instantiate(PointPlayer1, Player1PointSpawnPoint.position, Quaternion.identity);
-            GameObject h = Instantiate(PointPlayer2, Player2PointSpawnPoint.position, Quaternion.identity);
+            // Instantiate PointPlayer1 and PointPlayer2 at the Player1PointSpawnPoint's and Player2PointSpawnPoint's position and as child.
+            GameObject g = Instantiate(PointPlayer1, Player1PointSpawnPoint.transform);
+            GameObject h = Instantiate(PointPlayer2, Player2PointSpawnPoint.transform);
+            
 
-            // Increment Player1Point.x and Player2Point.x for spacing purposes
-            Player1Point.x += (65);
-            Player2Point.x += (65);
-
-            // Update the spawn point position for the next object
-            Player1PointSpawnPoint.position = Player1Point;
-            Player2PointSpawnPoint.position = Player2Point;
-
-            // Set the parent of the instantiated object to PointPlayer1Parent and PointPlayer2Parent
-            g.transform.SetParent(PointPlayer1Parent.transform);
-            h.transform.SetParent(PointPlayer2Parent.transform);
+            // Increment PointPlayer1 and PointPlayer2 by 65x for each spawned point.
+            g.transform.localPosition = new Vector2(65 * i, 0);
+            h.transform.localPosition = new Vector2(65 * i, 0);
         }
     }
 }
