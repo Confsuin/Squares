@@ -1,19 +1,21 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 public class PlayerPoints1 : MonoBehaviour
 {
     public Slider Player1Point;
-    public Health pointCounter;
+    public PointCounter pointCounter;
     void Start()
     {
-        pointCounter = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
-        healthBar = GetComponent<Slider>();
-        healthBar.maxValue = playerHealth.maxHealth;
-        healthBar.value = playerHealth.maxHealth;
+        pointCounter = GameObject.FindGameObjectWithTag("Player1 Point").GetComponent<PointCounter>();
+        Player1Point = GetComponent<Slider>();
+        Player1Point.maxValue = pointCounter.MaxPoints;
+        Player1Point.value = pointCounter.CurrentPoints;
     }
-    public void SetHealth(int hp)
+    public void SetPoints(int Points)
     {
-        healthBar.value = hp;
+        Player1Point.value = Points;
     }
-}*/
+}

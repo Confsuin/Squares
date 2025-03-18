@@ -9,6 +9,8 @@ TagManager:
   - Cards Menu
   - Cards Picker Background
   - Points To Win Slider
+  - Player1 Point
+  - Point System
   layers:
   - Default
   - TransparentFX

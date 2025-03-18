@@ -6,13 +6,11 @@ using System.Collections.Generic;
 public class Player1 : MonoBehaviour
 {
     // Intergers
-    public int maxHealth = 10;
-    public int currentHealth;
-    public int missingHealth = 0;
+    public float maxHealth = 10;
+    public float currentHealth;
+    public float missingHealth = 0;
 
     public float moveSpeed = 10f;
-
-
 
     public GameObject weapon;
     public GameObject bullet;
@@ -125,11 +123,11 @@ public class Player1 : MonoBehaviour
 
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float DMG)
     {
-        currentHealth -= amount;
+        currentHealth -= DMG;
         UpdateMissingHealth();
-        Debug.Log("Player took" + amount + "damage. health: " + currentHealth);
+        Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
     }
 
     public void UpdateMissingHealth()
