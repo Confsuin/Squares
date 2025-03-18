@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class Player2 : MonoBehaviour
 {
-    public int maxHealth = 10;
-    public int currentHealth;
+    public float maxHealth = 10;
+    public float currentHealth;
     public float moveSpeed = 10f;
     public GameObject weapon;
     public GameObject bullet;
@@ -118,9 +118,9 @@ public class Player2 : MonoBehaviour
     
 
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float DMG)
     {
-        currentHealth -= amount;
-        Debug.Log("Player took" + amount + "damage. health: " + currentHealth);
+        currentHealth -= DMG;
+        Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
     }
 }
