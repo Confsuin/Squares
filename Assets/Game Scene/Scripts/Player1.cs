@@ -5,9 +5,15 @@ using System.Collections.Generic;
 
 public class Player1 : MonoBehaviour
 {
+    // Intergers
     public int maxHealth = 10;
     public int currentHealth;
+    public int missingHealth = 0;
+
     public float moveSpeed = 10f;
+
+
+
     public GameObject weapon;
     public GameObject bullet;
 
@@ -36,6 +42,7 @@ public class Player1 : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        UpdateMissingHealth();
     }
 
 
@@ -121,6 +128,12 @@ public class Player1 : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        UpdateMissingHealth();
         Debug.Log("Player took" + amount + "damage. health: " + currentHealth);
+    }
+
+    public void UpdateMissingHealth()
+    {
+        missingHealth = currentHealth - maxHealth;
     }
 }
