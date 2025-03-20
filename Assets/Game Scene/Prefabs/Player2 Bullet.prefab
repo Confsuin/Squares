@@ -182,5 +182,7 @@ MonoBehaviour:
   BulletSize: 1
   BulletSlow: 1
   BulletBounces: 0
-  player1: {fileID: 4749623355235292603, guid: 080528003b54699439fbe79b717d0066, type: 3}
-  player2: {fileID: 4835516714611553432, guid: e98aa4a1911d4d443a74166e77650e84, type: 3}
+  FireRadius: 0
+  ExplosionRadius: 0
+  player1: {fileID: 0}
+  player2: {fileID: 0}

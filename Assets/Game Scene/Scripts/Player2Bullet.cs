@@ -11,6 +11,9 @@ public class Player2Bullet : MonoBehaviour
     public float BulletSlow = 1;
     public float BulletBounces;
 
+    public float FireRadius;
+    public float ExplosionRadius;
+
     public Player1 player1;
     public Player2 player2;
 

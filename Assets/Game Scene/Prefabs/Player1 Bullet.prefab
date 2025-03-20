@@ -175,12 +175,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82e8fae5d693b241938cce30621dbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 25
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 30
   BulletSize: 1
   BulletSlow: 1
   BulletBounces: 0
-  player1: {fileID: 4749623355235292603, guid: 080528003b54699439fbe79b717d0066, type: 3}
+  FireRadius: 0
+  ExplosionRadius: 0
+  player1: {fileID: 0}
   player2: {fileID: 0}

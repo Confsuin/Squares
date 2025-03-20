@@ -2,19 +2,39 @@ using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Threading;
 
 public class Player2 : MonoBehaviour
 {
+    //Stats
     public float maxHealth = 10;
     public float currentHealth;
     public float moveSpeed = 10f;
+    //Shooting
+    public float BulletCount;
+    public float ShotgunCount;
+    public float GunInaccuracy;
+    public float AttackSpeed = 1;
+    public float Range = 1;
+    public float ReloadSpeed;
+    public float Ammo;
+    public float StartingAmmo = 4;
+
+
+    private bool isReloading = false;
+    private float ReloadTimer = 0f;
+    private float shootTimer = 0f;
+
+
     public GameObject weapon;
     public GameObject bullet;
+
 
     private Vector2 aimDirection;
     private PlayerInputs input = null;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb = null;
+
 
     private InputAction shootAction;
 
@@ -27,8 +47,20 @@ public class Player2 : MonoBehaviour
 
     public void BulletSpawner()
     {
-        GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
-        Destroy(spawnedBullet, 1f);
+        if (Ammo > 0)
+        {
+            Ammo--; //Reduces the ammo amount
+
+            GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
+            Destroy(spawnedBullet, Range);
+            //Shotgun changes the "Range" to ".35f"
+
+            shootTimer = 0f;
+        }
+        else
+        {
+            Debug.Log("Out Of Ammo!");
+        }
     }
 
 
@@ -36,6 +68,7 @@ public class Player2 : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        Ammo = StartingAmmo;
     }
 
 
@@ -81,6 +114,34 @@ public class Player2 : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = moveVector * moveSpeed;
+
+        if (currentHealth < 0)
+        {
+            Debug.Log("Player2 Died");
+        }
+
+
+
+        if (isReloading)
+        {
+            ReloadTimer += Time.deltaTime;
+
+            if (ReloadTimer >= ReloadSpeed)
+            {
+                FinishReload();
+            }
+        }
+
+        //Starts reload automaticly after 2 seconds of not shooting or when ammo hits 0
+        shootTimer += Time.deltaTime;
+        if (shootTimer >= 2f && Ammo > 0 && !isReloading)
+        {
+            StartReload();
+        }
+        if (Ammo <= 0 && !isReloading)
+        {
+            StartReload();
+        }
     }
 
 
@@ -115,7 +176,27 @@ public class Player2 : MonoBehaviour
     }
 
 
-    
+
+    private void StartReload()
+    {
+        if (Ammo < StartingAmmo && !isReloading)
+        {
+            isReloading = true;
+            ReloadTimer = 0f;
+            Debug.Log("Reloading.....");
+        }
+    }
+
+    private void FinishReload()
+    {
+        Ammo = StartingAmmo;
+        isReloading = false;
+        ReloadTimer = 0f;
+        Debug.Log("Reload complete!");
+    }
+
+
+
 
 
     public void TakeDamage(float DMG)
