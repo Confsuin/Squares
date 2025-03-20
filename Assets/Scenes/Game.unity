@@ -6404,6 +6404,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4460955341551179601, guid: 3ea30e5d9082b354d8946a0e222dbaeb, type: 3}
+      propertyPath: GunInaccuracy
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4460955341551179601, guid: 3ea30e5d9082b354d8946a0e222dbaeb, type: 3}
       propertyPath: currentHealth
       value: 0
       objectReference: {fileID: 0}
@@ -6506,6 +6510,14 @@ PrefabInstance:
     - target: {fileID: 1454823399008477247, guid: e98aa4a1911d4d443a74166e77650e84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835516714611553432, guid: e98aa4a1911d4d443a74166e77650e84, type: 3}
+      propertyPath: Ammo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835516714611553432, guid: e98aa4a1911d4d443a74166e77650e84, type: 3}
+      propertyPath: ReloadSpeed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6469976901553816484, guid: e98aa4a1911d4d443a74166e77650e84, type: 3}
       propertyPath: m_Name

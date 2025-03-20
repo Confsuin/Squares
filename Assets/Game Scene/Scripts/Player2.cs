@@ -53,7 +53,20 @@ public class Player2 : MonoBehaviour
 
             Ammo--; //Reduces the ammo amount
 
-            GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
+            Vector2 direction = weapon.transform.right.normalized;
+
+            float inaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy); // Random inaccuracy angle in degrees
+            float angleWithInaccuracy = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + inaccuracy;
+
+            Vector2 inaccuracyDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleWithInaccuracy), Mathf.Sin(Mathf.Deg2Rad * angleWithInaccuracy));
+
+            GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, angleWithInaccuracy));
+            Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
+            if (bulletRb != null)
+            {
+                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().BulletSpeed;
+            }
+
             Destroy(spawnedBullet, Range);
             //Shotgun changes the "Range" to ".35f"
         }
