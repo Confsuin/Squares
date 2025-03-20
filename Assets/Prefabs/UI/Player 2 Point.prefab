@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1844953495206147779}
   - component: {fileID: 5087698278129070699}
   m_Layer: 5
-  m_Name: Player1 Point Image
+  m_Name: Player2 Point Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.12156863, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.8156863, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -85,9 +85,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5569736017692329408}
   - component: {fileID: 2386481916392936030}
-  - component: {fileID: 4129275915632598653}
+  - component: {fileID: 2471595331214067470}
   m_Layer: 5
-  m_Name: Player 1 Point
+  m_Name: Player 2 Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4129275915632598653
+--- !u!114 &2471595331214067470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,10 +174,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7032215112106289735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7570fdb2b31038429665a12a984fcda, type: 3}
+  m_Script: {fileID: 11500000, guid: 50c8821dd714e994ab3ec81c60615588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1Point: {fileID: 0}
+  CurrentlyPointCounter: 0
+  Player2Point: {fileID: 0}
   pointCounter: {fileID: 0}
 --- !u!1001 &8076846172662829669
 PrefabInstance:
@@ -187,9 +188,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5569736017692329408}
     m_Modifications:
+    - target: {fileID: 742392809754556891, guid: ea8753674c5105c44b8d7a61ca614362, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7332361355338557082, guid: dd58c0563e2a8be4ca30eb07b43954b6, type: 3}
     - target: {fileID: 2469175063158588883, guid: ea8753674c5105c44b8d7a61ca614362, type: 3}
       propertyPath: m_Name
-      value: Player1 Point Border
+      value: Player2 Point Border
       objectReference: {fileID: 0}
     - target: {fileID: 2469175063158588883, guid: ea8753674c5105c44b8d7a61ca614362, type: 3}
       propertyPath: m_TagString
@@ -308,5 +313,5 @@ MonoBehaviour:
   CurrentPoints: 0
   MaxPoints: 2
   PointNumber: 0
-  playerPoints1: {fileID: 4129275915632598653}
+  playerPoints1: {fileID: 0}
   pointSystem: {fileID: 0}

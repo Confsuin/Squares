@@ -10,7 +10,7 @@ public class PointCounter : MonoBehaviour
     public PointSystem pointSystem;
     void Awake()
     {
-        //pointSystem = GameObject.FindWithTag("Point System").GetComponent(PointSystem);
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
     }
     void Update()
     {
@@ -26,4 +26,5 @@ public class PointCounter : MonoBehaviour
 
         playerPoints1.SetPoints(CurrentPoints);
     }
+    // if pointnumber > maxpoints * 2
 }

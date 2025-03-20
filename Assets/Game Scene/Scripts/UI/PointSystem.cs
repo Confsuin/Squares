@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PointSystem : MonoBehaviour
 {
@@ -11,13 +13,14 @@ public class PointSystem : MonoBehaviour
     public Transform Player2PointSpawnPoint;
     public GameObject PointsToWinSlider;
 
+    public List<GameObject> PointCounters;
     public PointCounter pointCounter;
+    public PointCounter CurrentPointCounter;
 
     public Vector2 Player1Point;
     public Vector2 Player2Point;
 
     public float PointsToWin = 1;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +28,26 @@ public class PointSystem : MonoBehaviour
         Time.timeScale = 0;
         UpdatePointsToWin();
         Debug.Log(PointsToWinSlider);
+    }
+
+    public void GetChildren()
+    {
+
+        /*Debug.Log("yes.");
+        foreach (Transform child in transform)
+        {
+            foreach (Transform child1 in child)
+            {
+                foreach (Transform child2 in child)
+                {
+                    if (child.tag == "Player1 Point")
+                    {
+                        PointCounters.Add(child.gameObject);
+                        Debug.Log(child);
+                    }
+                }
+            }
+        }*/
     }
 
     public void UpdatePointsToWin()
@@ -45,11 +68,16 @@ public class PointSystem : MonoBehaviour
             h.transform.localPosition = new Vector2(65 * i, 0);
 
             // Gets the PointCounter Script
-            pointCounter = g.GetComponent<PointCounter>();
-            //h.GetComponent<PointCounter>();
-            Debug.Log(pointCounter);
-            //
-            
+            pointCounter = g.GetComponentInChildren<PointCounter>();
+            pointCounter.PointNumber = i + 1;
+            pointCounter = h.GetComponentInChildren<PointCounter>();
+            pointCounter.PointNumber = i + 1;
+            CurrentPointCounter = GameObject.Find("PointSystem").GetComponentInChildren<PointCounter>();
+            if (CurrentPointCounter.PointNumber == (CurrentPointCounter.PointNumber * CurrentPointCounter.MaxPoints))
+            {
+
+            }
+            GetChildren();
         }
     }
 }
