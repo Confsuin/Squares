@@ -4,6 +4,8 @@ public class Card : MonoBehaviour
 {
     // GameObjects
     public GameObject CardsPickerBackground;
+    public Player1 player1;
+    public Player2 player2;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -38,20 +40,30 @@ public class Card : MonoBehaviour
     public float BlockCoolDown;
     public float BlockCount;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
     }
     public void DoSelectCard()
     {
+        DoAddStatsToPlayer();
         Destroy(GameObject.FindWithTag("Cards Menu"));
         Debug.Log("Card Clicked");
+    }
+    void DoAddStatsToPlayer()
+    {
+        player1.maxHealth = Health * player1.maxHealth;
+        player1.currentHealth = player1.maxHealth;
+        player1.moveSpeed = MovementSpeed * player1.moveSpeed;
+
+        player1.BulletCount = player1.BulletCount + BulletCount;
+        player1.ShotgunCount = player1.ShotgunCount + ShotgunCount;
+        player1.GunInaccuracy = player1.GunInaccuracy + GunInaccuracy;
+        player1.AttackSpeed = player1.AttackSpeed * AttackSpeed;
+        player1.Range = player1.Range * Range;
+        player1.ReloadSpeed = player1.ReloadSpeed + ReloadSpeed;
+        player1.StartingAmmo = player1.StartingAmmo + Ammo;
+        Debug.Log("Stats added");
     }
 }

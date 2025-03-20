@@ -543,15 +543,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardsPickerBackground: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
   MovementSpeed: 1
   Health: 1
-  Damage: 1
+  Damage: 0.65
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 1
   BulletSize: 1
   BulletSlow: 1
-  AttackSpeed: 1
+  AttackSpeed: 0.5
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
@@ -561,7 +563,7 @@ MonoBehaviour:
   ExplosionRadius: 0
   GunInaccuracy: 0
   ReloadSpeed: 0
-  Ammo: 0
+  Ammo: 3
   BlockCoolDown: 0
   BlockCount: 0
 --- !u!114 &2001907742883547328
