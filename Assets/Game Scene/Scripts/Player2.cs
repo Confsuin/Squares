@@ -47,17 +47,17 @@ public class Player2 : MonoBehaviour
 
     public void BulletSpawner()
     {
-        if (Ammo > 0)
+        if (Ammo > 0 && shootTimer >= AttackSpeed)
         {
+            shootTimer = 0f;
+
             Ammo--; //Reduces the ammo amount
 
             GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, bulpos.transform.rotation);
             Destroy(spawnedBullet, Range);
             //Shotgun changes the "Range" to ".35f"
-
-            shootTimer = 0f;
         }
-        else
+        else if (Ammo == 0)
         {
             Debug.Log("Out Of Ammo!");
         }
