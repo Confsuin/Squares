@@ -4,20 +4,27 @@ public class PointCounter : MonoBehaviour
 {
     public int CurrentPoints = 0;
     public int MaxPoints = 2;
+    public int PointNumber;
 
-    public PointCounter pointCounter;
+    public PlayerPoints1 playerPoints1;
+    public PointSystem pointSystem;
+    void Awake()
+    {
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+    if (Input.GetKeyDown(KeyCode.Space))
         {
-            //DamagePlayer(10);
+            IncreasePoints(1);
         }
     }
 
-    /*public void DamagePlayer(int damage)
+    public void IncreasePoints(int Points)
     {
-        curHealth -= damage;
+        CurrentPoints += Points;
 
-        healthBar.SetHealth(curHealth);
-    }*/
+        playerPoints1.SetPoints(CurrentPoints);
+    }
+    // if pointnumber > maxpoints * 2
 }
