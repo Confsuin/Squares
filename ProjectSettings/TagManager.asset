@@ -11,6 +11,7 @@ TagManager:
   - Points To Win Slider
   - Player1 Point
   - Point System
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -1029,6 +1029,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 749935141202203119, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 994793017382621833, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126057283102546218, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331935046074236720, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488561944097596957, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837962391927974242, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378294478640593563, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210692882931519508, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5305590826515040560, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5828070040971159261, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866405854373389017, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599750371072435990, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 6605294388007070527, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1068,6 +1116,18 @@ PrefabInstance:
     - target: {fileID: 6605294388007070527, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7523196976033123940, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7618116793370932929, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652624677478230534, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 8793253003778391635, guid: 39bee26c4d9ef1340950d3a8f7cc327c, type: 3}
       propertyPath: m_Name
