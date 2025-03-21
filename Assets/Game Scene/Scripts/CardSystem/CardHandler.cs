@@ -11,14 +11,9 @@ public class CardHandler : MonoBehaviour
     public List<GameObject> CardSpawnPoint = new();
     public GameObject pos;
 
-    void Start()
+    private void Awake()
     {
         SpawnCards();
-    }
-
-    void Update()
-    {
-
     }
     // Picks random card and then spawns selected card at card spawn position doing so for every spawn position.
     public void SpawnCards()

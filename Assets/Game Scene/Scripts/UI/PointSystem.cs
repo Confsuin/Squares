@@ -35,6 +35,10 @@ public class PointSystem : MonoBehaviour
     public Player1 player1;
     public Player2 player2;
 
+
+    public CardSystemSpawner cardSystemSpawner;
+
+
     public Vector2 Player1Point;
     public Vector2 Player2Point;
 
@@ -42,7 +46,11 @@ public class PointSystem : MonoBehaviour
     public int TotalPlayer1Points;
     public int TotalPlayer2Points;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public bool Player1Won = false;
+    public bool Player2Won = false;
+
+
     void Start()
     {
         Time.timeScale = 0;
@@ -116,21 +124,14 @@ public class PointSystem : MonoBehaviour
     {
         if (player1.Player1Dead == true)
         {
-            TotalPlayer1Points += 1;
-            CurrentPointCounterPlayer1.CurrentPoints += 1;
-            UpdatePoints();
-        }
-        if (player2.Player2Dead == true)
-        {
             TotalPlayer2Points += 1;
             CurrentPointCounterPlayer2.CurrentPoints += 1;
             UpdatePoints();
         }
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (player2.Player2Dead == true)
         {
+            TotalPlayer1Points += 1;
+            CurrentPointCounterPlayer1.CurrentPoints += 1;
             UpdatePoints();
         }
     }
@@ -141,13 +142,18 @@ public class PointSystem : MonoBehaviour
             IncreasePoints();
             player1.Player1Dead = false;
             player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
+            Player2Won = true;
+            cardSystemSpawner.DoSpawnCards();
         }
         if (player2.Player2Dead == true)
         {
             IncreasePoints();
             player2.Player2Dead = false;
+            player1.currentHealth = player1.maxHealth;
             player2.currentHealth = player2.maxHealth;
+            Player1Won = true;
+            cardSystemSpawner.DoSpawnCards();
         }
     }
-
 }
