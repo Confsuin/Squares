@@ -139,7 +139,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 383338145340549730, guid: a1976bcc8e78f684c852a01a9144c132, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 383338145340549730, guid: a1976bcc8e78f684c852a01a9144c132, type: 3}
       propertyPath: m_AnchorMax.y
@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2386481916392936030, guid: a1976bcc8e78f684c852a01a9144c132, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2386481916392936030, guid: a1976bcc8e78f684c852a01a9144c132, type: 3}
       propertyPath: m_MaxValue
@@ -396,6 +396,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5671264443242851480, guid: 3ea30e5d9082b354d8946a0e222dbaeb, type: 3}
   m_PrefabInstance: {fileID: 197245219542962938}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &538938358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4460955341551179601, guid: 3ea30e5d9082b354d8946a0e222dbaeb, type: 3}
+  m_PrefabInstance: {fileID: 197245219542962938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34518841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f30f87abe7f95fd49a8c0edc4cd24377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +948,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2871417842824472677, guid: aa0ccd27af368f54d855c5cabfb9f07e, type: 3}
   m_PrefabInstance: {fileID: 517022263304179406}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1436033999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4398783406943428441, guid: aa0ccd27af368f54d855c5cabfb9f07e, type: 3}
+  m_PrefabInstance: {fileID: 517022263304179406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436033998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef96067311ae4e841967cafa46770b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1469156353 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5569736017692329408, guid: a1976bcc8e78f684c852a01a9144c132, type: 3}
@@ -6314,6 +6336,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2877888489735039749}
     m_Modifications:
     - target: {fileID: 3245517271773986723, guid: e0b4c98c49bb5924a953acd90afdf44e, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 538938358}
+    - target: {fileID: 3245517271773986723, guid: e0b4c98c49bb5924a953acd90afdf44e, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 1436033999}
+    - target: {fileID: 3245517271773986723, guid: e0b4c98c49bb5924a953acd90afdf44e, type: 3}
       propertyPath: PointPlayer1
       value: 
       objectReference: {fileID: 7032215112106289735, guid: a1976bcc8e78f684c852a01a9144c132, type: 3}
@@ -6327,7 +6357,7 @@ PrefabInstance:
       objectReference: {fileID: 185296885053796650}
     - target: {fileID: 3245517271773986723, guid: e0b4c98c49bb5924a953acd90afdf44e, type: 3}
       propertyPath: PointCounters.Array.size
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6387218750250665418, guid: e0b4c98c49bb5924a953acd90afdf44e, type: 3}
       propertyPath: m_Pivot.x
@@ -6653,7 +6683,10 @@ PrefabInstance:
       objectReference: {fileID: 2817450617882156725}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 384599325387610002, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1828671351}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
 --- !u!114 &2817450617882156725 stripped
@@ -6682,7 +6715,6 @@ RectTransform:
   - {fileID: 1291100581}
   - {fileID: 1403739301}
   - {fileID: 1065451575}
-  - {fileID: 1828671351}
   - {fileID: 1469156353}
   - {fileID: 6917247622727476335}
   m_Father: {fileID: 0}
@@ -6744,7 +6776,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2877888489735039749}
+    m_TransformParent: {fileID: 1065451575}
     m_Modifications:
     - target: {fileID: 4570090703184248890, guid: 2b3b4084152fc7247aee313e2bc1bd48, type: 3}
       propertyPath: m_Name

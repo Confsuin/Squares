@@ -39,7 +39,7 @@ public class Player2 : MonoBehaviour
     private InputAction shootAction;
 
 
-
+    public bool Player2Dead = false;
 
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
@@ -128,8 +128,9 @@ public class Player2 : MonoBehaviour
     {
         rb.linearVelocity = moveVector * moveSpeed;
 
-        if (currentHealth < 0)
+        if (Player2Dead == false && currentHealth <= 0)
         {
+            Player2Dead = true;
             Debug.Log("Player2 Died");
         }
 

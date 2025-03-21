@@ -12,19 +12,19 @@ public class PointCounter : MonoBehaviour
     {
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
     }
-    void Update()
+    /*void Update()
     {
     if (Input.GetKeyDown(KeyCode.Space))
         {
             IncreasePoints(1);
         }
-    }
+    }*/
 
-    public void IncreasePoints(int Points)
+    /*public void IncreasePoints(int Points)
     {
         CurrentPoints += Points;
 
         playerPoints1.SetPoints(CurrentPoints);
-    }
+    }*/
     // if pointnumber > maxpoints * 2
 }
