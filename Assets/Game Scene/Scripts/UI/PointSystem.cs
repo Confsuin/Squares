@@ -1,8 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.Rendering;
+using System.Collections;
+using TMPro;
+using static UnityEditor.PlayerSettings;
+using static UnityEngine.Rendering.GPUSort;
 
 public class PointSystem : MonoBehaviour
 {
@@ -11,11 +13,11 @@ public class PointSystem : MonoBehaviour
     public GameObject PointPlayer1Parent;
     public GameObject PointPlayer2Parent;
     public GameObject PointsToWinSlider;
-
+    
 
     public Transform Player1PointSpawnPoint;
     public Transform Player2PointSpawnPoint;
-    
+
 
     public List<Slider> PointCounterSlidersPlayer1;
     public List<Slider> PointCounterSlidersPlayer2;
@@ -36,6 +38,7 @@ public class PointSystem : MonoBehaviour
     public Player2 player2;
 
 
+    public LevelManager levelManager;
     public CardSystemSpawner cardSystemSpawner;
 
 
@@ -54,6 +57,9 @@ public class PointSystem : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
+        GetReferences();
+        GameObject.FindWithTag("Player").SetActive(false);
+        GameObject.FindWithTag("PlayerAlt").SetActive(false);
         UpdatePointsToWin();
         Debug.Log(PointsToWinSlider);
     }
@@ -124,36 +130,54 @@ public class PointSystem : MonoBehaviour
     {
         if (player1.Player1Dead == true)
         {
+            player1.Player1Dead = false;
+            player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
+            Player2Won = true;
             TotalPlayer2Points += 1;
             CurrentPointCounterPlayer2.CurrentPoints += 1;
+            if (CurrentPointCounterPlayer2.CurrentPoints == CurrentPointCounterPlayer2.MaxPoints)
+            {
+                cardSystemSpawner.DoSpawnCards();
+            }
+            else
+            {
+                levelManager.StartSquareOff();
+            }
             UpdatePoints();
         }
         if (player2.Player2Dead == true)
         {
+            player2.Player2Dead = false;
+            player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
+            Player1Won = true;
             TotalPlayer1Points += 1;
             CurrentPointCounterPlayer1.CurrentPoints += 1;
+            if (CurrentPointCounterPlayer1.CurrentPoints == CurrentPointCounterPlayer1.MaxPoints)
+            {
+                cardSystemSpawner.DoSpawnCards();
+            }
+            else
+            {
+                levelManager.StartSquareOff();
+            }
             UpdatePoints();
         }
     }
     private void FixedUpdate()
     {
-        if (player1.Player1Dead == true)
+        if (player1.Player1Dead || player2.Player2Dead == true)
         {
             IncreasePoints();
-            player1.Player1Dead = false;
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
-            Player2Won = true;
-            cardSystemSpawner.DoSpawnCards();
         }
-        if (player2.Player2Dead == true)
-        {
-            IncreasePoints();
-            player2.Player2Dead = false;
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
-            Player1Won = true;
-            cardSystemSpawner.DoSpawnCards();
-        }
+    }
+    private void GetReferences()
+    {
+        levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
+        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
+        PointsToWinSlider = GameObject.FindWithTag("Points To Win Slider");
     }
 }

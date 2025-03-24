@@ -6,7 +6,8 @@ public class Card : MonoBehaviour
     public GameObject CardsPickerBackground;
 
     // References
-    private PointSystem pointSystem;
+    public LevelManager levelManager;
+    public PointSystem pointSystem;
     public Player1 player1;
     public Player2 player2;
 
@@ -39,19 +40,18 @@ public class Card : MonoBehaviour
     // Reload Speed is in 0.25 second intervals.
     public float ReloadSpeed;
     public float Ammo;
-    
+
     public float BlockCoolDown;
     public float BlockCount;
 
     void Awake()
     {
-        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
-        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
-        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        GetReferences();
     }
     public void DoSelectCard()
     {
         DoAddStatsToPlayer();
+        levelManager.StartSquareOff();
         Destroy(GameObject.FindWithTag("Cards Menu"));
         Debug.Log("Card Clicked");
     }
@@ -95,5 +95,12 @@ public class Card : MonoBehaviour
 
             Debug.Log("Stats added to Player 2");
         }
+    }
+    private void GetReferences()
+    {
+        levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
+        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
     }
 }

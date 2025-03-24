@@ -12,6 +12,11 @@ TagManager:
   - Player1 Point
   - Point System
   - Wall
+  - Cards System
+  - Square Off
+  - Square Off Countdown
+  - Map
+  - Level Manager
   layers:
   - Default
   - TransparentFX
