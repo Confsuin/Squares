@@ -1,9 +1,5 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
-using System.Threading;
-
 public class Player1 : MonoBehaviour
 {
     //Stats
@@ -87,7 +83,7 @@ public class Player1 : MonoBehaviour
 
     private void Awake()
     {
-        
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
@@ -218,4 +214,22 @@ public class Player1 : MonoBehaviour
         currentHealth -= DMG;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
     }
+    //public PlayerPoints1 playerPoints1;
+    public PointSystem pointSystem;
+
+    void Update()
+    {
+    if (Input.GetKeyDown(KeyCode.Space))
+        {
+            IncreasePoints(1);
+        }
+    }
+
+    public void IncreasePoints(float Points)
+    {
+        currentHealth += Points;
+
+        //playerPoints1.SetPoints(currentHealth);
+    }
+    
 }

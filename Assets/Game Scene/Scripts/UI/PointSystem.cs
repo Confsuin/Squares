@@ -3,8 +3,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.Rendering.GPUSort;
 
 public class PointSystem : MonoBehaviour
 {

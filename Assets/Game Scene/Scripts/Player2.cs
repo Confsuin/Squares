@@ -1,8 +1,5 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
-using System.Threading;
 
 public class Player2 : MonoBehaviour
 {
