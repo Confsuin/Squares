@@ -80,10 +80,10 @@ public class PointSystem : MonoBehaviour
 
             // Gets the PointCounter Script, Set PointNumber as I + 1 and then add the PointCounter Script to list of all PointCounter Scripts
             pointCounter = g.GetComponentInChildren<PointCounter>();
-            pointCounter.PointNumber = i + 1;
+            pointCounter.PointNumber = i * 2;
             PointCounters1.Add(pointCounter);
             pointCounter = h.GetComponentInChildren<PointCounter>();
-            pointCounter.PointNumber = i + 1;
+            pointCounter.PointNumber = i * 2;
             PointCounters2.Add(pointCounter);
 
             // Adds Slider of PointPlayer1 and PointPlayer2 to PointCountersSliders List
@@ -103,35 +103,59 @@ public class PointSystem : MonoBehaviour
         if (CurrentPointCounterPlayer1.CurrentPoints == CurrentPointCounterPlayer1.MaxPoints)
         {
             CurrentPointCounterSliderPlayer1.value = CurrentPointCounterPlayer1.CurrentPoints;
+
             PointCounterListIndex1 += 1;
+
             CurrentPointCounterPlayer1 = PointCounters1[PointCounterListIndex1];
             CurrentPointCounterSliderPlayer1 = PointCounterSlidersPlayer1[PointCounterListIndex1];
+
+            CurrentPointCounterPlayer2.CurrentPoints = 0;
+            TotalPlayer2Points = CurrentPointCounterPlayer2.PointNumber;
+
+            player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
         }
         else
         {
             CurrentPointCounterSliderPlayer1.value = CurrentPointCounterPlayer1.CurrentPoints;
+
+            player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
         }
 
         if (CurrentPointCounterPlayer2.CurrentPoints == CurrentPointCounterPlayer2.MaxPoints)
         {
             CurrentPointCounterSliderPlayer2.value = CurrentPointCounterPlayer2.CurrentPoints;
+
             PointCounterListIndex2 += 1;
-            CurrentPointCounterPlayer2 = PointCounters1[PointCounterListIndex2];
+
+            CurrentPointCounterPlayer2 = PointCounters2[PointCounterListIndex2];
             CurrentPointCounterSliderPlayer2 = PointCounterSlidersPlayer2[PointCounterListIndex2];
+
+            CurrentPointCounterPlayer1.CurrentPoints = 0;
+            TotalPlayer1Points = CurrentPointCounterPlayer1.PointNumber;
+
+            player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
         }
         else
         {
             CurrentPointCounterSliderPlayer2.value = CurrentPointCounterPlayer2.CurrentPoints;
+
+            player1.currentHealth = player1.maxHealth;
+            player2.currentHealth = player2.maxHealth;
         }
     }
     public void IncreasePoints()
     {
         if (player1.Player1Dead == true)
         {
-            player1.Player1Dead = false;
             player1.currentHealth = player1.maxHealth;
             player2.currentHealth = player2.maxHealth;
+
+            player1.Player1Dead = false;
             Player2Won = true;
+
             TotalPlayer2Points += 1;
             CurrentPointCounterPlayer2.CurrentPoints += 1;
             if (CurrentPointCounterPlayer2.CurrentPoints == CurrentPointCounterPlayer2.MaxPoints)
@@ -146,10 +170,12 @@ public class PointSystem : MonoBehaviour
         }
         if (player2.Player2Dead == true)
         {
-            player2.Player2Dead = false;
             player1.currentHealth = player1.maxHealth;
             player2.currentHealth = player2.maxHealth;
+
+            player2.Player2Dead = false;
             Player1Won = true;
+
             TotalPlayer1Points += 1;
             CurrentPointCounterPlayer1.CurrentPoints += 1;
             if (CurrentPointCounterPlayer1.CurrentPoints == CurrentPointCounterPlayer1.MaxPoints)
