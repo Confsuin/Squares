@@ -17,6 +17,9 @@ TagManager:
   - Square Off Countdown
   - Map
   - Level Manager
+  - Debug Menu Button
+  - Debug Menu
+  - X Is picking text
   layers:
   - Default
   - TransparentFX

@@ -3,13 +3,14 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     // GameObjects
-    public GameObject CardsPickerBackground;
+    private GameObject CardsPickerBackground;
 
     // References
-    public LevelManager levelManager;
-    public PointSystem pointSystem;
-    public Player1 player1;
-    public Player2 player2;
+    private CardSystemSpawner cardSystemSpawner;
+    private LevelManager levelManager;
+    private PointSystem pointSystem;
+    private Player1 player1;
+    private Player2 player2;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -74,6 +75,8 @@ public class Card : MonoBehaviour
 
             pointSystem.Player2Won = false;
 
+            cardSystemSpawner.CardsSpawned = false;
+
             Debug.Log("Stats added to Player 1");
         }
         if (pointSystem.Player1Won == true)
@@ -93,11 +96,14 @@ public class Card : MonoBehaviour
 
             pointSystem.Player1Won = false;
 
+            cardSystemSpawner.CardsSpawned = false;
+
             Debug.Log("Stats added to Player 2");
         }
     }
     private void GetReferences()
     {
+        cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();

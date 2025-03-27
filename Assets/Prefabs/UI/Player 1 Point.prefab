@@ -192,6 +192,10 @@ PrefabInstance:
       value: Player1 Point Border
       objectReference: {fileID: 0}
     - target: {fileID: 2469175063158588883, guid: ea8753674c5105c44b8d7a61ca614362, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469175063158588883, guid: ea8753674c5105c44b8d7a61ca614362, type: 3}
       propertyPath: m_TagString
       value: Player1 Point
       objectReference: {fileID: 0}
