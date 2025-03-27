@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PointSystem : MonoBehaviour
 {
@@ -19,16 +20,12 @@ public class PointSystem : MonoBehaviour
 
     public List<Slider> PointCounterSlidersPlayer1;
     public List<Slider> PointCounterSlidersPlayer2;
-    public Slider CurrentPointCounterSliderPlayer1;
-    public Slider CurrentPointCounterSliderPlayer2;
     
 
     public List<PointCounter> PointCounters1;
     public List<PointCounter> PointCounters2;
     
 
-    public PointCounter CurrentPointCounterPlayer1;
-    public PointCounter CurrentPointCounterPlayer2;
     public PointCounter pointCounter;
 
 
@@ -91,100 +88,74 @@ public class PointSystem : MonoBehaviour
             PointCounterSlidersPlayer2.Add(h.GetComponent<Slider>());
             
         }
-        CurrentPointCounterPlayer1 = PointCounters1[0];
-        CurrentPointCounterPlayer2 = PointCounters2[0];
-        CurrentPointCounterSliderPlayer1 = PointCounterSlidersPlayer1[0];
-        CurrentPointCounterSliderPlayer2 = PointCounterSlidersPlayer2[0];
     }
-    private int PointCounterListIndex1 = 0;
-    private int PointCounterListIndex2 = 0;
     private void UpdatePoints()
     {
-        if (CurrentPointCounterPlayer1.CurrentPoints == CurrentPointCounterPlayer1.MaxPoints)
+        foreach (PointCounter pointCounter in PointCounters1)
         {
-            CurrentPointCounterSliderPlayer1.value = CurrentPointCounterPlayer1.CurrentPoints;
-
-            PointCounterListIndex1 += 1;
-
-            CurrentPointCounterPlayer1 = PointCounters1[PointCounterListIndex1];
-            CurrentPointCounterSliderPlayer1 = PointCounterSlidersPlayer1[PointCounterListIndex1];
-
-            CurrentPointCounterPlayer2.CurrentPoints = 0;
-            TotalPlayer2Points = CurrentPointCounterPlayer2.PointNumber;
-
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
+            pointCounter.CurrentPoints = Mathf.Clamp(TotalPlayer1Points - pointCounter.PointNumber, 0, 2);
+            pointCounter.GetComponentInParent<Slider>().value = pointCounter.CurrentPoints;
+            ResetPlayersHealth();
         }
-        else
+        foreach (PointCounter pointCounter in PointCounters2)
         {
-            CurrentPointCounterSliderPlayer1.value = CurrentPointCounterPlayer1.CurrentPoints;
-
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
-        }
-
-        if (CurrentPointCounterPlayer2.CurrentPoints == CurrentPointCounterPlayer2.MaxPoints)
-        {
-            CurrentPointCounterSliderPlayer2.value = CurrentPointCounterPlayer2.CurrentPoints;
-
-            PointCounterListIndex2 += 1;
-
-            CurrentPointCounterPlayer2 = PointCounters2[PointCounterListIndex2];
-            CurrentPointCounterSliderPlayer2 = PointCounterSlidersPlayer2[PointCounterListIndex2];
-
-            CurrentPointCounterPlayer1.CurrentPoints = 0;
-            TotalPlayer1Points = CurrentPointCounterPlayer1.PointNumber;
-
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
-        }
-        else
-        {
-            CurrentPointCounterSliderPlayer2.value = CurrentPointCounterPlayer2.CurrentPoints;
-
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
+            pointCounter.CurrentPoints = Mathf.Clamp(TotalPlayer2Points - pointCounter.PointNumber, 0, 2);
+            pointCounter.GetComponentInParent<Slider>().value = pointCounter.CurrentPoints;
+            ResetPlayersHealth();
         }
     }
+    public int MaxPointsPerSquare = 2;
     public void IncreasePoints()
     {
         if (player1.Player1Dead == true)
         {
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
+            ResetPlayersHealth();
 
             player1.Player1Dead = false;
             Player2Won = true;
 
             TotalPlayer2Points += 1;
-            CurrentPointCounterPlayer2.CurrentPoints += 1;
-            if (CurrentPointCounterPlayer2.CurrentPoints == CurrentPointCounterPlayer2.MaxPoints)
+            UpdatePoints();
+            if (TotalPlayer2Points % MaxPointsPerSquare == 0)
             {
                 cardSystemSpawner.DoSpawnCards();
+                if (TotalPlayer1Points % MaxPointsPerSquare != 0)
+                {
+                    TotalPlayer1Points -= (TotalPlayer1Points % MaxPointsPerSquare);
+                    ResetPlayersHealth();
+                }
             }
             else
             {
                 levelManager.StartSquareOff();
+                Player2Won = false;
+                ResetPlayersHealth();
             }
             UpdatePoints();
         }
         if (player2.Player2Dead == true)
         {
-            player1.currentHealth = player1.maxHealth;
-            player2.currentHealth = player2.maxHealth;
+            ResetPlayersHealth();
 
             player2.Player2Dead = false;
             Player1Won = true;
 
             TotalPlayer1Points += 1;
-            CurrentPointCounterPlayer1.CurrentPoints += 1;
-            if (CurrentPointCounterPlayer1.CurrentPoints == CurrentPointCounterPlayer1.MaxPoints)
+            UpdatePoints();
+            if (TotalPlayer1Points % MaxPointsPerSquare == 0)
             {
                 cardSystemSpawner.DoSpawnCards();
+                if (TotalPlayer2Points % MaxPointsPerSquare != 0)
+                {
+                    TotalPlayer2Points -= (TotalPlayer2Points % MaxPointsPerSquare);
+                    ResetPlayersHealth();
+                }
             }
             else
             {
                 levelManager.StartSquareOff();
+                Player1Won = false;
+                ResetPlayersHealth();
             }
             UpdatePoints();
         }
@@ -203,5 +174,10 @@ public class PointSystem : MonoBehaviour
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
         PointsToWinSlider = GameObject.FindWithTag("Points To Win Slider");
+    }
+    private void ResetPlayersHealth()
+    {
+        player1.currentHealth = player1.maxHealth;
+        player2.currentHealth = player2.maxHealth;
     }
 }

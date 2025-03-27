@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Block
+  m_text: 'Spray
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2157034001630453605, guid: d6da45d1a070e3344875a45d13676159, type: 3}
+  m_Sprite: {fileID: -5623194428626525839, guid: 85dafa9db727a80458ea890e37dbb38c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -276,12 +278,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+1</color> Block
+  m_text: '<color=green>+x%</color> Dmg
 
-    <color=red>-25%</color> Health
+    <color=green>+x</color> Bullet Speed
 
-    <color=red>+0.25s</color>
-    Block Cooldown'
+    <color=red>+xs</color>
+    Reload speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -417,7 +419,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: More blocks!
+  m_text: 'Spray and Pray
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -500,7 +504,7 @@ GameObject:
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
   m_Layer: 5
-  m_Name: "Block\xB2"
+  m_Name: Spray(No stats yet)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +552,7 @@ MonoBehaviour:
   player1: {fileID: 0}
   player2: {fileID: 0}
   MovementSpeed: 1
-  Health: 0.75
+  Health: 1
   Damage: 1
   BulletLifeSteal: 0
   BulletPoison: 0
@@ -566,8 +570,8 @@ MonoBehaviour:
   GunInaccuracy: 0
   ReloadSpeed: 0
   Ammo: 0
-  BlockCoolDown: 0.25
-  BlockCount: 1
+  BlockCoolDown: 0
+  BlockCount: 0
 --- !u!114 &2001907742883547328
 MonoBehaviour:
   m_ObjectHideFlags: 0

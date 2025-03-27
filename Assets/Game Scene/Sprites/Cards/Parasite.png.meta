@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b3424f3e740eae44580003dabd379d0d
+guid: e2a06a53c3b50374bacaef61b78643b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2240181022788076902
-    second: Fastball_0
+      213: 1501133510963329140
+    second: Parasite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fastball_0
+      name: Parasite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 665cadf65c8b61f10800000000000000
-      internalID: 2240181022788076902
+      spriteID: 478776199f815d410800000000000000
+      internalID: 1501133510963329140
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fastball_0: 2240181022788076902
+      Parasite_0: 1501133510963329140
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

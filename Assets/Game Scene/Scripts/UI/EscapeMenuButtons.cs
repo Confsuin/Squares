@@ -8,7 +8,6 @@ public class EscapeMenuButtons : MonoBehaviour
     
     void Start()
     {
-        escapeMenu = GameObject.Find("EscapeMenu");
         escapeMenu.SetActive(false);
     }
 
@@ -29,16 +28,20 @@ public class EscapeMenuButtons : MonoBehaviour
             }
         }
     }
-    public void doEscapeMenu()
+    public void EscapeMenu()
     {
         escapeMenu.SetActive(true);
     }
-    public void doResume()
+    public void Resume()
     {
         escapeMenu.SetActive(false);
     }
-    public void doMainMenu()
+    public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    private void GetReferences()
+    {
+        escapeMenu = GameObject.Find("EscapeMenu");
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 68ddff2c67a763e4aa9ec6ba4b4b3191
+guid: d6da45d1a070e3344875a45d13676159
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7040960777665541239
-    second: Sniper_0
+      213: 2157034001630453605
+    second: BlockSquared_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sniper_0
+      name: BlockSquared_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 548
+        width: 550
         height: 504
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98b89c13a7b794e90800000000000000
-      internalID: -7040960777665541239
+      spriteID: 56f5f9bfef25fed10800000000000000
+      internalID: 2157034001630453605
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b9207c398454a494c8c9373184358f49
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sniper_0: -7040960777665541239
+      BlockSquared_0: 2157034001630453605
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
