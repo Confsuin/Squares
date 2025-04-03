@@ -19,6 +19,17 @@ public class Player1 : MonoBehaviour
     public float ReloadSpeed;
     public float Ammo;
     public float StartingAmmo = 4;
+    //Bullet
+    public float Damage = 25;
+    public float BulletLifeSteal;
+    public float BulletPoison;
+    public float BulletSpeed = 30;
+    public float BulletSize = 1;
+    public float BulletSlow = 1;
+    public float BulletBounces;
+    //BulletEffects
+    public float FireRadius;
+    public float ExplosionRadius;
 
 
     private bool isReloading = false;
@@ -64,7 +75,7 @@ public class Player1 : MonoBehaviour
             Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
             if (bulletRb != null)
             {
-                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().BulletSpeed;
+                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
             }
 
             Destroy(spawnedBullet, Range);
