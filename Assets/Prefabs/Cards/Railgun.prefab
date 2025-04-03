@@ -546,16 +546,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardsPickerBackground: {fileID: 0}
   MovementSpeed: 1
   Health: 1
-  Damage: 1.35
+  Damage: 1.5
   BulletLifeSteal: 0
   BulletPoison: 0
-  BulletSpeed: 1.5
-  BulletSize: 1
-  BulletSlow: 1
-  AttackSpeed: 0.65
+  BulletSpeed: 2
+  BulletGrowth: 0
+  BulletSlow: 0
+  AttackSpeed: 1.35
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0

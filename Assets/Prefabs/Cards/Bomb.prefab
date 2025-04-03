@@ -546,7 +546,7 @@ MonoBehaviour:
   BulletPoison: 0
   BulletSpeed: 0.75
   BulletGrowth: 0
-  BulletSlow: 1
+  BulletSlow: 0
   AttackSpeed: 1
   Range: 1
   TeleportDistance: 0
