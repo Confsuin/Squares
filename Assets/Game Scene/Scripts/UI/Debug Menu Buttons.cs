@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebugMenuButtons : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class DebugMenuButtons : MonoBehaviour
     {
         GetReferences();
         DebugMenu.SetActive(false);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
     public void OpenDebugMenu()
     {

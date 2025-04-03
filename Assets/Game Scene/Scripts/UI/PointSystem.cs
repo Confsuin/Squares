@@ -53,8 +53,6 @@ public class PointSystem : MonoBehaviour
     {
         Time.timeScale = 0;
         GetReferences();
-        GameObject.FindWithTag("Player").SetActive(false);
-        GameObject.FindWithTag("PlayerAlt").SetActive(false);
         UpdatePointsToWin();
         Debug.Log(PointsToWinSlider);
     }
