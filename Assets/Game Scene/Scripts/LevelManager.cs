@@ -11,9 +11,7 @@ public class LevelManager : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
 
-    public List<GameObject> Maps;
-
-    public 
+    public List<GameObject> Maps; 
 
     void Start()
     {
