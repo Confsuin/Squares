@@ -1,12 +1,15 @@
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Threading;
 
 public class Player2 : MonoBehaviour
 {
     //Stats
-    public float maxHealth = 10;
+    public float maxHealth;
     public float currentHealth;
-    public float moveSpeed = 10f;
+    public float moveSpeed;
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
@@ -16,6 +19,18 @@ public class Player2 : MonoBehaviour
     public float ReloadSpeed;
     public float Ammo;
     public float StartingAmmo = 4;
+    //Bullet
+    public float Damage = 25;
+    public float BulletLifeSteal;
+    public float BulletPoison;
+    public float BulletGrowth;
+    public float BulletSpeed = 30;
+    public float BulletSize = 1;
+    public float BulletSlow = 1;
+    public float BulletBounces;
+    //BulletSpawn
+    public float FireRadius;
+    public float ExplosionRadius;
 
 
     private bool isReloading = false;
@@ -35,8 +50,9 @@ public class Player2 : MonoBehaviour
 
     private InputAction shootAction;
 
-
+    private PlayerHealthBar playerHealthBar;
     public bool Player2Dead = false;
+
 
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
@@ -61,7 +77,7 @@ public class Player2 : MonoBehaviour
             Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
             if (bulletRb != null)
             {
-                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().BulletSpeed;
+                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
             }
 
             Destroy(spawnedBullet, Range);
@@ -79,13 +95,14 @@ public class Player2 : MonoBehaviour
     {
         currentHealth = maxHealth;
         Ammo = StartingAmmo;
+        playerHealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
     }
 
 
 
     private void Awake()
     {
-        
+
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
@@ -161,7 +178,7 @@ public class Player2 : MonoBehaviour
 
     private void OnAimPerformed(InputAction.CallbackContext value)
     {
-       aimDirection = value.ReadValue<Vector2>();
+        aimDirection = value.ReadValue<Vector2>();
 
         //Rotation of Gun
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
@@ -214,5 +231,6 @@ public class Player2 : MonoBehaviour
     {
         currentHealth -= DMG;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
+        playerHealthBar.UpdateHealthBar();
     }
 }

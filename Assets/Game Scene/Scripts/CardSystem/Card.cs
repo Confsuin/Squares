@@ -11,6 +11,8 @@ public class Card : MonoBehaviour
     private PointSystem pointSystem;
     private Player1 player1;
     private Player2 player2;
+    private PlayerHealthBar player1HealthBar;
+    private PlayerHealthBar player2HealthBar;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -20,8 +22,8 @@ public class Card : MonoBehaviour
     public float BulletLifeSteal;
     public float BulletPoison;
     public float BulletSpeed = 1;
-    public float BulletSize = 1;
-    public float BulletSlow = 1;
+    public float BulletGrowth;
+    public float BulletSlow;
 
     public float AttackSpeed = 1;
 
@@ -60,10 +62,12 @@ public class Card : MonoBehaviour
     {
         if (pointSystem.Player2Won == true)
         {
+            // Adds Base Player Stats
             player1.maxHealth = Health * player1.maxHealth;
             player1.currentHealth = player1.maxHealth;
             player1.moveSpeed = MovementSpeed * player1.moveSpeed;
 
+            // Adds On Shot Bullet Stats
             player1.BulletCount = player1.BulletCount + BulletCount;
             player1.ShotgunCount = player1.ShotgunCount + ShotgunCount;
             player1.GunInaccuracy = player1.GunInaccuracy + GunInaccuracy;
@@ -73,18 +77,36 @@ public class Card : MonoBehaviour
             player1.StartingAmmo = player1.StartingAmmo + Ammo;
             player1.StartingAmmo = player1.Ammo;
 
+            // Adds Core Bullet Stats
+            player1.Damage = player1.Damage * Damage;
+            player1.BulletLifeSteal = player1.BulletLifeSteal + BulletLifeSteal;
+            player1.BulletPoison = player1.BulletPoison + BulletPoison;
+            player1.BulletGrowth = player1.BulletGrowth + BulletGrowth;
+            player1.BulletSpeed = player1.BulletSpeed * BulletSpeed;
+            player1.BulletSlow = player1.BulletSlow + BulletSlow;
+            player1.BulletBounces = player1.BulletBounces + BulletBounces;
+
+            // Adds Bullet Effect Stats
+            player1.FireRadius = player1.FireRadius + FireRadius;
+            player1.ExplosionRadius = player1.ExplosionRadius + ExplosionRadius;
+
             pointSystem.Player2Won = false;
 
             cardSystemSpawner.CardsSpawned = false;
+
+            player1HealthBar.UpdateHealthBar();
+            player2HealthBar.UpdateHealthBar();
 
             Debug.Log("Stats added to Player 1");
         }
         if (pointSystem.Player1Won == true)
         {
+            // Adds Base Player Stats
             player2.maxHealth = Health * player2.maxHealth;
             player2.currentHealth = player2.maxHealth;
             player2.moveSpeed = MovementSpeed * player2.moveSpeed;
 
+            // Adds On Shot Bullet Stats
             player2.BulletCount = player2.BulletCount + BulletCount;
             player2.ShotgunCount = player2.ShotgunCount + ShotgunCount;
             player2.GunInaccuracy = player2.GunInaccuracy + GunInaccuracy;
@@ -94,9 +116,25 @@ public class Card : MonoBehaviour
             player2.StartingAmmo = player2.StartingAmmo + Ammo;
             player2.Ammo = player2.StartingAmmo;
 
+            // Adds Core Bullet Stats
+            player2.Damage = player2.Damage * Damage;
+            player2.BulletLifeSteal = player2.BulletLifeSteal + BulletLifeSteal;
+            player2.BulletPoison = player2.BulletPoison + BulletPoison;
+            player2.BulletGrowth = player2.BulletGrowth + BulletGrowth;
+            player2.BulletSpeed = player2.BulletSpeed * BulletSpeed;
+            player2.BulletSlow = player2.BulletSlow + BulletSlow;
+            player2.BulletBounces = player2.BulletBounces + BulletBounces;
+
+            // Adds Bullet Effect Stats
+            player2.FireRadius = player2.FireRadius + FireRadius;
+            player2.ExplosionRadius = player2.ExplosionRadius + ExplosionRadius;
+
             pointSystem.Player1Won = false;
 
             cardSystemSpawner.CardsSpawned = false;
+
+            player1HealthBar.UpdateHealthBar();
+            player2HealthBar.UpdateHealthBar();
 
             Debug.Log("Stats added to Player 2");
         }
@@ -108,5 +146,7 @@ public class Card : MonoBehaviour
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
+        player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
     }
 }

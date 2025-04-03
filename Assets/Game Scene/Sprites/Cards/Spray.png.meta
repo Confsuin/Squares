@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 1f17ae995061b1d4d921e671bb24674b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2658696190852297996
+    second: Spray_0
+  - first:
+      213: 4219484232993426585
+    second: Spray_1
+  - first:
+      213: 7510688222839587498
+    second: Spray_2
+  - first:
+      213: -8130400645656219783
+    second: Spray_3
+  - first:
+      213: -1659895708468694409
+    second: Spray_4
+  - first:
+      213: -6066266382722175246
+    second: Spray_5
+  - first:
+      213: 4241542050375431001
+    second: Spray_6
+  - first:
+      213: 2283321622235638077
+    second: Spray_7
+  - first:
+      213: -6285834077820551903
+    second: Spray_8
+  - first:
+      213: -662210849859229041
+    second: Spray_9
+  - first:
+      213: -2912526006709393033
+    second: Spray_10
+  - first:
+      213: 2373144447041893833
+    second: Spray_11
+  - first:
+      213: 6291497255671794794
+    second: Spray_12
+  - first:
+      213: -6936358220638569508
+    second: Spray_13
+  - first:
+      213: 5156459776410546743
+    second: Spray_14
+  - first:
+      213: 2540547809891130061
+    second: Spray_15
+  - first:
+      213: 4235613173271718723
+    second: Spray_16
+  - first:
+      213: 327314186675820942
+    second: Spray_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spray_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 550
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8912c2c48ada8400800000000000000
+      internalID: 327314186675820942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1db50f3c727fe64459faf47b8a9f056e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Spray_0: 2658696190852297996
+      Spray_1: 4219484232993426585
+      Spray_10: -2912526006709393033
+      Spray_11: 2373144447041893833
+      Spray_12: 6291497255671794794
+      Spray_13: -6936358220638569508
+      Spray_14: 5156459776410546743
+      Spray_15: 2540547809891130061
+      Spray_16: 4235613173271718723
+      Spray_17: 327314186675820942
+      Spray_2: 7510688222839587498
+      Spray_3: -8130400645656219783
+      Spray_4: -1659895708468694409
+      Spray_5: -6066266382722175246
+      Spray_6: 4241542050375431001
+      Spray_7: 2283321622235638077
+      Spray_8: -6285834077820551903
+      Spray_9: -662210849859229041
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

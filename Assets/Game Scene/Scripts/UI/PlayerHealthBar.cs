@@ -13,7 +13,7 @@ public class PlayerHealthBar : MonoBehaviour
         GetReferences();
         UpdateHealthBar();
     }
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (player1 != null)
         {

@@ -2,49 +2,55 @@ using UnityEngine;
 
 public class Player2Bullet : MonoBehaviour
 {
-    public float Damage = 25;
-
-    public float BulletLifeSteal;
-    public float BulletPoison;
-    public float BulletSpeed = 30;
-    public float BulletSize = 1;
-    public float BulletSlow = 1;
-    public float BulletBounces;
-
-    public float FireRadius;
-    public float ExplosionRadius;
+    public float damage;
+    public float lifesteal;
+    public float poison;
+    public float speed;
+    public float size;
+    public float slow;
+    public float bounce;
+    public float fire;
+    public float explosion;
 
     public Player1 player1;
     public Player2 player2;
 
     Rigidbody2D rb2d;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+
+        //Get Stats From Player2
+        damage = player2.Damage;
+        lifesteal = player2.BulletLifeSteal;
+        poison = player2.BulletPoison;
+        speed = player2.BulletSpeed;
+        size = player2.BulletSize;
+        slow = player2.BulletSlow;
+        bounce = player2.BulletBounces;
+        fire = player2.FireRadius;
+        explosion = player2.ExplosionRadius;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rb2d.linearVelocity = transform.right * BulletSpeed;
+        rb2d.linearVelocity = transform.right * speed;
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            player1.TakeDamage(Damage);
+            player1.TakeDamage(damage);
             Debug.Log("hit Player");
             Destroy(gameObject);
         }
-
         if (other.gameObject.tag == "PlayerAlt")
         {
-            player2.TakeDamage(Damage);
+            player2.TakeDamage(damage);
             Debug.Log("hit PlayerAlt");
             Destroy(gameObject);
         }

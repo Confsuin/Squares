@@ -1,11 +1,15 @@
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Threading;
+
 public class Player1 : MonoBehaviour
 {
     //Stats
-    public float maxHealth = 10;
+    public float maxHealth;
     public float currentHealth;
-    public float moveSpeed = 10f;
+    public float moveSpeed;
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
@@ -15,6 +19,18 @@ public class Player1 : MonoBehaviour
     public float ReloadSpeed;
     public float Ammo;
     public float StartingAmmo = 4;
+    //Bullet
+    public float Damage = 25;
+    public float BulletLifeSteal;
+    public float BulletPoison;
+    public float BulletGrowth;
+    public float BulletSpeed = 30;
+    public float BulletSize = 1;
+    public float BulletSlow = 1;
+    public float BulletBounces;
+    //BulletEffects
+    public float FireRadius;
+    public float ExplosionRadius;
 
 
     private bool isReloading = false;
@@ -34,8 +50,9 @@ public class Player1 : MonoBehaviour
 
     private InputAction shootAction;
 
-
+    private PlayerHealthBar playerHealthBar;
     public bool Player1Dead = false;
+
 
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
@@ -60,7 +77,7 @@ public class Player1 : MonoBehaviour
             Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
             if (bulletRb != null)
             {
-                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().BulletSpeed;
+                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
             }
 
             Destroy(spawnedBullet, Range);
@@ -78,12 +95,13 @@ public class Player1 : MonoBehaviour
     {
         currentHealth = maxHealth;
         Ammo = StartingAmmo;
+        playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
     }
 
 
     private void Awake()
     {
-        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
+
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
@@ -213,23 +231,6 @@ public class Player1 : MonoBehaviour
     {
         currentHealth -= DMG;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
+        playerHealthBar.UpdateHealthBar();
     }
-    //public PlayerPoints1 playerPoints1;
-    public PointSystem pointSystem;
-
-    void Update()
-    {
-    if (Input.GetKeyDown(KeyCode.Space))
-        {
-            IncreasePoints(1);
-        }
-    }
-
-    public void IncreasePoints(float Points)
-    {
-        currentHealth += Points;
-
-        //playerPoints1.SetPoints(currentHealth);
-    }
-    
 }

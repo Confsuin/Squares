@@ -23,11 +23,11 @@ public class DebugMenuButtons : MonoBehaviour
     }
     public void KillPlayer1()
     {
-        player1.currentHealth = 0;
+        player1.TakeDamage(player1.maxHealth);
     }
     public void KillPlayer2()
     {
-        player2.currentHealth = 0;
+        player2.TakeDamage(player2.maxHealth);
     }
     private void GetReferences()
     {

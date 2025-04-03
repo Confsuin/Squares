@@ -7,9 +7,11 @@ public class LevelManager : MonoBehaviour
 {
     TMP_Text SquareOffCountdown;
 
-    public GameObject SquareOff;
-    public GameObject Player1;
-    public GameObject Player2;
+    private GameObject SquareOff;
+    private GameObject Player1;
+    private GameObject Player2;
+    private PlayerHealthBar player1HealthBar;
+    private PlayerHealthBar player2HealthBar;
 
     public List<GameObject> Maps; 
 
@@ -36,6 +38,8 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator SquareOffCoolDown()
     {
+        player1HealthBar.UpdateHealthBar();
+        player2HealthBar.UpdateHealthBar();
         SquareOff.SetActive(true);
         SquareOffCountdown.text = "3!";
         yield return new WaitForSecondsRealtime(1f);
@@ -52,6 +56,8 @@ public class LevelManager : MonoBehaviour
     {
         Player1 = GameObject.FindWithTag("Player");
         Player2 = GameObject.FindWithTag("PlayerAlt");
+        player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
+        player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
         SquareOff = GameObject.FindWithTag("Square Off");
         SquareOffCountdown = GameObject.FindWithTag("Square Off Countdown").GetComponent<TMP_Text>();
     }
