@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
 public class Player1 : MonoBehaviour
 {
     //Stats
-    public float maxHealth;
-    public float currentHealth;
     public float moveSpeed;
     //Shooting
     public float BulletCount;
@@ -22,35 +21,45 @@ public class Player1 : MonoBehaviour
     public float Damage = 25;
     public float BulletLifeSteal;
     public float BulletPoison;
+    public float BulletPoisonDamage;
     public float BulletGrowth;
     public float BulletSpeed = 30;
     public float BulletSize = 1;
     public float BulletSlow = 1;
     public float BulletBounces;
-    //BulletEffects
+    //BulletSpawn
     public float FireRadius;
     public float ExplosionRadius;
 
-
+    //Reloading
     private bool isReloading = false;
     private float ReloadTimer = 0f;
     private float shootTimer = 0f;
 
-
+    //Weapon/Bullet
     public GameObject weapon;
     public GameObject bullet;
 
-
+    //Movement/Aiming
     private Vector2 aimDirection;
     private PlayerInputs input = null;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb = null;
 
-
+    //Shoot
     private InputAction shootAction;
-
+    //Health
+    public float maxHealth;
+    public float currentHealth;
+    public float MissingHealth = 0;
     private PlayerHealthBar playerHealthBar;
     public bool Player1Dead = false;
+
+    //Status Effects
+    public bool IsPoisoned = false;
+
+    //Refrences
+    public Player2 player2;
 
 
     //public List<GameObject> BulletSpawnPoint = new();
@@ -94,13 +103,12 @@ public class Player1 : MonoBehaviour
     {
         currentHealth = maxHealth;
         Ammo = StartingAmmo;
-        playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
+        GetRefrences();
     }
 
 
     private void Awake()
     {
-
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
@@ -223,13 +231,65 @@ public class Player1 : MonoBehaviour
     }
 
 
+    public IEnumerator PoisonTimer()
+    {
+        if (player2.BulletPoison > 0)
+        {
+            Debug.Log("Player1 Poisoned");
+            yield return new WaitForSeconds(1f);
+            PoisonDMG();
+            yield return new WaitForSeconds(1f);
+            PoisonDMG();
+            yield return new WaitForSeconds(1f);
+            PoisonDMG();
+            IsPoisoned = false;
+        }
+    }
 
 
-
+    public void PoisonDMG()
+    {
+        if (IsPoisoned == true)
+        {
+            Debug.Log("Player1 Took Poison damage");
+            BulletPoisonDamage = MissingHealth * player2.BulletPoison;
+            TakeDamage(BulletPoisonDamage);
+        }
+    }
     public void TakeDamage(float DMG)
     {
         currentHealth -= DMG;
+        MissingHealth = maxHealth - currentHealth;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
         playerHealthBar.UpdateHealthBar();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void GetRefrences()
+    {
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        playerHealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
     }
 }

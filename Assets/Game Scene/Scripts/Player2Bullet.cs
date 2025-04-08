@@ -47,12 +47,22 @@ public class Player2Bullet : MonoBehaviour
             player1.TakeDamage(damage);
             Debug.Log("hit Player");
             Destroy(gameObject);
+            if (poison > 0)
+            {
+                player1.IsPoisoned = true;
+                StartCoroutine(player1.PoisonTimer());
+            }
         }
         if (other.gameObject.tag == "PlayerAlt")
         {
             player2.TakeDamage(damage);
             Debug.Log("hit PlayerAlt");
             Destroy(gameObject);
+            if (poison > 0)
+            {
+                player2.IsPoisoned = true;
+                StartCoroutine(player2.PoisonTimer());
+            }
         }
         if (other.gameObject.tag == "Wall")
         {
