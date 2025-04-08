@@ -107,7 +107,6 @@ public class Player2 : MonoBehaviour
     }
 
 
-
     private void Awake()
     {
         input = new PlayerInputs();
@@ -231,20 +230,17 @@ public class Player2 : MonoBehaviour
 
     public IEnumerator PoisonTimer()
     {
-        if (player1.BulletPoison > 0)
-        {
-            Debug.Log("Player2 Poisoned");
-            yield return new WaitForSeconds(1f);
-            Debug.Log("Player2 Poision Damage Tick");
-            PoisonDMG();
-            yield return new WaitForSeconds(1f);
-            PoisonDMG();
-            yield return new WaitForSeconds(1f);
-            PoisonDMG();
-            IsPoisoned = false;
-        }
+        Debug.Log("Player2 Poisoned");
+        yield return new WaitForSecondsRealtime(1f);
+        Debug.Log("Player2 Poision Damage Tick");
+        PoisonDMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMG();
+        IsPoisoned = false;
     }
-
+    
 
     public void PoisonDMG()
     {
@@ -254,6 +250,10 @@ public class Player2 : MonoBehaviour
             BulletPoisonDamage = MissingHealth * player1.BulletPoison;
             TakeDamage(BulletPoisonDamage);
         }
+    }
+    public void StartPoisonTimer()
+    {
+        StartCoroutine(PoisonTimer());
     }
 
     public void TakeDamage(float DMG)

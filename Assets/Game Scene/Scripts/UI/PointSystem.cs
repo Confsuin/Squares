@@ -163,6 +163,8 @@ public class PointSystem : MonoBehaviour
         if (player1.Player1Dead || player2.Player2Dead == true)
         {
             IncreasePoints();
+            player1.IsPoisoned = false;
+            player2.IsPoisoned = false;
         }
     }
     private void GetReferences()
@@ -177,5 +179,7 @@ public class PointSystem : MonoBehaviour
     {
         player1.currentHealth = player1.maxHealth;
         player2.currentHealth = player2.maxHealth;
+        player1.MissingHealth = 0;
+        player2.MissingHealth = 0;
     }
 }

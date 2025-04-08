@@ -50,7 +50,7 @@ public class Player2Bullet : MonoBehaviour
             if (poison > 0)
             {
                 player1.IsPoisoned = true;
-                StartCoroutine(player1.PoisonTimer());
+                player1.StartPoisonTimer();
             }
         }
         if (other.gameObject.tag == "PlayerAlt")
@@ -61,7 +61,7 @@ public class Player2Bullet : MonoBehaviour
             if (poison > 0)
             {
                 player2.IsPoisoned = true;
-                StartCoroutine(player2.PoisonTimer());
+                player2.StartPoisonTimer();
             }
         }
         if (other.gameObject.tag == "Wall")
