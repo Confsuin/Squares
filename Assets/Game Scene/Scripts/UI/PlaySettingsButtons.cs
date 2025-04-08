@@ -13,8 +13,6 @@ public class PlaySettingsButtons : MonoBehaviour
 
     public void StartGame()
     {
-        Time.timeScale = 1;
-
         Destroy(PlaySettings);
 
         Player1.SetActive(true);

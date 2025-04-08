@@ -40,9 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755427501443677622}
-  - component: {fileID: 4827894327430562464}
   m_Layer: 0
-  m_Name: Gun (1)
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,18 +65,6 @@ Transform:
   - {fileID: 5043531302720104610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4827894327430562464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 343527326227072773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9da37c42bba3fa40913534f5218f1f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3116823385181047704
 GameObject:
   m_ObjectHideFlags: 0

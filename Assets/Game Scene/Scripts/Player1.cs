@@ -1,4 +1,3 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -7,9 +6,9 @@ using System.Threading;
 public class Player1 : MonoBehaviour
 {
     //Stats
-    public float maxHealth = 10;
+    public float maxHealth;
     public float currentHealth;
-    public float moveSpeed = 10f;
+    public float moveSpeed;
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
@@ -23,6 +22,7 @@ public class Player1 : MonoBehaviour
     public float Damage = 25;
     public float BulletLifeSteal;
     public float BulletPoison;
+    public float BulletGrowth;
     public float BulletSpeed = 30;
     public float BulletSize = 1;
     public float BulletSlow = 1;
@@ -49,7 +49,8 @@ public class Player1 : MonoBehaviour
 
     private InputAction shootAction;
 
-
+    private PlayerHealthBar playerHealthBar;
+    public bool Player1Dead = false;
 
 
     //public List<GameObject> BulletSpawnPoint = new();
@@ -93,12 +94,13 @@ public class Player1 : MonoBehaviour
     {
         currentHealth = maxHealth;
         Ammo = StartingAmmo;
+        playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
     }
 
 
     private void Awake()
     {
-        
+
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
@@ -135,9 +137,10 @@ public class Player1 : MonoBehaviour
     {
         rb.linearVelocity = moveVector * moveSpeed;
 
-        if (currentHealth < 0)
+        if (Player1Dead == false && currentHealth <= 0)
         {
-            Debug.Log("Player1 Died");
+            Player1Dead = true;
+            Debug.Log("Player2 Died");
         }
 
 
@@ -227,5 +230,6 @@ public class Player1 : MonoBehaviour
     {
         currentHealth -= DMG;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
+        playerHealthBar.UpdateHealthBar();
     }
 }

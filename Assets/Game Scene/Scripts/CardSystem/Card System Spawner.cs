@@ -4,21 +4,10 @@ public class CardSystemSpawner : MonoBehaviour
 {
     public GameObject CardSpawner;
     public GameObject CardsCanvas;
-    public bool CardsSpawned = false;
     public GameObject Cards;
+
+    public bool CardsSpawned = false;
     
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void DoSpawnCards()
     {
         if (CardsSpawned == false)

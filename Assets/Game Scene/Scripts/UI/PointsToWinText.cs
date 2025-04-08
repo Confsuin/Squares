@@ -5,7 +5,7 @@ using TMPro;
 public class PointsToWinTextScript : MonoBehaviour
 {
     TMP_Text PointsToWinText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         PointsToWinText = GetComponent<TMP_Text>();

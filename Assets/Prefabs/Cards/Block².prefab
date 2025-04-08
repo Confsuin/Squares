@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Block\xB2"
+  m_text: Block
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5623194428626525839, guid: 85dafa9db727a80458ea890e37dbb38c, type: 3}
+  m_Sprite: {fileID: 2157034001630453605, guid: d6da45d1a070e3344875a45d13676159, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -548,15 +548,17 @@ MonoBehaviour:
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 1
-  BulletSize: 1
-  BulletSlow: 1
+  BulletGrowth: 0
+  BulletSlow: 0
   AttackSpeed: 1
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
+  ShotgunCount: 0
   FireRadius: 0
   ExplosionRadius: 0
+  GunInaccuracy: 0
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0.25

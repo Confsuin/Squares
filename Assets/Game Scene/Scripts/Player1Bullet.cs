@@ -46,11 +46,17 @@ public class Player1Bullet : MonoBehaviour
         {
             player1.TakeDamage(damage);
             Debug.Log("hit Player");
+            Destroy(gameObject);
         }
         if (other.gameObject.tag == "PlayerAlt")
         {
             player2.TakeDamage(damage);
             Debug.Log("hit PlayerAlt");
+            Destroy(gameObject);
+        }
+        if (other.gameObject.tag == "Wall")
+        {
+            Destroy(gameObject);
         }
     }
 }

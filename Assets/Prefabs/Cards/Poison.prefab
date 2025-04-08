@@ -546,10 +546,10 @@ MonoBehaviour:
   Health: 1.1
   Damage: 1
   BulletLifeSteal: 0
-  BulletPoison: 0.05
+  BulletPoison: 0.075
   BulletSpeed: 1
-  BulletSize: 1
-  BulletSlow: 1
+  BulletGrowth: 0
+  BulletSlow: 0
   AttackSpeed: 1
   Range: 1
   TeleportDistance: 0

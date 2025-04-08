@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 650496572831168260, guid: d87bfd70eb10f924086b6f6ef2cde5c5, type: 3}
+  m_Sprite: {fileID: 1501133510963329140, guid: e2a06a53c3b50374bacaef61b78643b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -548,15 +548,17 @@ MonoBehaviour:
   BulletLifeSteal: 0.15
   BulletPoison: 0.05
   BulletSpeed: 1
-  BulletSize: 1
-  BulletSlow: 1
+  BulletGrowth: 0
+  BulletSlow: 0
   AttackSpeed: 1
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
+  ShotgunCount: 0
   FireRadius: 0
   ExplosionRadius: 0
+  GunInaccuracy: 0
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0

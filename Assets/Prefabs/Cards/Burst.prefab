@@ -550,15 +550,17 @@ MonoBehaviour:
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 1
-  BulletSize: 1
-  BulletSlow: 1
+  BulletGrowth: 0
+  BulletSlow: 0
   AttackSpeed: 1
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 3
+  ShotgunCount: 0
   FireRadius: 0
   ExplosionRadius: 0
+  GunInaccuracy: 0
   ReloadSpeed: 0.5
   Ammo: 4
   BlockCoolDown: 0

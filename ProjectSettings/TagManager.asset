@@ -9,6 +9,19 @@ TagManager:
   - Cards Menu
   - Cards Picker Background
   - Points To Win Slider
+  - Player1 Point
+  - Point System
+  - Wall
+  - Cards System
+  - Square Off
+  - Square Off Countdown
+  - Map
+  - Level Manager
+  - Debug Menu Button
+  - Debug Menu
+  - X Is picking text
+  - Player 1 Health Bar
+  - Player 2 Health Bar
   layers:
   - Default
   - TransparentFX

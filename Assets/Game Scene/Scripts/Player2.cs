@@ -1,4 +1,3 @@
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -7,9 +6,9 @@ using System.Threading;
 public class Player2 : MonoBehaviour
 {
     //Stats
-    public float maxHealth = 10;
+    public float maxHealth;
     public float currentHealth;
-    public float moveSpeed = 10f;
+    public float moveSpeed;
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
@@ -23,6 +22,7 @@ public class Player2 : MonoBehaviour
     public float Damage = 25;
     public float BulletLifeSteal;
     public float BulletPoison;
+    public float BulletGrowth;
     public float BulletSpeed = 30;
     public float BulletSize = 1;
     public float BulletSlow = 1;
@@ -49,7 +49,8 @@ public class Player2 : MonoBehaviour
 
     private InputAction shootAction;
 
-
+    private PlayerHealthBar playerHealthBar;
+    public bool Player2Dead = false;
 
 
     //public List<GameObject> BulletSpawnPoint = new();
@@ -93,13 +94,14 @@ public class Player2 : MonoBehaviour
     {
         currentHealth = maxHealth;
         Ammo = StartingAmmo;
+        playerHealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
     }
 
 
 
     private void Awake()
     {
-        
+
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
 
@@ -139,8 +141,9 @@ public class Player2 : MonoBehaviour
     {
         rb.linearVelocity = moveVector * moveSpeed;
 
-        if (currentHealth < 0)
+        if (Player2Dead == false && currentHealth <= 0)
         {
+            Player2Dead = true;
             Debug.Log("Player2 Died");
         }
 
@@ -174,7 +177,7 @@ public class Player2 : MonoBehaviour
 
     private void OnAimPerformed(InputAction.CallbackContext value)
     {
-       aimDirection = value.ReadValue<Vector2>();
+        aimDirection = value.ReadValue<Vector2>();
 
         //Rotation of Gun
         float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
@@ -227,5 +230,6 @@ public class Player2 : MonoBehaviour
     {
         currentHealth -= DMG;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
+        playerHealthBar.UpdateHealthBar();
     }
 }
