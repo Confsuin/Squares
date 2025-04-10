@@ -9,6 +9,8 @@ public class Explosion : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, 1);
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -7047,7 +7047,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: BulletPoison
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 522230284982273392, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: m_Name
