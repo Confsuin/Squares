@@ -13,8 +13,11 @@ public class Player1Bullet : MonoBehaviour
     public float fire;
     public float explosion;
 
-    public Player1 player1;
-    public Player2 player2;
+    public GameObject explosionEffect;
+    public GameObject fireZoneEffect;
+
+    private Player1 player1;
+    private Player2 player2;
 
     Rigidbody2D rb2d;
 
@@ -23,6 +26,7 @@ public class Player1Bullet : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        
 
         //Get Stats From player 1
         damage = player1.Damage;
@@ -33,7 +37,7 @@ public class Player1Bullet : MonoBehaviour
         slow = player1.BulletSlow;
         bounce = player1.BulletBounces;
         fire = player1.FireRadius;
-        explosion = player1.ExplosionRadius;
+        explosion = player1.ExplosionDMG;
     }
 
     void Update()
@@ -68,6 +72,18 @@ public class Player1Bullet : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void OnDestroy()
+    {
+        if (explosion > 0)
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+        if (fire > 0)
+        {
+            Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
         }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player2Bullet : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class Player2Bullet : MonoBehaviour
     public float fire;
     public float explosion;
 
-    public Player1 player1;
-    public Player2 player2;
+    public GameObject explosionEffect;
+    public GameObject fireZoneEffect;
+
+    private Player1 player1;
+    private Player2 player2;
 
     Rigidbody2D rb2d;
 
@@ -32,7 +36,7 @@ public class Player2Bullet : MonoBehaviour
         slow = player2.BulletSlow;
         bounce = player2.BulletBounces;
         fire = player2.FireRadius;
-        explosion = player2.ExplosionRadius;
+        explosion = player2.ExplosionDMG;
     }
 
     void Update()
@@ -67,6 +71,19 @@ public class Player2Bullet : MonoBehaviour
         if (other.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
+        }
+    }
+
+
+    public void OnDestroy()
+    {
+        if (explosion > 0)
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+        if (fire > 0)
+        {
+            Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
         }
     }
 }

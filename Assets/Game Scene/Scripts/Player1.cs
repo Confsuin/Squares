@@ -29,7 +29,7 @@ public class Player1 : MonoBehaviour
     public float BulletBounces;
     //BulletSpawn
     public float FireRadius;
-    public float ExplosionRadius;
+    public float ExplosionDMG;
 
     //Reloading
     private bool isReloading = false;
@@ -91,10 +91,6 @@ public class Player1 : MonoBehaviour
             Destroy(spawnedBullet, Range);
             //Shotgun changes the "Range" to ".35f"
         }
-        else if (Ammo == 0)
-        {
-            Debug.Log("Out Of Ammo!");
-        }
     }
 
 
@@ -148,7 +144,6 @@ public class Player1 : MonoBehaviour
         if (Player1Dead == false && currentHealth <= 0)
         {
             Player1Dead = true;
-            Debug.Log("Player2 Died");
         }
 
 
@@ -218,7 +213,6 @@ public class Player1 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
-            Debug.Log("Reloading.....");
         }
     }
 
@@ -227,14 +221,11 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
-        Debug.Log("Reload complete!");
     }
 
     public IEnumerator PoisonTimer()
     {
-        Debug.Log("Player2 Poisoned");
         yield return new WaitForSecondsRealtime(1f);
-        Debug.Log("Player2 Poision Damage Tick");
         PoisonDMG();
         yield return new WaitForSecondsRealtime(1f);
         PoisonDMG();
@@ -248,7 +239,6 @@ public class Player1 : MonoBehaviour
     {
         if (IsPoisoned == true)
         {
-            Debug.Log("Player1 Took Poison damage");
             BulletPoisonDamage = MissingHealth * player2.BulletPoison;
             TakeDamage(BulletPoisonDamage);
         }
