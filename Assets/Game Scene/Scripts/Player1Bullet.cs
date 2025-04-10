@@ -50,6 +50,7 @@ public class Player1Bullet : MonoBehaviour
             Destroy(gameObject);
             if (poison > 0)
             {
+                player1.Hitself = true;
                 player1.IsPoisoned = true;
                 player1.StartPoisonTimer();
             }

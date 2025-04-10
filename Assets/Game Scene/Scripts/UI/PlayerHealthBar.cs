@@ -6,6 +6,7 @@ public class PlayerHealthBar : MonoBehaviour
     // References
     public Player1 player1;
     public Player2 player2;
+    public TrainingDummy trainingDummy;
 
     public Slider PlayerHealthBarSlider;
     void Start()
@@ -25,6 +26,11 @@ public class PlayerHealthBar : MonoBehaviour
             PlayerHealthBarSlider.maxValue = player2.maxHealth;
             PlayerHealthBarSlider.value = player2.currentHealth;
         }
+        if (trainingDummy != null)
+        {
+            PlayerHealthBarSlider.maxValue = trainingDummy.maxHealth;
+            PlayerHealthBarSlider.value = trainingDummy.currentHealth;
+        }
     }
     private void GetReferences()
     {
@@ -35,6 +41,10 @@ public class PlayerHealthBar : MonoBehaviour
         if (this.transform.parent.parent.tag == "PlayerAlt")
         {
             player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        }
+        if (this.transform.parent.parent.tag == "Training Dummy")
+        {
+            trainingDummy = GameObject.FindWithTag("Training Dummy").GetComponent<TrainingDummy>();
         }
         PlayerHealthBarSlider = this.GetComponent<Slider>();
     }

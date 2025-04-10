@@ -60,6 +60,7 @@ public class Player2Bullet : MonoBehaviour
             Destroy(gameObject);
             if (poison > 0)
             {
+                player2.Hitself = true;
                 player2.IsPoisoned = true;
                 player2.StartPoisonTimer();
             }

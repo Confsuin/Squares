@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3245517271773986723}
   m_Layer: 5
   m_Name: PointSystem
-  m_TagString: Untagged
+  m_TagString: Point System
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,12 +161,26 @@ MonoBehaviour:
   PointPlayer2: {fileID: 8006684128191459154, guid: ef124ff53caabae458e49602ccc25d40, type: 3}
   PointPlayer1Parent: {fileID: 2860816166266560908}
   PointPlayer2Parent: {fileID: 2858228807182085516}
+  PointsToWinSlider: {fileID: 0}
   Player1PointSpawnPoint: {fileID: 2470593228564764006}
   Player2PointSpawnPoint: {fileID: 8670148714704570776}
-  PointsToWinSlider: {fileID: 0}
+  PointCounterSlidersPlayer1: []
+  PointCounterSlidersPlayer2: []
+  PointCounters1: []
+  PointCounters2: []
+  pointCounter: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  levelManager: {fileID: 0}
+  cardSystemSpawner: {fileID: 0}
   Player1Point: {x: 85, y: 1015}
   Player2Point: {x: 85, y: 940}
   PointsToWin: 1
+  TotalPlayer1Points: 0
+  TotalPlayer2Points: 0
+  Player1Won: 0
+  Player2Won: 0
+  MaxPointsPerSquare: 2
 --- !u!1 &8248039267672744908
 GameObject:
   m_ObjectHideFlags: 0

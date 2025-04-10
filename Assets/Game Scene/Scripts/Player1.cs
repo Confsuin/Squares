@@ -52,11 +52,12 @@ public class Player1 : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float MissingHealth = 0;
-    private PlayerHealthBar playerHealthBar;
+    public PlayerHealthBar playerHealthBar;
     public bool Player1Dead = false;
 
     //Status Effects
     public bool IsPoisoned = false;
+    public bool Hitself = false;
 
     //Refrences
     public Player2 player2;
@@ -248,9 +249,18 @@ public class Player1 : MonoBehaviour
     {
         if (IsPoisoned == true)
         {
-            Debug.Log("Player1 Took Poison damage");
-            BulletPoisonDamage = MissingHealth * player2.BulletPoison;
-            TakeDamage(BulletPoisonDamage);
+            if (Hitself == true)
+            {
+                Debug.Log("Player1 Took Poison damage");
+                BulletPoisonDamage = MissingHealth * BulletPoison;
+                TakeDamage(BulletPoisonDamage);
+            }
+            else
+            {
+                Debug.Log("Player1 Took Poison damage");
+                BulletPoisonDamage = MissingHealth * player2.BulletPoison;
+                TakeDamage(BulletPoisonDamage);
+            }
         }
     }
     public void StartPoisonTimer()
@@ -291,6 +301,6 @@ public class Player1 : MonoBehaviour
     private void GetRefrences()
     {
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
-        playerHealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
+        playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
     }
 }
