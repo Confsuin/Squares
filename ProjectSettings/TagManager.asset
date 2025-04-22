@@ -24,6 +24,8 @@ TagManager:
   - Player 2 Health Bar
   - Escape Menu
   - Training Dummy
+  - Training Dummy Health Bar
+  - Training Dummy Health Text
   layers:
   - Default
   - TransparentFX

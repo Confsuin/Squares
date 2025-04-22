@@ -233,10 +233,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
@@ -248,7 +252,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 266630869}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 542106567}
+    - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
@@ -260,6 +272,10 @@ PrefabInstance:
       value: UpdateHealthBar
       objectReference: {fileID: 0}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: UpdateHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlayerHealthBar, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -268,7 +284,15 @@ PrefabInstance:
       value: PlayerHealthBar, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: PlayerHealthBar, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056191247327986395, guid: ee73d758da055d94c94c3d727b542e5c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -864,7 +888,7 @@ GameObject:
   - component: {fileID: 542106567}
   m_Layer: 3
   m_Name: HealthBar
-  m_TagString: Player 2 Health Bar
+  m_TagString: Training Dummy Health Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1786,6 +1810,8 @@ GameObject:
   - component: {fileID: 1552690578}
   - component: {fileID: 1552690577}
   - component: {fileID: 1552690576}
+  - component: {fileID: 1552690580}
+  - component: {fileID: 1552690579}
   m_Layer: 0
   m_Name: Training Dummy
   m_TagString: Training Dummy
@@ -1805,9 +1831,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafa74b7c4fe93846a254b7aa08dbf5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 500
   currentHealth: 0
   MissingHealth: 0
+  BulletPoisonDamage: 0
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  IsPoisoned: 0
   playerHealthBar: {fileID: 0}
 --- !u!212 &1552690577
 SpriteRenderer:
@@ -1880,6 +1910,79 @@ Transform:
   - {fileID: 1860459244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1552690579
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552690575}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: f2a222a76ec74ab4da0f870c6172b7dd, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &1552690580
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552690575}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: f2a222a76ec74ab4da0f870c6172b7dd, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1600266495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,7 +2190,7 @@ GameObject:
   - component: {fileID: 1831222944}
   m_Layer: 3
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: Training Dummy Health Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2131,7 +2234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 500
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}

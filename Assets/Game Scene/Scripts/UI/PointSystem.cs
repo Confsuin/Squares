@@ -172,8 +172,6 @@ public class PointSystem : MonoBehaviour
             if (player1.Player1Dead || player2.Player2Dead == true)
             {
                 IncreasePoints();
-                player1.IsPoisoned = false;
-                player2.IsPoisoned = false;
             }
         }
     }

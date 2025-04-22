@@ -229,41 +229,47 @@ public class Player2 : MonoBehaviour
         Debug.Log("Reload complete!");
     }
 
-    public IEnumerator PoisonTimer()
+    public IEnumerator PoisonTimerP1DMG()
+    {
+        Debug.Log("Player1 Poisoned");
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP1DMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP1DMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP1DMG();
+    }
+    public IEnumerator PoisonTimerP2DMG()
     {
         Debug.Log("Player2 Poisoned");
         yield return new WaitForSecondsRealtime(1f);
-        Debug.Log("Player2 Poision Damage Tick");
-        PoisonDMG();
+        PoisonDMGP2DMG();
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
+        PoisonDMGP2DMG();
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
-        IsPoisoned = false;
+        PoisonDMGP2DMG();
     }
-    
 
-    public void PoisonDMG()
+
+    public void PoisonDMGP1DMG()
     {
-        if (IsPoisoned == true)
-        {
-            if (Hitself == true)
-            {
-                Debug.Log("Player2 Took Poison damage");
-                BulletPoisonDamage = MissingHealth * BulletPoison;
-                TakeDamage(BulletPoisonDamage);
-            }
-            else
-            {
-                Debug.Log("Player2 Took Poison damage");
-                BulletPoisonDamage = MissingHealth * player1.BulletPoison;
-                TakeDamage(BulletPoisonDamage);
-            }
-        }
+        Debug.Log("Player1 Took Poison damage");
+        BulletPoisonDamage = MissingHealth * player1.BulletPoison;
+        TakeDamage(BulletPoisonDamage);
     }
-    public void StartPoisonTimer()
+    public void PoisonDMGP2DMG()
     {
-        StartCoroutine(PoisonTimer());
+        Debug.Log("Player1 Took Poison damage");
+        BulletPoisonDamage = MissingHealth * BulletPoison;
+        TakeDamage(BulletPoisonDamage);
+    }
+    public void StartPoisonTimerP1DMG()
+    {
+        StartCoroutine(PoisonTimerP1DMG());
+    }
+    public void StartPoisonTimerP2DMG()
+    {
+        StartCoroutine(PoisonTimerP2DMG());
     }
 
     public void TakeDamage(float DMG)
