@@ -6838,6 +6838,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3854895404448126930, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: BulletSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4884660072939620799, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -7062,12 +7066,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: BulletSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: BulletPoison
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: ExplosionDMG
-      value: 25
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: BulletBounces
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: ExplosionRadius

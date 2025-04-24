@@ -9,6 +9,7 @@ public class Player1Bullet : MonoBehaviour
     public float speed;
     public float size;
     public float slow;
+    public int timesBounced;
     public float bounce;
     public float fire;
     public float explosion;
@@ -38,12 +39,10 @@ public class Player1Bullet : MonoBehaviour
         bounce = player1.BulletBounces;
         fire = player1.FireRadius;
         explosion = player1.ExplosionDMG;
+
+        rb2d.AddForce(transform.right * speed);
     }
 
-    void Update()
-    {
-        rb2d.linearVelocity = transform.right * speed;
-    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -69,10 +68,15 @@ public class Player1Bullet : MonoBehaviour
                 player2.StartPoisonTimer();
             }
         }
-        /*if (other.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Wall")
+        {
+            timesBounced += 1;
+        }
+        if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {
             Destroy(gameObject);
-        }*/
+            Debug.Log("Bounce depleted");
+        }
     }
 
     public void OnDestroy()
