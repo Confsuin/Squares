@@ -19,14 +19,14 @@ public class Player2Bullet : MonoBehaviour
 
     private Player1 player1;
     private Player2 player2;
+    public TrainingDummy trainingDummy;
 
     Rigidbody2D rb2d;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
-        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        GetRefrences();
 
         //Get Stats From Player2
         damage = player2.Damage;
@@ -49,23 +49,31 @@ public class Player2Bullet : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             player1.TakeDamage(damage);
-            Debug.Log("hit Player");
+            Debug.Log("Hit Player");
             Destroy(gameObject);
             if (poison > 0)
             {
-                player1.IsPoisoned = true;
-                player1.StartPoisonTimer();
+                player1.StartPoisonTimerP2DMG();
             }
         }
         if (other.gameObject.tag == "PlayerAlt")
         {
             player2.TakeDamage(damage);
-            Debug.Log("hit PlayerAlt");
+            Debug.Log("Hit PlayerAlt");
             Destroy(gameObject);
             if (poison > 0)
             {
-                player2.IsPoisoned = true;
-                player2.StartPoisonTimer();
+                player2.StartPoisonTimerP2DMG();
+            }
+        }
+        if (other.gameObject.tag == "Training Dummy")
+        {
+            trainingDummy.TakeDamage(damage);
+            Debug.Log("Hit TrainingDummy");
+            Destroy(gameObject);
+            if (poison > 0)
+            {
+                trainingDummy.StartPoisonTimerP2DMG();
             }
         }
         if (other.gameObject.tag == "Wall")
@@ -90,5 +98,19 @@ public class Player2Bullet : MonoBehaviour
         {
             Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
         }
+    }
+
+
+
+
+
+
+
+
+    private void GetRefrences()
+    {
+        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
+        trainingDummy = GameObject.FindWithTag("Training Dummy").GetComponent<TrainingDummy>();
     }
 }

@@ -29,7 +29,7 @@ public class Player2 : MonoBehaviour
     public float BulletBounces;
     //BulletSpawn
     public float FireRadius;
-    public float ExplosionRadius;
+    public float ExplosionDMG;
 
     //Reloading
     private bool isReloading = false;
