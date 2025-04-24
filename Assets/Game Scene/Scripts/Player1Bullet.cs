@@ -77,6 +77,13 @@ public class Player1Bullet : MonoBehaviour
             Destroy(gameObject);
             Debug.Log("Bounce depleted");
         }
+
+
+
+        if (explosion > 0 && other.gameObject.tag == "Wall")
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
     }
 
     public void OnDestroy()

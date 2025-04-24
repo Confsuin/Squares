@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Player1 : MonoBehaviour
 {
@@ -65,6 +66,11 @@ public class Player1 : MonoBehaviour
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
 
+
+    public void Shotgun()
+    {
+
+    }
 
     public void BulletSpawner()
     {
