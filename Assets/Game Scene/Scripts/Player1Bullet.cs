@@ -69,10 +69,10 @@ public class Player1Bullet : MonoBehaviour
                 player2.StartPoisonTimer();
             }
         }
-        if (other.gameObject.tag == "Wall")
+        /*if (other.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public void OnDestroy()

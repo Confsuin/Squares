@@ -6842,6 +6842,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 5712736870589426628, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9fdc4f2358d925845878fbf3954119d0, type: 2}
+    - target: {fileID: 5712736870589426628, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_GravityScale
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6901900379950984719, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6894,6 +6902,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8998902115719270657, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9fdc4f2358d925845878fbf3954119d0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7068,6 +7080,22 @@ PrefabInstance:
     - target: {fileID: 1733803724096837239, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: m_Interactable
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2801640806025289547, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9fdc4f2358d925845878fbf3954119d0, type: 2}
+    - target: {fileID: 2805832403319602242, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805832403319602242, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 9fdc4f2358d925845878fbf3954119d0, type: 2}
+    - target: {fileID: 2805832403319602242, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3372352851646851103, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: m_AnchorMax.x

@@ -560,7 +560,7 @@ MonoBehaviour:
   ExplosionRadius: 0
   GunInaccuracy: 0
   ReloadSpeed: 0
-  Ammo: 3
+  Ammo: -3
   BlockCoolDown: 0
   BlockCount: 0
 --- !u!114 &2001907742883547328

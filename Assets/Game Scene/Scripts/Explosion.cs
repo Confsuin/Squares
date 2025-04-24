@@ -10,7 +10,7 @@ public class Explosion : MonoBehaviour
 
     private void Awake()
     {
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.5f);
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
 
@@ -27,10 +27,5 @@ public class Explosion : MonoBehaviour
         {
             player2.TakeDamage(ExplosionDMG);
         }
-    }
-
-    IEnumerator Wait(float delay)
-    {
-        yield return new WaitForSeconds(delay);
     }
 }
