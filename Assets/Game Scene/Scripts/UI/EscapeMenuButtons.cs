@@ -8,6 +8,7 @@ public class EscapeMenuButtons : MonoBehaviour
     
     void Start()
     {
+        GetReferences();
         escapeMenu.SetActive(false);
     }
     public void EscapeMenu()
@@ -33,6 +34,6 @@ public class EscapeMenuButtons : MonoBehaviour
     }
     private void GetReferences()
     {
-        escapeMenu = GameObject.Find("EscapeMenu");
+        escapeMenu = GameObject.FindWithTag("Escape Menu");
     }
 }

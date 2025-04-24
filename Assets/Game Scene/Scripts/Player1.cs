@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Player1 : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class Player1 : MonoBehaviour
     public float BulletBounces;
     //BulletSpawn
     public float FireRadius;
-    public float ExplosionDMG;
+    public float ExplosionRadius;
 
     //Reloading
     private bool isReloading = false;
@@ -53,11 +52,11 @@ public class Player1 : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float MissingHealth = 0;
-    private PlayerHealthBar playerHealthBar;
+    public PlayerHealthBar playerHealthBar;
     public bool Player1Dead = false;
 
     //Status Effects
-    public bool IsPoisoned = false;
+
 
     //Refrences
     public Player2 player2;
@@ -66,11 +65,6 @@ public class Player1 : MonoBehaviour
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
 
-
-    public void Shotgun()
-    {
-
-    }
 
     public void BulletSpawner()
     {
@@ -96,6 +90,10 @@ public class Player1 : MonoBehaviour
 
             Destroy(spawnedBullet, Range);
             //Shotgun changes the "Range" to ".35f"
+        }
+        else if (Ammo == 0)
+        {
+            Debug.Log("Out Of Ammo!");
         }
     }
 
@@ -150,6 +148,7 @@ public class Player1 : MonoBehaviour
         if (Player1Dead == false && currentHealth <= 0)
         {
             Player1Dead = true;
+            Debug.Log("Player2 Died");
         }
 
 
@@ -219,6 +218,7 @@ public class Player1 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
+            Debug.Log("Reloading.....");
         }
     }
 
@@ -227,31 +227,50 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
+        Debug.Log("Reload complete!");
     }
 
-    public IEnumerator PoisonTimer()
+    public IEnumerator PoisonTimerP1DMG()
     {
+        Debug.Log("Player1 Poisoned");
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
+        PoisonDMGP1DMG();
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
+        PoisonDMGP1DMG();
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
-        IsPoisoned = false;
+        PoisonDMGP1DMG();
+    }
+    public IEnumerator PoisonTimerP2DMG()
+    {
+        Debug.Log("Player2 Poisoned");
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP2DMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP2DMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP2DMG();
     }
 
 
-    public void PoisonDMG()
+    public void PoisonDMGP1DMG()
     {
-        if (IsPoisoned == true)
-        {
-            BulletPoisonDamage = MissingHealth * player2.BulletPoison;
-            TakeDamage(BulletPoisonDamage);
-        }
+        Debug.Log("Player1 Took Poison damage");
+        BulletPoisonDamage = MissingHealth * BulletPoison;
+        TakeDamage(BulletPoisonDamage);
     }
-    public void StartPoisonTimer()
+    public void PoisonDMGP2DMG()
     {
-        StartCoroutine(PoisonTimer());
+        Debug.Log("Player1 Took Poison damage");
+        BulletPoisonDamage = MissingHealth * player2.BulletPoison;
+        TakeDamage(BulletPoisonDamage);
+    }
+    public void StartPoisonTimerP1DMG()
+    {
+        StartCoroutine(PoisonTimerP1DMG());
+    }
+    public void StartPoisonTimerP2DMG()
+    {
+        StartCoroutine(PoisonTimerP2DMG());
     }
     public void TakeDamage(float DMG)
     {
@@ -287,6 +306,6 @@ public class Player1 : MonoBehaviour
     private void GetRefrences()
     {
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
-        playerHealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
+        playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
     }
 }

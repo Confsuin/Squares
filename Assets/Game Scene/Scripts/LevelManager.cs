@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,14 +19,20 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         GetReferences();
-        SquareOff.SetActive(false);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            SquareOff.SetActive(false);
+        }
     }
     public void StartSquareOff()
     {
-        Time.timeScale = 0;
-        
-        SelectMap();
-        StartCoroutine(SquareOffCoolDown());
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            Time.timeScale = 0;
+
+            SelectMap();
+            StartCoroutine(SquareOffCoolDown());
+        }
     }
     public void SelectMap()
     {
@@ -58,7 +65,10 @@ public class LevelManager : MonoBehaviour
         Player2 = GameObject.FindWithTag("PlayerAlt");
         player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
-        SquareOff = GameObject.FindWithTag("Square Off");
-        SquareOffCountdown = GameObject.FindWithTag("Square Off Countdown").GetComponent<TMP_Text>();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            SquareOff = GameObject.FindWithTag("Square Off");
+            SquareOffCountdown = GameObject.FindWithTag("Square Off Countdown").GetComponent<TMP_Text>();
+        }
     }
 }

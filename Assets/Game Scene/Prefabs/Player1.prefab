@@ -177,8 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30f87abe7f95fd49a8c0edc4cd24377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
   moveSpeed: 8
   BulletCount: 0
   ShotgunCount: 0
@@ -191,6 +189,7 @@ MonoBehaviour:
   Damage: 25
   BulletLifeSteal: 0
   BulletPoison: 0
+  BulletPoisonDamage: 0
   BulletGrowth: 0
   BulletSpeed: 30
   BulletSize: 1
@@ -200,7 +199,12 @@ MonoBehaviour:
   ExplosionRadius: 0
   weapon: {fileID: 8588622872557913663}
   bullet: {fileID: 77882264689708298, guid: 264103366618a2640abf5279ca884cfb, type: 3}
+  maxHealth: 100
+  currentHealth: 0
+  MissingHealth: 0
   Player1Dead: 0
+  IsPoisoned: 0
+  player2: {fileID: 0}
   bulpos: {fileID: 8213719802779661093}
 --- !u!1 &1491868024118229983
 GameObject:
@@ -567,7 +571,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 3372352851646851103}
   m_HandleRect: {fileID: 0}

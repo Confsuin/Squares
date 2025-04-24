@@ -22,7 +22,29 @@ TagManager:
   - X Is picking text
   - Player 1 Health Bar
   - Player 2 Health Bar
-  - BulletAlt
+  - Escape Menu
+  - Training Dummy
+  - Training Dummy Health Bar
+  - Training Dummy Health Text
+  - Move Speed Stat
+  - Health Stat
+  - Damage Stat
+  - Attack Speed Stat
+  - Ammo Stat
+  - Reload Speed Stat
+  - Range Stat
+  - Bullet Speed Stat
+  - Poison Stat
+  - Lifesteal Stat
+  - Bullet Count Stat
+  - Shotgun Count Stat
+  - Bullet Spread Stat
+  - Bullet Bounces Stat
+  - Bullet Growth Stat
+  - Explosion DMG Stat
+  - Fire Radius Stat
+  - Stats Info
+  - Player X Stats
   layers:
   - Default
   - TransparentFX

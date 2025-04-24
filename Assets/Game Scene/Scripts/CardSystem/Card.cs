@@ -75,7 +75,11 @@ public class Card : MonoBehaviour
             player1.Range = player1.Range * Range;
             player1.ReloadSpeed = player1.ReloadSpeed + ReloadSpeed;
             player1.StartingAmmo = player1.StartingAmmo + Ammo;
-            player1.StartingAmmo = player1.Ammo;
+            if (player1.StartingAmmo < 1)
+            {
+                player1.StartingAmmo = 1;
+            }
+            player1.Ammo = player1.StartingAmmo;
 
             // Adds Core Bullet Stats
             player1.Damage = player1.Damage * Damage;
@@ -114,6 +118,10 @@ public class Card : MonoBehaviour
             player2.Range = player2.Range * Range;
             player2.ReloadSpeed = player2.ReloadSpeed + ReloadSpeed;
             player2.StartingAmmo = player2.StartingAmmo + Ammo;
+            if (player2.StartingAmmo < 1)
+            {
+                player2.StartingAmmo = 1;
+            }
             player2.Ammo = player2.StartingAmmo;
 
             // Adds Core Bullet Stats

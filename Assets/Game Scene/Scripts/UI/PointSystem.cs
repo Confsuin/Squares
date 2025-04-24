@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
 
@@ -51,14 +52,20 @@ public class PointSystem : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            Time.timeScale = 0;
+        }
         GetReferences();
         UpdatePointsToWin();
         Debug.Log(PointsToWinSlider);
     }
     public void UpdatePointsToWin()
     {
-        PointsToWin = PointsToWinSlider.GetComponent<Slider>().value;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            PointsToWin = PointsToWinSlider.GetComponent<Slider>().value;
+        }
     }
 
     public void SetPoints()
@@ -160,11 +167,12 @@ public class PointSystem : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (player1.Player1Dead || player2.Player2Dead == true)
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
         {
-            IncreasePoints();
-            player1.IsPoisoned = false;
-            player2.IsPoisoned = false;
+            if (player1.Player1Dead || player2.Player2Dead == true)
+            {
+                IncreasePoints();
+            }
         }
     }
     private void GetReferences()

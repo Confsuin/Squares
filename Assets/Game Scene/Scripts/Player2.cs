@@ -29,7 +29,7 @@ public class Player2 : MonoBehaviour
     public float BulletBounces;
     //BulletSpawn
     public float FireRadius;
-    public float ExplosionDMG;
+    public float ExplosionRadius;
 
     //Reloading
     private bool isReloading = false;
@@ -52,11 +52,12 @@ public class Player2 : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float MissingHealth = 0;
-    private PlayerHealthBar playerHealthBar;
+    public PlayerHealthBar playerHealthBar;
     public bool Player2Dead = false;
 
     //Status Effects
     public bool IsPoisoned = false;
+    public bool Hitself = false;
 
     //Refrences
     public Player1 player1;
@@ -90,6 +91,10 @@ public class Player2 : MonoBehaviour
 
             Destroy(spawnedBullet, Range);
             //Shotgun changes the "Range" to ".35f"
+        }
+        else if (Ammo == 0)
+        {
+            Debug.Log("Out Of Ammo!");
         }
     }
 
@@ -146,6 +151,7 @@ public class Player2 : MonoBehaviour
         if (Player2Dead == false && currentHealth <= 0)
         {
             Player2Dead = true;
+            Debug.Log("Player2 Died");
         }
 
 
@@ -211,6 +217,7 @@ public class Player2 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
+            Debug.Log("Reloading.....");
         }
     }
 
@@ -219,31 +226,50 @@ public class Player2 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
+        Debug.Log("Reload complete!");
     }
 
-    public IEnumerator PoisonTimer()
+    public IEnumerator PoisonTimerP1DMG()
     {
+        Debug.Log("Player1 Poisoned");
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
+        PoisonDMGP1DMG();
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
+        PoisonDMGP1DMG();
         yield return new WaitForSecondsRealtime(1f);
-        PoisonDMG();
-        IsPoisoned = false;
+        PoisonDMGP1DMG();
     }
-    
+    public IEnumerator PoisonTimerP2DMG()
+    {
+        Debug.Log("Player2 Poisoned");
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP2DMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP2DMG();
+        yield return new WaitForSecondsRealtime(1f);
+        PoisonDMGP2DMG();
+    }
 
-    public void PoisonDMG()
+
+    public void PoisonDMGP1DMG()
     {
-        if (IsPoisoned == true)
-        {
-            BulletPoisonDamage = MissingHealth * player1.BulletPoison;
-            TakeDamage(BulletPoisonDamage);
-        }
+        Debug.Log("Player1 Took Poison damage");
+        BulletPoisonDamage = MissingHealth * player1.BulletPoison;
+        TakeDamage(BulletPoisonDamage);
     }
-    public void StartPoisonTimer()
+    public void PoisonDMGP2DMG()
     {
-        StartCoroutine(PoisonTimer());
+        Debug.Log("Player1 Took Poison damage");
+        BulletPoisonDamage = MissingHealth * BulletPoison;
+        TakeDamage(BulletPoisonDamage);
+    }
+    public void StartPoisonTimerP1DMG()
+    {
+        StartCoroutine(PoisonTimerP1DMG());
+    }
+    public void StartPoisonTimerP2DMG()
+    {
+        StartCoroutine(PoisonTimerP2DMG());
     }
 
     public void TakeDamage(float DMG)
