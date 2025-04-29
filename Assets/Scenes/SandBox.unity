@@ -573,10 +573,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1093665872}
     m_Modifications:
+    - target: {fileID: 466529597080260314, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 466529597080260314, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    - target: {fileID: 1534179052677310559, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 1534179052677310559, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    - target: {fileID: 2720113718219320979, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 2720113718219320979, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    - target: {fileID: 3746521450068947777, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 3746521450068947777, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     - target: {fileID: 3746521450068947777, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 364069608}
+    - target: {fileID: 4224459433103410745, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 4224459433103410745, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    - target: {fileID: 4428721464818212303, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 4428721464818212303, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     - target: {fileID: 4650071709894469731, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
       propertyPath: m_Name
       value: Debug Menu
@@ -662,9 +710,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5814923100495631678, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 5814923100495631678, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    - target: {fileID: 5814923100495631678, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 364069608}
+    - target: {fileID: 6523159160336727370, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 6523159160336727370, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    - target: {fileID: 7839723774818826841, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    - target: {fileID: 7839723774818826841, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1341,13 +1413,13 @@ PrefabInstance:
       addedObject: {fileID: 1702976113}
     - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 482370251}
-    - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 364069607}
     - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1874589962}
+    - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 482370251}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
 --- !u!224 &1093665872 stripped
