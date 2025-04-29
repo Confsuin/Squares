@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 937345975838681025}
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
+  - component: {fileID: 9059620144271885334}
   m_Layer: 5
   m_Name: Shotgun
   m_TagString: Untagged
@@ -544,18 +545,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardsPickerBackground: {fileID: 0}
-  levelManager: {fileID: 0}
-  pointSystem: {fileID: 0}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
   MovementSpeed: 1
   Health: 1
   Damage: 0.7
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 1
-  BulletSize: 1
+  BulletGrowth: 0
   BulletSlow: 1
   AttackSpeed: 1
   Range: 0.2
@@ -626,6 +622,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9059620144271885334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421034208990630424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &8785173166664168708
 GameObject:
   m_ObjectHideFlags: 0

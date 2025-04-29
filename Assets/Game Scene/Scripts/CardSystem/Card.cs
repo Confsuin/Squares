@@ -147,6 +147,13 @@ public class Card : MonoBehaviour
             Debug.Log("Stats added to Player 2");
         }
     }
+    public void IncreaseCardSize()
+    {
+        transform.localScale = new Vector2(1.1f, 1.1f);
+        transform.localScale = new Vector2(1.25f, 1.25f);
+        transform.localScale = new Vector2(1.4f, 1.4f);
+        transform.localScale = new Vector2(1.5f, 1.5f);
+    }
     private void GetReferences()
     {
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
