@@ -194,7 +194,7 @@ MonoBehaviour:
   BulletSpeed: 0.1
   BulletSize: 1
   BulletSlow: 1
-  BulletBounces: 5
+  BulletBounces: 1
   FireRadius: 0
   ExplosionDMG: 0
   weapon: {fileID: 8588622872557913663}
