@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CardHandler : MonoBehaviour
@@ -14,6 +16,8 @@ public class CardHandler : MonoBehaviour
 
     private PointSystem pointSystem;
 
+    private EventSystemAccess eventSystemAccess;
+
     private TMP_Text XIspickingtext;
 
     private void Awake()
@@ -25,11 +29,18 @@ public class CardHandler : MonoBehaviour
     // Picks random card and then spawns selected card at card spawn position doing so for every spawn position.
     public void SpawnCards()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         for (int i = 0; i < CardSpawnAmount; i++)
         {
             pos = CardSpawnPoint[i];
             int n = Random.Range(0, Cards.Count);
             GameObject g = Instantiate(Cards[n], pos.transform);
+            if (i == 4)
+            {
+                g.gameObject.tag = "FirstCardToSelect";
+                EventSystem.current.SetSelectedGameObject(g);
+            }
             Cards.Remove(Cards[n]);
         }
     }

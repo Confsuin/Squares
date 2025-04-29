@@ -1,19 +1,27 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Card : MonoBehaviour
 {
     // GameObjects
     private GameObject CardsPickerBackground;
+    public GameObject DebugMenu;
 
     // References
     private CardSystemSpawner cardSystemSpawner;
+
     private LevelManager levelManager;
+
     private PointSystem pointSystem;
+
     private Player1 player1;
     private Player2 player2;
+
     private PlayerHealthBar player1HealthBar;
     private PlayerHealthBar player2HealthBar;
+
+    private DebugMenuButtons debugMenuButtons;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -50,7 +58,14 @@ public class Card : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 0;
         GetReferences();
+        StartCoroutine(WaitForCardsSpawned());
+    }
+    IEnumerator WaitForCardsSpawned()
+    {
+        yield return new WaitForSecondsRealtime(0.01f);
+        DebugMenu.SetActive(false);
     }
     public void DoSelectCard()
     {
@@ -61,6 +76,14 @@ public class Card : MonoBehaviour
     }
     void DoAddStatsToPlayer()
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            Time.timeScale = 1;
+            if (debugMenuButtons.IsMenuActive == true)
+            {
+                DebugMenu.SetActive(true);
+            }
+        }
         if (pointSystem.Player2Won == true)
         {
             // Adds Base Player Stats
@@ -147,6 +170,8 @@ public class Card : MonoBehaviour
 
             Debug.Log("Stats added to Player 2");
         }
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
     public void IncreaseCardSize()
     {
@@ -193,5 +218,10 @@ public class Card : MonoBehaviour
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            debugMenuButtons = GameObject.FindWithTag("Debug Menu Buttons").GetComponent<DebugMenuButtons>();
+            DebugMenu = GameObject.FindWithTag("Debug Menu");
+        }
     }
 }

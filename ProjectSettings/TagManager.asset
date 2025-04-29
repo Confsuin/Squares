@@ -45,6 +45,10 @@ TagManager:
   - Fire Radius Stat
   - Stats Info
   - Player X Stats
+  - BulletAlt
+  - Debug Menu Buttons
+  - EventSystem
+  - FirstCardToSelect
   layers:
   - Default
   - TransparentFX
