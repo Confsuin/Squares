@@ -9,12 +9,16 @@ public class Player1Bullet : MonoBehaviour
     public float speed;
     public float size;
     public float slow;
+    public int timesBounced;
     public float bounce;
     public float fire;
     public float explosion;
 
-    public Player1 player1;
-    public Player2 player2;
+    public GameObject explosionEffect;
+    public GameObject fireZoneEffect;
+
+    private Player1 player1;
+    private Player2 player2;
     public TrainingDummy trainingDummy;
 
     Rigidbody2D rb2d;
@@ -33,13 +37,11 @@ public class Player1Bullet : MonoBehaviour
         slow = player1.BulletSlow;
         bounce = player1.BulletBounces;
         fire = player1.FireRadius;
-        explosion = player1.ExplosionRadius;
+        explosion = player1.ExplosionDMG;
+
+        rb2d.AddForce(transform.right * speed);
     }
 
-    void Update()
-    {
-        rb2d.linearVelocity = transform.right * speed;
-    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -73,11 +75,39 @@ public class Player1Bullet : MonoBehaviour
                 trainingDummy.StartPoisonTimerP1DMG();
             }
         }
-        if (other.gameObject.tag == "Wall" && bounce <= 0)
+        if (other.gameObject.tag == "Wall")
+        {
+            timesBounced += 1;
+        }
+        if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {
             Destroy(gameObject);
+            Debug.Log("Bounce depleted");
+        }
+
+
+
+        if (explosion > 0 && other.gameObject.tag == "Wall")
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
         }
     }
+
+    public void OnDestroy()
+    {
+        if (explosion > 0)
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+        if (fire > 0)
+        {
+            Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
+        }
+    }
+
+
+
+
     private void GetRefrences()
     {
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();

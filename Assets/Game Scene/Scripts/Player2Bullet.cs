@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player2Bullet : MonoBehaviour
 {
@@ -8,12 +9,16 @@ public class Player2Bullet : MonoBehaviour
     public float speed;
     public float size;
     public float slow;
+    public float timesBounced;
     public float bounce;
     public float fire;
     public float explosion;
 
-    public Player1 player1;
-    public Player2 player2;
+    public GameObject explosionEffect;
+    public GameObject fireZoneEffect;
+
+    private Player1 player1;
+    private Player2 player2;
     public TrainingDummy trainingDummy;
 
     Rigidbody2D rb2d;
@@ -32,13 +37,12 @@ public class Player2Bullet : MonoBehaviour
         slow = player2.BulletSlow;
         bounce = player2.BulletBounces;
         fire = player2.FireRadius;
-        explosion = player2.ExplosionRadius;
+        explosion = player2.ExplosionDMG;
+
+        rb2d.AddForce(transform.right * speed);
     }
 
-    void Update()
-    {
-        rb2d.linearVelocity = transform.right * speed;
-    }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -72,11 +76,37 @@ public class Player2Bullet : MonoBehaviour
                 trainingDummy.StartPoisonTimerP2DMG();
             }
         }
-        if (other.gameObject.tag == "Wall" && bounce <= 0)
+        if (other.gameObject.tag == "Wall")
+        {
+            timesBounced -= 1;
+        }
+        if (other.gameObject.tag == "Wall" && timesBounced >= 0)
         {
             Destroy(gameObject);
+            Debug.Log("Bounce depleted");
         }
     }
+
+
+    public void OnDestroy()
+    {
+        if (explosion > 0)
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+        if (fire > 0)
+        {
+            Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
+        }
+    }
+
+
+
+
+
+
+
+
     private void GetRefrences()
     {
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();

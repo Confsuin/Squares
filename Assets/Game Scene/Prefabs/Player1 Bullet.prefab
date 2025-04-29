@@ -100,7 +100,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: eec2b5fd1b4d2894e9d8a1ca75fc1e85, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: eec2b5fd1b4d2894e9d8a1ca75fc1e85, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -175,14 +175,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82e8fae5d693b241938cce30621dbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 25
-  BulletLifeSteal: 0
-  BulletPoison: 0
-  BulletSpeed: 30
-  BulletSize: 1
-  BulletSlow: 1
-  BulletBounces: 0
-  FireRadius: 0
-  ExplosionRadius: 0
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  damage: 0
+  lifesteal: 0
+  poison: 0
+  speed: 0
+  size: 0
+  slow: 0
+  timesBounced: 0
+  bounce: 0
+  fire: 0
+  explosion: 0
+  explosionEffect: {fileID: 3152332661708199044, guid: ec1c8d40fdb4ef04aadedb1b7e4c8c30, type: 3}
+  fireZoneEffect: {fileID: 8272710597617113087, guid: 5cb039baf77209542a3c999f0635cb22, type: 3}

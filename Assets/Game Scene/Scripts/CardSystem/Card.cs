@@ -92,7 +92,7 @@ public class Card : MonoBehaviour
 
             // Adds Bullet Effect Stats
             player1.FireRadius = player1.FireRadius + FireRadius;
-            player1.ExplosionRadius = player1.ExplosionRadius + ExplosionRadius;
+            player1.ExplosionDMG = player1.ExplosionDMG + ExplosionRadius;
 
             pointSystem.Player2Won = false;
 
@@ -135,7 +135,7 @@ public class Card : MonoBehaviour
 
             // Adds Bullet Effect Stats
             player2.FireRadius = player2.FireRadius + FireRadius;
-            player2.ExplosionRadius = player2.ExplosionRadius + ExplosionRadius;
+            player2.ExplosionDMG = player2.ExplosionDMG + ExplosionRadius;
 
             pointSystem.Player1Won = false;
 

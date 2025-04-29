@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6700848624956146476}
   m_Layer: 0
   m_Name: Player2 Bullet
-  m_TagString: Bullet
+  m_TagString: BulletAlt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: eec2b5fd1b4d2894e9d8a1ca75fc1e85, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: eec2b5fd1b4d2894e9d8a1ca75fc1e85, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -175,14 +175,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db6d7b89f3b00d4793482dd4653ee49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 25
-  BulletLifeSteal: 0
-  BulletPoison: 0
-  BulletSpeed: 30
-  BulletSize: 1
-  BulletSlow: 1
-  BulletBounces: 0
-  FireRadius: 0
-  ExplosionRadius: 0
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  damage: 0
+  lifesteal: 0
+  poison: 0
+  speed: 0
+  size: 0
+  slow: 0
+  timesBounced: 0
+  bounce: 0
+  fire: 0
+  explosion: 0
+  explosionEffect: {fileID: 1899055111036848405, guid: 8076b187147088942a8868cba91fe5b5, type: 3}
+  fireZoneEffect: {fileID: 814747705012506565, guid: cba5b89d5fb38784f96587a2c0853bd6, type: 3}
+  trainingDummy: {fileID: 0}

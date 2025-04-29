@@ -468,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 0}
   player2: {fileID: 0}
+  trainingDummy: {fileID: 0}
   PlayerHealthBarSlider: {fileID: 0}
 --- !u!1 &4823592085285969171
 GameObject:
@@ -652,7 +653,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9fdc4f2358d925845878fbf3954119d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -673,7 +674,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9fdc4f2358d925845878fbf3954119d0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -735,19 +736,21 @@ MonoBehaviour:
   BulletPoison: 0
   BulletPoisonDamage: 0
   BulletGrowth: 0
-  BulletSpeed: 30
+  BulletSpeed: 0.1
   BulletSize: 1
   BulletSlow: 1
   BulletBounces: 0
   FireRadius: 0
-  ExplosionRadius: 0
+  ExplosionDMG: 0
   weapon: {fileID: 343527326227072773}
   bullet: {fileID: 5767354925039902421, guid: a0acbe4b7dad11c43abbab495edcb32f, type: 3}
   maxHealth: 100
   currentHealth: 0
   MissingHealth: 0
+  playerHealthBar: {fileID: 0}
   Player2Dead: 0
   IsPoisoned: 0
+  Hitself: 0
   player1: {fileID: 0}
   bulpos: {fileID: 146472624887591455}
 --- !u!1 &4925402657718179552
