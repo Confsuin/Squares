@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f0c44cbfc742cd64a943509d0a2858ff
+guid: ec4130ce425253f438d16f4792af3051
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8185670722197784300
-    second: Button Highlited_0
+      213: -9039256273923579169
+    second: Button Pressed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button Highlited_0
+      name: Button Pressed_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce60aecf628599170800000000000000
-      internalID: 8185670722197784300
+      spriteID: fd260179f4c1e8280800000000000000
+      internalID: -9039256273923579169
       vertices: []
       indices: 
       edges: []

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f0c44cbfc742cd64a943509d0a2858ff
+guid: f40b019eb926c824cb896a8dec6ab339
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8185670722197784300
-    second: Button Highlited_0
+      213: -4347532159779508366
+    second: Poison_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button Highlited_0
+      name: Poison_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 550
+        height: 504
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce60aecf628599170800000000000000
-      internalID: 8185670722197784300
+      spriteID: 27f61cee8867aa3c0800000000000000
+      internalID: -4347532159779508366
       vertices: []
       indices: 
       edges: []
