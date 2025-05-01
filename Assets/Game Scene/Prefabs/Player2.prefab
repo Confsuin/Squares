@@ -740,7 +740,7 @@ MonoBehaviour:
   BulletSpeed: 0.1
   BulletSize: 1
   BulletSlow: 1
-  BulletBounces: 0
+  BulletBounces: 1
   FireRadius: 0
   ExplosionDMG: 0
   weapon: {fileID: 343527326227072773}
@@ -750,8 +750,6 @@ MonoBehaviour:
   MissingHealth: 0
   playerHealthBar: {fileID: 0}
   Player2Dead: 0
-  IsPoisoned: 0
-  Hitself: 0
   player1: {fileID: 0}
   bulpos: {fileID: 146472624887591455}
 --- !u!1 &4925402657718179552
