@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class Card : MonoBehaviour
 {
@@ -23,6 +27,11 @@ public class Card : MonoBehaviour
     private PlayerHealthBar player2HealthBar;
 
     private DebugMenuButtons debugMenuButtons;
+
+    public Button ElementButton;
+    Navigation customNav = new Navigation();
+
+    public TMP_Text[] CardText;
 
     // Bools
     private bool HasBeenMoved = false;
@@ -67,6 +76,10 @@ public class Card : MonoBehaviour
         Time.timeScale = 0;
         GetReferences();
         StartCoroutine(WaitForCardsSpawned());
+        foreach (TMP_Text text in CardText)
+        {
+            text.enabled = false;
+        }
     }
     IEnumerator WaitForCardsSpawned()
     {
@@ -181,8 +194,12 @@ public class Card : MonoBehaviour
     }
     public void MoveToSpawnPoint()
     {
-        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 125);
+        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 175);
         Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        customNav.mode = Navigation.Mode.Automatic;
+        ElementButton.navigation = customNav;
+        Parent.transform.SetAsLastSibling();
+        CardsPickerBackground.transform.SetAsFirstSibling();
         HasBeenMoved = true;
     }
     public void IncreaseCardSize()
@@ -208,13 +225,13 @@ public class Card : MonoBehaviour
         transform.localScale = new Vector2(1.266f, 1.266f);
         yield return new WaitForSecondsRealtime(0.02f);
         transform.localScale = new Vector2(1.32f, 1.32f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.4f, 1.4f);
+        /*yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.4f, 1.4f);*/
     }
     IEnumerator DecreaseCardSizeCoroutine()
     {
-        transform.localScale = new Vector2(1.332f, 1.332f);
-        yield return new WaitForSecondsRealtime(0.02f);
+        /*transform.localScale = new Vector2(1.332f, 1.332f);
+        yield return new WaitForSecondsRealtime(0.02f);*/
         transform.localScale = new Vector2(1.266f, 1.266f);
         yield return new WaitForSecondsRealtime(0.02f);
         transform.localScale = new Vector2(1.2f, 1.2f);
@@ -227,7 +244,13 @@ public class Card : MonoBehaviour
     }
     private void GetReferences()
     {
+        CardText = GetComponentsInChildren<TMP_Text>();
+        ElementButton = GetComponent<Button>();
+        customNav.mode = Navigation.Mode.None;
+        ElementButton.navigation = customNav;
+
         Parent = this.gameObject.transform.parent;
+        CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
