@@ -36,7 +36,8 @@ public class CardHandler : MonoBehaviour
             pos = CardSpawnPoint[i];
             int n = Random.Range(0, Cards.Count);
             GameObject g = Instantiate(Cards[n], pos.transform);
-            if (i == 4)
+            g.GetComponent<Card>().CardNumber = i + 1;
+            if (i == 0)
             {
                 g.gameObject.tag = "FirstCardToSelect";
                 EventSystem.current.SetSelectedGameObject(g);

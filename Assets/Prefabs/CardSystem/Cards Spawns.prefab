@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7919835297291895296}
   m_Layer: 5
-  m_Name: Card Spawn Point 3
+  m_Name: Card Spawn Point 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,11 +67,11 @@ RectTransform:
   m_Children:
   - {fileID: 3767628341931985502}
   - {fileID: 4005412772062859302}
+  - {fileID: 5895879562133994348}
+  - {fileID: 8101200494188076514}
   - {fileID: 8891855116320791493}
   - {fileID: 8093349543918527291}
   - {fileID: 7919835297291895296}
-  - {fileID: 8101200494188076514}
-  - {fileID: 5895879562133994348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -111,11 +111,11 @@ MonoBehaviour:
   - {fileID: 8421034208990630424, guid: da54f7bdbeeb22a4181dc197371fc743, type: 3}
   - {fileID: 8421034208990630424, guid: ae230e5db1cc1f041b533e160167155f, type: 3}
   CardSpawnPoint:
+  - {fileID: 7382922337061014168}
+  - {fileID: 8484678195066346653}
   - {fileID: 3701352662667000618}
   - {fileID: 6867721143290512406}
   - {fileID: 532159455670246714}
-  - {fileID: 8484678195066346653}
-  - {fileID: 7382922337061014168}
   pos: {fileID: 3701352662667000618}
 --- !u!114 &8544731092600599605
 MonoBehaviour:
@@ -139,7 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891855116320791493}
   m_Layer: 5
-  m_Name: Card Spawn Point 1
+  m_Name: Card Spawn Point 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8093349543918527291}
   m_Layer: 5
-  m_Name: Card Spawn Point 2
+  m_Name: Card Spawn Point 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5895879562133994348}
   m_Layer: 5
-  m_Name: Card Spawn Point 5
+  m_Name: Card Spawn Point 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8101200494188076514}
   m_Layer: 5
-  m_Name: Card Spawn Point 4
+  m_Name: Card Spawn Point 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

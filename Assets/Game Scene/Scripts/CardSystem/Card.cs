@@ -7,6 +7,7 @@ public class Card : MonoBehaviour
     // GameObjects
     private GameObject CardsPickerBackground;
     public GameObject DebugMenu;
+    private Transform Parent;
 
     // References
     private CardSystemSpawner cardSystemSpawner;
@@ -22,6 +23,9 @@ public class Card : MonoBehaviour
     private PlayerHealthBar player2HealthBar;
 
     private DebugMenuButtons debugMenuButtons;
+
+    // Bools
+    private bool HasBeenMoved = false;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -48,6 +52,8 @@ public class Card : MonoBehaviour
     public float FireRadius;
     public float ExplosionRadius;
     public float GunInaccuracy;
+
+    public float CardNumber;
 
     // Reload Speed is in 0.25 second intervals.
     public float ReloadSpeed;
@@ -173,8 +179,18 @@ public class Card : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
+    private void MoveToSpawnPoint()
+    {
+        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 125);
+        Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        HasBeenMoved = true;
+    }
     public void IncreaseCardSize()
     {
+        if (HasBeenMoved == false)
+        {
+            MoveToSpawnPoint();
+        }
         StartCoroutine(IncreaseCardSizeCoroutine());
     }
     public void DecreaseCardSize()
@@ -211,6 +227,7 @@ public class Card : MonoBehaviour
     }
     private void GetReferences()
     {
+        Parent = this.gameObject.transform.parent;
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
