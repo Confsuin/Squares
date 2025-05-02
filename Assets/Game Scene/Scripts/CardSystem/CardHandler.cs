@@ -14,6 +14,8 @@ public class CardHandler : MonoBehaviour
     public List<GameObject> CardSpawnPoint = new();
     public GameObject pos;
 
+    public FlipaCard flipaCard;
+
     private PointSystem pointSystem;
 
     private EventSystemAccess eventSystemAccess;
@@ -42,6 +44,7 @@ public class CardHandler : MonoBehaviour
                 g.gameObject.tag = "FirstCardToSelect";
                 EventSystem.current.SetSelectedGameObject(g);
             }
+            flipaCard.SpawnedCards.Add(g.GetComponent<Card>());
             Cards.Remove(Cards[n]);
         }
     }
@@ -58,6 +61,7 @@ public class CardHandler : MonoBehaviour
     }
     private void GetReferences()
     {
+        flipaCard = GameObject.FindWithTag("Flip A Card").GetComponent<FlipaCard>();
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         XIspickingtext = GameObject.FindWithTag("X Is picking text").GetComponent<TMP_Text>();
     }

@@ -49,6 +49,7 @@ TagManager:
   - Debug Menu Buttons
   - EventSystem
   - FirstCardToSelect
+  - Flip A Card
   layers:
   - Default
   - TransparentFX

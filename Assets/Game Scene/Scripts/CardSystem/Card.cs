@@ -179,7 +179,7 @@ public class Card : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
-    private void MoveToSpawnPoint()
+    public void MoveToSpawnPoint()
     {
         Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 125);
         Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
