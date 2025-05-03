@@ -29,13 +29,9 @@ public class Card : MonoBehaviour
 
     private DebugMenuButtons debugMenuButtons;
 
-    public Button ElementButton;
-    Navigation customNav = new Navigation();
-
     public TMP_Text[] CardText;
 
     // Bools
-    private bool HasBeenMoved = false;
     public bool Flipped = false;
 
     // Floats. Numbers in Decimal form.
@@ -101,11 +97,8 @@ public class Card : MonoBehaviour
     {
         Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 175);
         Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        customNav.mode = Navigation.Mode.Automatic;
-        ElementButton.navigation = customNav;
         Parent.transform.SetAsLastSibling();
         CardsPickerBackground.transform.SetAsFirstSibling();
-        HasBeenMoved = true;
     }
     public void FlipCard()
     {
@@ -149,10 +142,6 @@ public class Card : MonoBehaviour
     public void IncreaseCardSize()
     {
         FlipCard();
-        /*if (HasBeenMoved == false)
-        {
-            MoveToSpawnPoint();
-        }*/
         StartCoroutine(IncreaseCardSizeCoroutine());
     }
     public void DecreaseCardSize()
@@ -289,9 +278,6 @@ public class Card : MonoBehaviour
     private void GetReferences()
     {
         CardText = GetComponentsInChildren<TMP_Text>();
-        /*ElementButton = GetComponent<Button>();
-        customNav.mode = Navigation.Mode.None;
-        ElementButton.navigation = customNav;*/
 
         Parent = this.gameObject.transform.parent;
         CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
