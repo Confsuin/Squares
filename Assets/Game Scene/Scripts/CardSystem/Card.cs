@@ -1,17 +1,18 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class Card : MonoBehaviour
 {
     // GameObjects
     private GameObject CardsPickerBackground;
     public GameObject DebugMenu;
+    public GameObject CardBody;
     private Transform Parent;
+    public Sprite BackSide;
+    public Sprite FrontSide;
 
     // References
     private CardSystemSpawner cardSystemSpawner;
@@ -35,6 +36,7 @@ public class Card : MonoBehaviour
 
     // Bools
     private bool HasBeenMoved = false;
+    public bool Flipped = false;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -74,6 +76,7 @@ public class Card : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 0;
+        CardBody.transform.SetAsLastSibling();
         GetReferences();
         StartCoroutine(WaitForCardsSpawned());
         foreach (TMP_Text text in CardText)
@@ -92,6 +95,97 @@ public class Card : MonoBehaviour
         levelManager.StartSquareOff();
         Destroy(GameObject.FindWithTag("Cards Menu"));
         Debug.Log("Card Clicked");
+    }
+
+    public void MoveToSpawnPoint()
+    {
+        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 175);
+        Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        customNav.mode = Navigation.Mode.Automatic;
+        ElementButton.navigation = customNav;
+        Parent.transform.SetAsLastSibling();
+        CardsPickerBackground.transform.SetAsFirstSibling();
+        HasBeenMoved = true;
+    }
+    public void FlipCard()
+    {
+        if (Flipped == false)
+        {
+            Flipped = true;
+            StartCoroutine(FlipCardCoroutine());
+        }
+    }
+    IEnumerator FlipCardCoroutine()
+    {
+        transform.localRotation = Quaternion.Euler(0, 165, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 150, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 135, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 120, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 105, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 90, 0);
+        CardBody.transform.SetAsFirstSibling();
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 75, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 60, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 45, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 30, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 15, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        foreach (TMP_Text text in CardText)
+        {
+            text.enabled = true;
+        }
+    }
+    public void IncreaseCardSize()
+    {
+        FlipCard();
+        /*if (HasBeenMoved == false)
+        {
+            MoveToSpawnPoint();
+        }*/
+        StartCoroutine(IncreaseCardSizeCoroutine());
+    }
+    public void DecreaseCardSize()
+    {
+        StartCoroutine(DecreaseCardSizeCoroutine());
+    }
+    IEnumerator IncreaseCardSizeCoroutine()
+    {
+        transform.localScale = new Vector2(1.066f, 1.066f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.132f, 1.132f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.266f, 1.266f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.32f, 1.32f);
+        /*yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.4f, 1.4f);*/
+    }
+    IEnumerator DecreaseCardSizeCoroutine()
+    {
+        /*transform.localScale = new Vector2(1.332f, 1.332f);
+        yield return new WaitForSecondsRealtime(0.02f);*/
+        transform.localScale = new Vector2(1.266f, 1.266f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.132f, 1.132f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.066f, 1.066f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1f, 1f);
     }
     void DoAddStatsToPlayer()
     {
@@ -192,62 +286,12 @@ public class Card : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
-    public void MoveToSpawnPoint()
-    {
-        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 175);
-        Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        customNav.mode = Navigation.Mode.Automatic;
-        ElementButton.navigation = customNav;
-        Parent.transform.SetAsLastSibling();
-        CardsPickerBackground.transform.SetAsFirstSibling();
-        HasBeenMoved = true;
-    }
-    public void IncreaseCardSize()
-    {
-        if (HasBeenMoved == false)
-        {
-            MoveToSpawnPoint();
-        }
-        StartCoroutine(IncreaseCardSizeCoroutine());
-    }
-    public void DecreaseCardSize()
-    {
-        StartCoroutine(DecreaseCardSizeCoroutine());
-    }
-    IEnumerator IncreaseCardSizeCoroutine()
-    {
-        transform.localScale = new Vector2(1.066f, 1.066f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.132f, 1.132f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.2f, 1.2f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.266f, 1.266f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.32f, 1.32f);
-        /*yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.4f, 1.4f);*/
-    }
-    IEnumerator DecreaseCardSizeCoroutine()
-    {
-        /*transform.localScale = new Vector2(1.332f, 1.332f);
-        yield return new WaitForSecondsRealtime(0.02f);*/
-        transform.localScale = new Vector2(1.266f, 1.266f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.2f, 1.2f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.132f, 1.132f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.066f, 1.066f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1f, 1f);
-    }
     private void GetReferences()
     {
         CardText = GetComponentsInChildren<TMP_Text>();
-        ElementButton = GetComponent<Button>();
+        /*ElementButton = GetComponent<Button>();
         customNav.mode = Navigation.Mode.None;
-        ElementButton.navigation = customNav;
+        ElementButton.navigation = customNav;*/
 
         Parent = this.gameObject.transform.parent;
         CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");

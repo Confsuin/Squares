@@ -542,6 +542,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugMenu: {fileID: 0}
+  CardBody: {fileID: 8785173166664168708}
+  BackSide: {fileID: 0}
+  FrontSide: {fileID: 0}
+  ElementButton: {fileID: 0}
+  CardText: []
   MovementSpeed: 1
   Health: 1
   Damage: 1
@@ -559,6 +564,7 @@ MonoBehaviour:
   FireRadius: 0
   ExplosionRadius: 0
   GunInaccuracy: 0
+  CardNumber: 0
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0.5
