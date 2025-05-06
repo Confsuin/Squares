@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player2 : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class Player2 : MonoBehaviour
 
     //Shoot
     private InputAction shootAction;
+
     //Health
     public float maxHealth;
     public float currentHealth;
@@ -58,6 +60,7 @@ public class Player2 : MonoBehaviour
     //Status Effects
     public bool IsPoisoned = false;
     public bool Hitself = false;
+    public bool canDoActions = true;
 
     //Refrences
     public Player1 player1;
@@ -69,7 +72,7 @@ public class Player2 : MonoBehaviour
 
     public void BulletSpawner()
     {
-        if (Ammo > 0 && shootTimer >= AttackSpeed)
+        if (Ammo > 0 && shootTimer >= AttackSpeed && canDoActions == true)
         {
             shootTimer = 0f;
 
@@ -89,8 +92,6 @@ public class Player2 : MonoBehaviour
                 bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
             }
 
-            Destroy(spawnedBullet, Range);
-            //Shotgun changes the "Range" to ".35f"
         }
         else if (Ammo == 0)
         {
@@ -119,29 +120,35 @@ public class Player2 : MonoBehaviour
 
     private void OnEnable()
     {
-        //Movement
-        input.Enable();
-        input.Player2.Movement.performed += OnMovementPerformed;
-        input.Player2.Movement.canceled += OnMovementCancelled;
+        if (canDoActions == true)
+        {
+            //Movement
+            input.Enable();
+            input.Player2.Movement.performed += OnMovementPerformed;
+            input.Player2.Movement.canceled += OnMovementCancelled;
 
+            //Aiming
+            input.Player2.Aim.performed += OnAimPerformed;
+            input.Player2.Aim.canceled += OnAimCanceled;
 
-        //Aiming
-        input.Player2.Aim.performed += OnAimPerformed;
-        input.Player2.Aim.canceled += OnAimCanceled;
+            //Shooting
+            shootAction.performed += _ => BulletSpawner();
 
-        //Shooting
-        shootAction.performed += _ => BulletSpawner();
+        }
     }
 
     private void OnDisable()
     {
-        //Movement
-        input.Disable();
-        input.Player2.Movement.performed -= OnMovementPerformed;
-        input.Player2.Movement.canceled -= OnMovementCancelled;
+        if (canDoActions == true)
+        {
+            //Movement
+            input.Disable();
+            input.Player2.Movement.performed -= OnMovementPerformed;
+            input.Player2.Movement.canceled -= OnMovementCancelled;
 
-        //Shooting
-        shootAction.performed -= _ => BulletSpawner();
+            //Shooting
+            shootAction.performed -= _ => BulletSpawner();
+        }
     }
 
     private void FixedUpdate()
@@ -217,7 +224,7 @@ public class Player2 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
-            Debug.Log("Reloading.....");
+
         }
     }
 
@@ -226,12 +233,12 @@ public class Player2 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
-        Debug.Log("Reload complete!");
+
     }
 
     public IEnumerator PoisonTimerP1DMG()
     {
-        Debug.Log("Player1 Poisoned");
+
         yield return new WaitForSecondsRealtime(1f);
         PoisonDMGP1DMG();
         yield return new WaitForSecondsRealtime(1f);
@@ -241,7 +248,7 @@ public class Player2 : MonoBehaviour
     }
     public IEnumerator PoisonTimerP2DMG()
     {
-        Debug.Log("Player2 Poisoned");
+
         yield return new WaitForSecondsRealtime(1f);
         PoisonDMGP2DMG();
         yield return new WaitForSecondsRealtime(1f);
@@ -253,13 +260,13 @@ public class Player2 : MonoBehaviour
 
     public void PoisonDMGP1DMG()
     {
-        Debug.Log("Player1 Took Poison damage");
+
         BulletPoisonDamage = MissingHealth * player1.BulletPoison;
         TakeDamage(BulletPoisonDamage);
     }
     public void PoisonDMGP2DMG()
     {
-        Debug.Log("Player1 Took Poison damage");
+
         BulletPoisonDamage = MissingHealth * BulletPoison;
         TakeDamage(BulletPoisonDamage);
     }
@@ -277,7 +284,13 @@ public class Player2 : MonoBehaviour
         currentHealth -= DMG;
         MissingHealth = maxHealth - currentHealth;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
+        if (player1.BulletLifeSteal > 0)
+        {
+            player1.currentHealth += DMG * player1.BulletLifeSteal;
+            player1.MissingHealth = player1.maxHealth - player1.currentHealth;
+        }
         playerHealthBar.UpdateHealthBar();
+        player1.playerHealthBar.UpdateHealthBar();
     }
 
 
