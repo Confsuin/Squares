@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -21,11 +22,12 @@ public class CardHandler : MonoBehaviour
 
     private EventSystemAccess eventSystemAccess;
 
-    private TMP_Text XIspickingtext;
+    public TMP_Text XIspickingtext;
 
     private void Awake()
     {
         GetReferences();
+        StartCoroutine(WaitForReference());
         SpawnCards();
         UpdateIsPickingText();
     }
@@ -66,5 +68,11 @@ public class CardHandler : MonoBehaviour
         //flipaCard = GameObject.FindWithTag("Flip A Card");
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         XIspickingtext = GameObject.FindWithTag("X Is picking text").GetComponent<TMP_Text>();
+    }
+    IEnumerator WaitForReference()
+    {
+        yield return new WaitForSecondsRealtime(0.01f);
+        GetReferences();
+        UpdateIsPickingText();
     }
 }

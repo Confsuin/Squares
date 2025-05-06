@@ -50,6 +50,8 @@ TagManager:
   - EventSystem
   - FirstCardToSelect
   - Flip A Card
+  - Win Screen
+  - Win Screen Parent
   layers:
   - Default
   - TransparentFX

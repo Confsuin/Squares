@@ -34,8 +34,9 @@ public class PointSystem : MonoBehaviour
     public Player2 player2;
 
 
-    public LevelManager levelManager;
-    public CardSystemSpawner cardSystemSpawner;
+    private LevelManager levelManager;
+    private CardSystemSpawner cardSystemSpawner;
+    private WinScreen winScreen;
 
 
     public Vector2 Player1Point;
@@ -45,10 +46,12 @@ public class PointSystem : MonoBehaviour
     public int TotalPlayer1Points;
     public int TotalPlayer2Points;
 
+    public float TotalPointsToWin;
+
 
     public bool Player1Won = false;
     public bool Player2Won = false;
-
+    public bool FirstCardSpawn = true;
 
     void Start()
     {
@@ -65,6 +68,7 @@ public class PointSystem : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
         {
             PointsToWin = PointsToWinSlider.GetComponent<Slider>().value;
+            TotalPointsToWin = PointsToWin * MaxPointsPerSquare;
         }
     }
 
@@ -98,13 +102,13 @@ public class PointSystem : MonoBehaviour
     {
         foreach (PointCounter pointCounter in PointCounters1)
         {
-            pointCounter.CurrentPoints = Mathf.Clamp(TotalPlayer1Points - pointCounter.PointNumber, 0, 2);
+            pointCounter.CurrentPoints = Mathf.Clamp(TotalPlayer1Points - pointCounter.PointNumber, 0, MaxPointsPerSquare);
             pointCounter.GetComponentInParent<Slider>().value = pointCounter.CurrentPoints;
             ResetPlayersHealth();
         }
         foreach (PointCounter pointCounter in PointCounters2)
         {
-            pointCounter.CurrentPoints = Mathf.Clamp(TotalPlayer2Points - pointCounter.PointNumber, 0, 2);
+            pointCounter.CurrentPoints = Mathf.Clamp(TotalPlayer2Points - pointCounter.PointNumber, 0, MaxPointsPerSquare);
             pointCounter.GetComponentInParent<Slider>().value = pointCounter.CurrentPoints;
             ResetPlayersHealth();
         }
@@ -112,32 +116,6 @@ public class PointSystem : MonoBehaviour
     public int MaxPointsPerSquare = 2;
     public void IncreasePoints()
     {
-        if (player1.Player1Dead == true)
-        {
-            ResetPlayersHealth();
-
-            player1.Player1Dead = false;
-            Player2Won = true;
-
-            TotalPlayer2Points += 1;
-            UpdatePoints();
-            if (TotalPlayer2Points % MaxPointsPerSquare == 0)
-            {
-                cardSystemSpawner.DoSpawnCards();
-                if (TotalPlayer1Points % MaxPointsPerSquare != 0)
-                {
-                    TotalPlayer1Points -= (TotalPlayer1Points % MaxPointsPerSquare);
-                    ResetPlayersHealth();
-                }
-            }
-            else
-            {
-                levelManager.StartSquareOff();
-                Player2Won = false;
-                ResetPlayersHealth();
-            }
-            UpdatePoints();
-        }
         if (player2.Player2Dead == true)
         {
             ResetPlayersHealth();
@@ -147,7 +125,11 @@ public class PointSystem : MonoBehaviour
 
             TotalPlayer1Points += 1;
             UpdatePoints();
-            if (TotalPlayer1Points % MaxPointsPerSquare == 0)
+            if (TotalPlayer1Points >= TotalPointsToWin || TotalPlayer2Points >= TotalPointsToWin)
+            {
+                winScreen.DoWinScreen();
+            }
+            else if (TotalPlayer1Points % MaxPointsPerSquare == 0)
             {
                 cardSystemSpawner.DoSpawnCards();
                 if (TotalPlayer2Points % MaxPointsPerSquare != 0)
@@ -164,6 +146,43 @@ public class PointSystem : MonoBehaviour
             }
             UpdatePoints();
         }
+        else if (player1.Player1Dead == true)
+        {
+            ResetPlayersHealth();
+
+            player1.Player1Dead = false;
+            Player2Won = true;
+
+            TotalPlayer2Points += 1;
+            UpdatePoints();
+            if (TotalPlayer1Points >= TotalPointsToWin || TotalPlayer2Points >= TotalPointsToWin)
+            {
+                winScreen.DoWinScreen();
+            }
+            else if (TotalPlayer2Points % MaxPointsPerSquare == 0)
+            {
+
+                cardSystemSpawner.DoSpawnCards();
+                if (TotalPlayer1Points % MaxPointsPerSquare != 0)
+                {
+                    TotalPlayer1Points -= (TotalPlayer1Points % MaxPointsPerSquare);
+                    ResetPlayersHealth();
+                }
+            }
+            else
+            {
+                levelManager.StartSquareOff();
+                Player2Won = false;
+                ResetPlayersHealth();
+            }
+            UpdatePoints();
+        }
+    }
+    public void FirstCardSpawns()
+    {
+        Player2Won = true;
+        cardSystemSpawner.DoSpawnCards();
+
     }
     private void FixedUpdate()
     {
@@ -177,6 +196,7 @@ public class PointSystem : MonoBehaviour
     }
     private void GetReferences()
     {
+        winScreen = GameObject.FindWithTag("Win Screen Parent").GetComponent<WinScreen>();
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();

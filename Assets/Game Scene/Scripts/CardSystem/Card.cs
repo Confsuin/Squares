@@ -83,13 +83,22 @@ public class Card : MonoBehaviour
     IEnumerator WaitForCardsSpawned()
     {
         yield return new WaitForSecondsRealtime(0.01f);
-        DebugMenu.SetActive(false);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            DebugMenu.SetActive(false);
+        }
     }
     public void DoSelectCard()
     {
         DoAddStatsToPlayer();
         levelManager.StartSquareOff();
         Destroy(GameObject.FindWithTag("Cards Menu"));
+        if (pointSystem.FirstCardSpawn == true)
+        {
+            pointSystem.Player1Won = true;
+            pointSystem.FirstCardSpawn = false;
+            cardSystemSpawner.DoSpawnCards();
+        }
         Debug.Log("Card Clicked");
     }
 
@@ -159,13 +168,9 @@ public class Card : MonoBehaviour
         transform.localScale = new Vector2(1.266f, 1.266f);
         yield return new WaitForSecondsRealtime(0.02f);
         transform.localScale = new Vector2(1.32f, 1.32f);
-        /*yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.4f, 1.4f);*/
     }
     IEnumerator DecreaseCardSizeCoroutine()
     {
-        /*transform.localScale = new Vector2(1.332f, 1.332f);
-        yield return new WaitForSecondsRealtime(0.02f);*/
         transform.localScale = new Vector2(1.266f, 1.266f);
         yield return new WaitForSecondsRealtime(0.02f);
         transform.localScale = new Vector2(1.2f, 1.2f);
