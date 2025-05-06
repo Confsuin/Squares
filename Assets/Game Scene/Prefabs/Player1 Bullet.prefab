@@ -146,7 +146,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 77882264689708298}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDamping: 0
@@ -161,7 +161,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6215963943875342808
 MonoBehaviour:
@@ -187,3 +187,4 @@ MonoBehaviour:
   explosion: 0
   explosionEffect: {fileID: 3152332661708199044, guid: ec1c8d40fdb4ef04aadedb1b7e4c8c30, type: 3}
   fireZoneEffect: {fileID: 8272710597617113087, guid: 5cb039baf77209542a3c999f0635cb22, type: 3}
+  trainingDummy: {fileID: 0}

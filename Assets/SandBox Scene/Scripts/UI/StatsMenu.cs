@@ -36,6 +36,9 @@ public class StatsMenu : MonoBehaviour
     public bool UpdateStatsPage = false;
     public bool ShowingPlayer1Stats = false;
     public bool ShowingPlayer2Stats = false;
+    
+    // Floats
+    float BulletBounces = 0;
 
     void Start()
     {
@@ -115,7 +118,8 @@ public class StatsMenu : MonoBehaviour
         BulletCountStat.text = "Bullet Count: " + player1.BulletCount;
         ShotgunCountStat.text = "Shotgun Count: " + player1.ShotgunCount;
         BulletSpreadStat.text = "Bullet Spread: " + player1.GunInaccuracy;
-        BulletBouncesStat.text = "Bullet Bounces: " + player1.BulletBounces;
+        BulletBounces = player1.BulletBounces - 1;
+        BulletBouncesStat.text = "Bullet Bounces: " + BulletBounces;
         BulletGrowthStat.text = "Bullet Growth: " + player1.BulletGrowth;
         ExplosionDMGStat.text = "Explosion DMG: " + player1.ExplosionDMG;
         FireRadiusStat.text = "Fire Radius: " + player1.FireRadius;
@@ -136,7 +140,8 @@ public class StatsMenu : MonoBehaviour
         BulletCountStat.text = "Bullet Count: " + player2.BulletCount;
         ShotgunCountStat.text = "Shotgun Count: " + player2.ShotgunCount;
         BulletSpreadStat.text = "Bullet Spread: " + player2.GunInaccuracy;
-        BulletBouncesStat.text = "Bullet Bounces: " + player2.BulletBounces;
+        BulletBounces = player2.BulletBounces - 1;
+        BulletBouncesStat.text = "Bullet Bounces: " + BulletBounces;
         BulletGrowthStat.text = "Bullet Growth: " + player2.BulletGrowth;
         ExplosionDMGStat.text = "Explosion DMG: " + player2.ExplosionDMG;
         FireRadiusStat.text = "Fire Radius: " + player2.FireRadius;

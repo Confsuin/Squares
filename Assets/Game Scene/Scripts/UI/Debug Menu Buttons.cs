@@ -13,6 +13,9 @@ public class DebugMenuButtons : MonoBehaviour
     private CardSystemSpawner cardSystemSpawner;
     private PointSystem pointSystem;
 
+    // Bools
+    public bool IsMenuActive;
+
     void Start()
     {
         GetReferences();
@@ -24,11 +27,13 @@ public class DebugMenuButtons : MonoBehaviour
     }
     public void OpenDebugMenu()
     {
+        IsMenuActive = true;
         DebugMenu.SetActive(true);
         DebugMenuButton.SetActive(false);
     }
     public void CloseDebugMenu()
     {
+        IsMenuActive = false;
         DebugMenu.SetActive(false);
         DebugMenuButton.SetActive(true);
     }
@@ -52,7 +57,6 @@ public class DebugMenuButtons : MonoBehaviour
     }
     public void RevivePlayers()
     {
-        //player1.currentHealth = player1.currentHealth + player1.MissingHealth
         player1.TakeDamage(player1.MissingHealth = -player1.MissingHealth);
         player2.TakeDamage(player2.MissingHealth = -player2.MissingHealth);
         player1.MissingHealth = 0;

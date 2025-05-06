@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 937345975838681025}
   - component: {fileID: 9102833504841212013}
   - component: {fileID: 2001907742883547328}
+  - component: {fileID: -8076614195635109597}
   m_Layer: 5
   m_Name: "Block\xB2"
   m_TagString: Untagged
@@ -528,7 +529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 275, y: 412.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9102833504841212013
 MonoBehaviour:
@@ -542,6 +543,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMenu: {fileID: 0}
+  CardBody: {fileID: 8785173166664168708}
+  BackSide: {fileID: 0}
+  FrontSide: {fileID: 0}
+  ElementButton: {fileID: 0}
+  CardText: []
   MovementSpeed: 1
   Health: 0.75
   Damage: 1
@@ -559,6 +566,7 @@ MonoBehaviour:
   FireRadius: 0
   ExplosionRadius: 0
   GunInaccuracy: 0
+  CardNumber: 0
   ReloadSpeed: 0
   Ammo: 0
   BlockCoolDown: 0.25
@@ -576,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -619,6 +627,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-8076614195635109597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421034208990630424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9102833504841212013}
+          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+          m_MethodName: IncreaseCardSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9102833504841212013}
+          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+          m_MethodName: DecreaseCardSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8785173166664168708
 GameObject:
   m_ObjectHideFlags: 0

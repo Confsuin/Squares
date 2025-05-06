@@ -9,10 +9,14 @@ public class Player1Bullet : MonoBehaviour
     public float speed;
     public float size;
     public float slow;
-    public int timesBounced;
+    public float timesBounced;
     public float bounce;
     public float fire;
     public float explosion;
+
+    public bool isBounced = false;
+    public float TimesBouncedTimer = 0f;
+    public float BouncedTimerSpeed = 0.005f;
 
     public GameObject explosionEffect;
     public GameObject fireZoneEffect;
@@ -41,7 +45,18 @@ public class Player1Bullet : MonoBehaviour
 
         rb2d.AddForce(transform.right * speed);
     }
+    private void FixedUpdate()
+    {
+        if (isBounced == true)
+        {
+            TimesBouncedTimer -= Time.deltaTime;
 
+            if (TimesBouncedTimer >= BouncedTimerSpeed)
+            {
+                isBounced = false;
+            }
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -77,7 +92,12 @@ public class Player1Bullet : MonoBehaviour
         }
         if (other.gameObject.tag == "Wall")
         {
-            timesBounced += 1;
+            if (TimesBouncedTimer <= 0)
+            {
+                isBounced = true;
+                TimesBouncedTimer = BouncedTimerSpeed;
+                timesBounced += 1f;
+            }
         }
         if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {
