@@ -180,12 +180,13 @@ MonoBehaviour:
   moveSpeed: 8
   BulletCount: 0
   ShotgunCount: 0
+  Ammo: 0
+  StartingAmmo: 4
   GunInaccuracy: 0
+  MinGunInaccuracy: 0
   AttackSpeed: 1
   Range: 1
   ReloadSpeed: 2.5
-  Ammo: 0
-  StartingAmmo: 4
   Damage: 25
   BulletLifeSteal: 0
   BulletPoison: 0
@@ -194,7 +195,7 @@ MonoBehaviour:
   BulletSpeed: 0.1
   BulletSize: 1
   BulletSlow: 1
-  BulletBounces: 1
+  BulletBounces: 0
   FireRadius: 0
   ExplosionDMG: 0
   weapon: {fileID: 8588622872557913663}
@@ -204,6 +205,7 @@ MonoBehaviour:
   MissingHealth: 0
   playerHealthBar: {fileID: 0}
   Player1Dead: 0
+  canDoActions: 1
   player2: {fileID: 0}
   bulpos: {fileID: 8213719802779661093}
 --- !u!1 &1491868024118229983
