@@ -13,6 +13,8 @@ public class Player1Bullet : MonoBehaviour
     public float bounce;
     public float fire;
     public float explosion;
+    public float range;
+    public float rangeTime;
 
     public bool isBounced = false;
     public float TimesBouncedTimer = 0f;
@@ -42,8 +44,10 @@ public class Player1Bullet : MonoBehaviour
         bounce = player1.BulletBounces;
         fire = player1.FireRadius;
         explosion = player1.ExplosionDMG;
+        range = player1.Range;
 
         rb2d.AddForce(transform.right * speed);
+        rangeTime = range;
     }
     private void FixedUpdate()
     {
@@ -56,6 +60,12 @@ public class Player1Bullet : MonoBehaviour
                 isBounced = false;
             }
         }
+        rangeTime -= Time.deltaTime;
+
+        if (rangeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -63,7 +73,7 @@ public class Player1Bullet : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             player1.TakeDamage(damage);
-            Debug.Log("Hit Player");
+
             Destroy(gameObject);
             if (poison > 0)
             {
@@ -73,7 +83,7 @@ public class Player1Bullet : MonoBehaviour
         if (other.gameObject.tag == "PlayerAlt")
         {
             player2.TakeDamage(damage);
-            Debug.Log("Hit PlayerAlt");
+
             Destroy(gameObject);
             if (poison > 0)
             {
@@ -83,7 +93,7 @@ public class Player1Bullet : MonoBehaviour
         if (other.gameObject.tag == "Training Dummy")
         {
             trainingDummy.TakeDamage(damage);
-            Debug.Log("Hit TrainingDummy");
+
             Destroy(gameObject);
             if (poison > 0)
             {
@@ -92,6 +102,9 @@ public class Player1Bullet : MonoBehaviour
         }
         if (other.gameObject.tag == "Wall")
         {
+            timesBounced += 1;
+            rangeTime = range;
+
             if (TimesBouncedTimer <= 0)
             {
                 isBounced = true;
@@ -102,7 +115,7 @@ public class Player1Bullet : MonoBehaviour
         if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {
             Destroy(gameObject);
-            Debug.Log("Bounce depleted");
+
         }
 
 

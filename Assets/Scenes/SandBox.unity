@@ -958,6 +958,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 389910168443539237, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968428821184100227, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4884660072939620799, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1009,6 +1017,18 @@ PrefabInstance:
     - target: {fileID: 7131370046269070659, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581473920551338495, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071263296132961944, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9100563006844471915, guid: b9a61d4478b2cf444ad87722587891ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1504,6 +1524,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: Range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: BulletBounces
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 522230284982273392, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: m_Name
       value: Player1

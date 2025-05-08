@@ -11,12 +11,13 @@ public class Player1 : MonoBehaviour
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
+    public float Ammo;
+    public float StartingAmmo = 4;
     public float GunInaccuracy;
+    public float MinGunInaccuracy;
     public float AttackSpeed = 1;
     public float Range = 1;
     public float ReloadSpeed;
-    public float Ammo;
-    public float StartingAmmo = 4;
     //Bullet
     public float Damage = 25;
     public float BulletLifeSteal;
@@ -48,6 +49,7 @@ public class Player1 : MonoBehaviour
 
     //Shoot
     private InputAction shootAction;
+
     //Health
     public float maxHealth;
     public float currentHealth;
@@ -56,7 +58,7 @@ public class Player1 : MonoBehaviour
     public bool Player1Dead = false;
 
     //Status Effects
-
+    public bool canDoActions = true;
 
     //Refrences
     public Player2 player2;
@@ -68,8 +70,9 @@ public class Player1 : MonoBehaviour
 
     public void BulletSpawner()
     {
-        if (Ammo > 0 && shootTimer >= AttackSpeed)
+        if (Ammo > 0 && shootTimer >= AttackSpeed && canDoActions == true)
         {
+
             shootTimer = 0f;
 
             Ammo--; //Reduces the ammo amount
@@ -87,9 +90,26 @@ public class Player1 : MonoBehaviour
             {
                 bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
             }
+            if (ShotgunCount >= 1)
+            {
+                for (int i = 0; i < ShotgunCount - 1; i++) // -1 because one was already fired
+                {
+                    // Recalculate fresh direction and inaccuracy for this pellet
+                    Vector2 randomDirection = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - weapon.transform.position).normalized;
 
-            Destroy(spawnedBullet, Range);
-            //Shotgun changes the "Range" to ".35f"
+                    float randomInaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy);
+                    float randomAngle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg + randomInaccuracy;
+
+                    Vector2 directionWithInaccuracy = new Vector2(Mathf.Cos(Mathf.Deg2Rad * randomAngle), Mathf.Sin(Mathf.Deg2Rad * randomAngle));
+
+                    GameObject extraBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, randomAngle));
+                    Rigidbody2D extraRb = extraBullet.GetComponent<Rigidbody2D>();
+                    if (extraRb != null)
+                    {
+                        extraRb.linearVelocity = directionWithInaccuracy * bullet.GetComponent<Player1Bullet>().speed;
+                    }
+                }
+            }
         }
         else if (Ammo == 0)
         {
@@ -115,30 +135,41 @@ public class Player1 : MonoBehaviour
         //var inputActions = new InputAction();
         shootAction = input.Player1.Shoot;
         shootAction.Enable();
+
+        if (ShotgunCount > 0)
+        {
+            GunInaccuracy = 5;
+        }
     }
 
     private void OnEnable()
     {
-        input.Enable();
-        input.Player1.Movement.performed += OnMovementPerformed;
-        input.Player1.Movement.canceled += OnMovementCancelled;
+        if (canDoActions == true)
+        {
+            input.Enable();
+            input.Player1.Movement.performed += OnMovementPerformed;
+            input.Player1.Movement.canceled += OnMovementCancelled;
 
-        //Aiming
-        input.Player1.Aim.performed += OnAimPerformed;
-        input.Player1.Aim.canceled += OnAimCanceled;
+            //Aiming
+            input.Player1.Aim.performed += OnAimPerformed;
+            input.Player1.Aim.canceled += OnAimCanceled;
 
-        //Shooting
-        shootAction.performed += _ => BulletSpawner();
+            //Shooting
+            shootAction.performed += _ => BulletSpawner();
+        }
     }
 
     private void OnDisable()
     {
-        input.Disable();
-        input.Player1.Movement.performed -= OnMovementPerformed;
-        input.Player1.Movement.canceled -= OnMovementCancelled;
+        if (canDoActions == true)
+        {
+            input.Disable();
+            input.Player1.Movement.performed -= OnMovementPerformed;
+            input.Player1.Movement.canceled -= OnMovementCancelled;
 
-        //Shooting
-        shootAction.performed -= _ => BulletSpawner();
+            //Shooting
+            shootAction.performed -= _ => BulletSpawner();
+        }
     }
 
     private void FixedUpdate()
@@ -201,8 +232,6 @@ public class Player1 : MonoBehaviour
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
         moveVector = value.ReadValue<Vector2>();
-
-
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext value)
@@ -218,7 +247,7 @@ public class Player1 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
-            Debug.Log("Reloading.....");
+
         }
     }
 
@@ -227,12 +256,12 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
-        Debug.Log("Reload complete!");
+
     }
 
     public IEnumerator PoisonTimerP1DMG()
     {
-        Debug.Log("Player1 Poisoned");
+
         yield return new WaitForSecondsRealtime(1f);
         PoisonDMGP1DMG();
         yield return new WaitForSecondsRealtime(1f);
@@ -242,7 +271,7 @@ public class Player1 : MonoBehaviour
     }
     public IEnumerator PoisonTimerP2DMG()
     {
-        Debug.Log("Player2 Poisoned");
+
         yield return new WaitForSecondsRealtime(1f);
         PoisonDMGP2DMG();
         yield return new WaitForSecondsRealtime(1f);
@@ -254,13 +283,13 @@ public class Player1 : MonoBehaviour
 
     public void PoisonDMGP1DMG()
     {
-        Debug.Log("Player1 Took Poison damage");
+
         BulletPoisonDamage = MissingHealth * BulletPoison;
         TakeDamage(BulletPoisonDamage);
     }
     public void PoisonDMGP2DMG()
     {
-        Debug.Log("Player1 Took Poison damage");
+
         BulletPoisonDamage = MissingHealth * player2.BulletPoison;
         TakeDamage(BulletPoisonDamage);
     }
@@ -277,7 +306,13 @@ public class Player1 : MonoBehaviour
         currentHealth -= DMG;
         MissingHealth = maxHealth - currentHealth;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
+        if (player2.BulletLifeSteal > 0)
+        {
+            player2.currentHealth += DMG * player2.BulletLifeSteal;
+            player2.MissingHealth = player2.maxHealth - player2.currentHealth;
+        }
         playerHealthBar.UpdateHealthBar();
+        player2.playerHealthBar.UpdateHealthBar();
     }
 
 
