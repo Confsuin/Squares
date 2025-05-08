@@ -14,7 +14,6 @@ public class Player1 : MonoBehaviour
     public float Ammo;
     public float StartingAmmo = 4;
     public float GunInaccuracy;
-    public float MinGunInaccuracy;
     public float AttackSpeed = 1;
     public float Range = 1;
     public float ReloadSpeed;
