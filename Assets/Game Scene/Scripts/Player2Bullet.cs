@@ -60,10 +60,6 @@ public class Player2Bullet : MonoBehaviour
                 isBounced = false;
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
         rangeTime -= Time.deltaTime;
 
         if (rangeTime <= 0)
