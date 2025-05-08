@@ -1,18 +1,38 @@
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
     // GameObjects
     private GameObject CardsPickerBackground;
+    public GameObject DebugMenu;
+    public GameObject CardBody;
+    private Transform Parent;
+    public Sprite BackSide;
+    public Sprite FrontSide;
 
     // References
     private CardSystemSpawner cardSystemSpawner;
+
     private LevelManager levelManager;
+
     private PointSystem pointSystem;
+
     private Player1 player1;
     private Player2 player2;
+
     private PlayerHealthBar player1HealthBar;
     private PlayerHealthBar player2HealthBar;
+
+    private DebugMenuButtons debugMenuButtons;
+
+    public TMP_Text[] CardText;
+
+    // Bools
+    public bool Flipped = false;
 
     // Floats. Numbers in Decimal form.
     public float MovementSpeed = 1;
@@ -40,6 +60,8 @@ public class Card : MonoBehaviour
     public float ExplosionRadius;
     public float GunInaccuracy;
 
+    public float CardNumber;
+
     // Reload Speed is in 0.25 second intervals.
     public float ReloadSpeed;
     public float Ammo;
@@ -49,7 +71,19 @@ public class Card : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 0;
+        CardBody.transform.SetAsLastSibling();
         GetReferences();
+        StartCoroutine(WaitForCardsSpawned());
+        foreach (TMP_Text text in CardText)
+        {
+            text.enabled = false;
+        }
+    }
+    IEnumerator WaitForCardsSpawned()
+    {
+        yield return new WaitForSecondsRealtime(0.01f);
+        DebugMenu.SetActive(false);
     }
     public void DoSelectCard()
     {
@@ -58,8 +92,100 @@ public class Card : MonoBehaviour
         Destroy(GameObject.FindWithTag("Cards Menu"));
         Debug.Log("Card Clicked");
     }
+
+    public void MoveToSpawnPoint()
+    {
+        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 175);
+        Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        Parent.transform.SetAsLastSibling();
+        CardsPickerBackground.transform.SetAsFirstSibling();
+    }
+    public void FlipCard()
+    {
+        if (Flipped == false)
+        {
+            Flipped = true;
+            StartCoroutine(FlipCardCoroutine());
+        }
+    }
+    IEnumerator FlipCardCoroutine()
+    {
+        transform.localRotation = Quaternion.Euler(0, 165, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 150, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 135, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 120, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 105, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 90, 0);
+        CardBody.transform.SetAsFirstSibling();
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 75, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 60, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 45, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 30, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 15, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        foreach (TMP_Text text in CardText)
+        {
+            text.enabled = true;
+        }
+    }
+    public void IncreaseCardSize()
+    {
+        FlipCard();
+        StartCoroutine(IncreaseCardSizeCoroutine());
+    }
+    public void DecreaseCardSize()
+    {
+        StartCoroutine(DecreaseCardSizeCoroutine());
+    }
+    IEnumerator IncreaseCardSizeCoroutine()
+    {
+        transform.localScale = new Vector2(1.066f, 1.066f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.132f, 1.132f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.266f, 1.266f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.32f, 1.32f);
+        /*yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.4f, 1.4f);*/
+    }
+    IEnumerator DecreaseCardSizeCoroutine()
+    {
+        /*transform.localScale = new Vector2(1.332f, 1.332f);
+        yield return new WaitForSecondsRealtime(0.02f);*/
+        transform.localScale = new Vector2(1.266f, 1.266f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.132f, 1.132f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.066f, 1.066f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1f, 1f);
+    }
     void DoAddStatsToPlayer()
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            Time.timeScale = 1;
+            if (debugMenuButtons.IsMenuActive == true)
+            {
+                DebugMenu.SetActive(true);
+            }
+        }
         if (pointSystem.Player2Won == true)
         {
             // Adds Base Player Stats
@@ -146,9 +272,15 @@ public class Card : MonoBehaviour
 
             Debug.Log("Stats added to Player 2");
         }
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
     private void GetReferences()
     {
+        CardText = GetComponentsInChildren<TMP_Text>();
+
+        Parent = this.gameObject.transform.parent;
+        CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
@@ -156,5 +288,10 @@ public class Card : MonoBehaviour
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            debugMenuButtons = GameObject.FindWithTag("Debug Menu Buttons").GetComponent<DebugMenuButtons>();
+            DebugMenu = GameObject.FindWithTag("Debug Menu");
+        }
     }
 }

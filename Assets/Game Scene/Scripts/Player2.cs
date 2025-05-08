@@ -58,6 +58,7 @@ public class Player2 : MonoBehaviour
     public bool Player2Dead = false;
 
     //Status Effects
+
     public bool IsPoisoned = false;
     public bool Hitself = false;
     public bool canDoActions = true;
@@ -89,7 +90,7 @@ public class Player2 : MonoBehaviour
             Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
             if (bulletRb != null)
             {
-                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
+                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player2Bullet>().speed;
             }
 
         }

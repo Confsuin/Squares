@@ -16,6 +16,10 @@ public class Player2Bullet : MonoBehaviour
     public float range;
     public float rangeTime;
 
+    public bool isBounced = false;
+    public float TimesBouncedTimer = 0f;
+    public float BouncedTimerSpeed = 0.005f;
+
     public GameObject explosionEffect;
     public GameObject fireZoneEffect;
 
@@ -45,7 +49,18 @@ public class Player2Bullet : MonoBehaviour
         rb2d.AddForce(transform.right * speed);
         rangeTime = range;
     }
+    private void FixedUpdate()
+    {
+        if (isBounced == true)
+        {
+            TimesBouncedTimer -= Time.deltaTime;
 
+            if (TimesBouncedTimer >= BouncedTimerSpeed)
+            {
+                isBounced = false;
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -94,13 +109,19 @@ public class Player2Bullet : MonoBehaviour
             timesBounced -= 1;
             rangeTime = range;
         }
-        if (other.gameObject.tag == "Wall" && timesBounced >= 0)
+        if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {
             Destroy(gameObject);
 
         }
-    }
 
+
+
+        if (explosion > 0 && other.gameObject.tag == "Wall")
+        {
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+    }
 
     public void OnDestroy()
     {
@@ -113,10 +134,6 @@ public class Player2Bullet : MonoBehaviour
             Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
         }
     }
-
-
-
-
 
 
 

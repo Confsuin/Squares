@@ -16,7 +16,6 @@ public class TrainingDummy : MonoBehaviour
     public Player2 player2;
 
     //Status Effects
-    public bool IsPoisoned = false;
 
     public PlayerHealthBar playerHealthBar;
     TMP_Text HealthText;

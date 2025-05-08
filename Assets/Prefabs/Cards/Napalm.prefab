@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 7075239011494278751}
   - component: {fileID: 8593875688780456427}
   - component: {fileID: 7507644299200663716}
+  - component: {fileID: 3872760049843442236}
   m_Layer: 5
   m_Name: Napalm
   m_TagString: Untagged
@@ -328,6 +329,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugMenu: {fileID: 0}
+  CardBody: {fileID: 8767617705350577277}
+  BackSide: {fileID: 0}
+  FrontSide: {fileID: 0}
+  ElementButton: {fileID: 0}
+  CardText: []
   MovementSpeed: 1
   Health: 1
   Damage: 0.85
@@ -345,6 +352,7 @@ MonoBehaviour:
   FireRadius: 1
   ExplosionRadius: 0
   GunInaccuracy: 0
+  CardNumber: 0
   ReloadSpeed: 0.25
   Ammo: 0
   BlockCoolDown: 0
@@ -362,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -405,6 +413,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3872760049843442236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143588706635471266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8593875688780456427}
+          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+          m_MethodName: IncreaseCardSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8593875688780456427}
+          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+          m_MethodName: DecreaseCardSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8268037465007768896
 GameObject:
   m_ObjectHideFlags: 0
