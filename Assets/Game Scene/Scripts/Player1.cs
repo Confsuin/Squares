@@ -309,6 +309,10 @@ public class Player1 : MonoBehaviour
         {
             player2.currentHealth += DMG * player2.BulletLifeSteal;
             player2.MissingHealth = player2.maxHealth - player2.currentHealth;
+            if (player2.currentHealth > player2.maxHealth)
+            {
+                player2.currentHealth = player2.maxHealth;
+            }
         }
         playerHealthBar.UpdateHealthBar();
         player2.playerHealthBar.UpdateHealthBar();

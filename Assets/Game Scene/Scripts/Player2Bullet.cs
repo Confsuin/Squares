@@ -102,8 +102,14 @@ public class Player2Bullet : MonoBehaviour
         }
         if (other.gameObject.tag == "Wall")
         {
-            timesBounced -= 1;
             rangeTime = range;
+
+            if (TimesBouncedTimer <= 0)
+            {
+                isBounced = true;
+                TimesBouncedTimer = BouncedTimerSpeed;
+                timesBounced += 1;
+            }
         }
         if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {

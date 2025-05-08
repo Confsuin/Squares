@@ -9,7 +9,7 @@ public class Player1Bullet : MonoBehaviour
     public float speed;
     public float size;
     public float slow;
-    public float timesBounced;
+    public int timesBounced;
     public float bounce;
     public float fire;
     public float explosion;
@@ -102,14 +102,13 @@ public class Player1Bullet : MonoBehaviour
         }
         if (other.gameObject.tag == "Wall")
         {
-            timesBounced += 1;
             rangeTime = range;
 
             if (TimesBouncedTimer <= 0)
             {
                 isBounced = true;
                 TimesBouncedTimer = BouncedTimerSpeed;
-                timesBounced += 1f;
+                timesBounced += 1;
             }
         }
         if (other.gameObject.tag == "Wall" && timesBounced >= bounce)

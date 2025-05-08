@@ -77,7 +77,7 @@ public class Player2 : MonoBehaviour
 
             Ammo--; //Reduces the ammo amount
 
-            Vector2 direction = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - weapon.transform.position).normalized;
+            Vector2 direction = weapon.transform.right.normalized;
 
             float inaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy); // Random inaccuracy angle in degrees
             float angleWithInaccuracy = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + inaccuracy;
@@ -88,14 +88,14 @@ public class Player2 : MonoBehaviour
             Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
             if (bulletRb != null)
             {
-                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
+                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player2Bullet>().speed;
             }
             if (ShotgunCount >= 1)
             {
                 for (int i = 0; i < ShotgunCount - 1; i++) // -1 because one was already fired
                 {
                     // Recalculate fresh direction and inaccuracy for this pellet
-                    Vector2 randomDirection = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - weapon.transform.position).normalized;
+                    Vector2 randomDirection = weapon.transform.right.normalized;
 
                     float randomInaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy);
                     float randomAngle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg + randomInaccuracy;
@@ -106,7 +106,7 @@ public class Player2 : MonoBehaviour
                     Rigidbody2D extraRb = extraBullet.GetComponent<Rigidbody2D>();
                     if (extraRb != null)
                     {
-                        extraRb.linearVelocity = directionWithInaccuracy * bullet.GetComponent<Player1Bullet>().speed;
+                        extraRb.linearVelocity = directionWithInaccuracy * bullet.GetComponent<Player2Bullet>().speed;
                     }
                 }
             }
@@ -311,6 +311,10 @@ public class Player2 : MonoBehaviour
         {
             player1.currentHealth += DMG * player1.BulletLifeSteal;
             player1.MissingHealth = player1.maxHealth - player1.currentHealth;
+            if (player1.currentHealth > player1.maxHealth)
+            {
+                player1.currentHealth = player1.maxHealth;
+            }
         }
         playerHealthBar.UpdateHealthBar();
         player1.playerHealthBar.UpdateHealthBar();
