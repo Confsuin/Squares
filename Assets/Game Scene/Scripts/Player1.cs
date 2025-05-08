@@ -11,12 +11,13 @@ public class Player1 : MonoBehaviour
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
+    public float Ammo;
+    public float StartingAmmo = 4;
     public float GunInaccuracy;
+    public float MinGunInaccuracy;
     public float AttackSpeed = 1;
     public float Range = 1;
     public float ReloadSpeed;
-    public float Ammo;
-    public float StartingAmmo = 4;
     //Bullet
     public float Damage = 25;
     public float BulletLifeSteal;
@@ -71,6 +72,7 @@ public class Player1 : MonoBehaviour
     {
         if (Ammo > 0 && shootTimer >= AttackSpeed && canDoActions == true)
         {
+
             shootTimer = 0f;
 
             Ammo--; //Reduces the ammo amount
@@ -88,7 +90,26 @@ public class Player1 : MonoBehaviour
             {
                 bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player1Bullet>().speed;
             }
+            if (ShotgunCount >= 1)
+            {
+                for (int i = 0; i < ShotgunCount - 1; i++) // -1 because one was already fired
+                {
+                    // Recalculate fresh direction and inaccuracy for this pellet
+                    Vector2 randomDirection = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - weapon.transform.position).normalized;
 
+                    float randomInaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy);
+                    float randomAngle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg + randomInaccuracy;
+
+                    Vector2 directionWithInaccuracy = new Vector2(Mathf.Cos(Mathf.Deg2Rad * randomAngle), Mathf.Sin(Mathf.Deg2Rad * randomAngle));
+
+                    GameObject extraBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, randomAngle));
+                    Rigidbody2D extraRb = extraBullet.GetComponent<Rigidbody2D>();
+                    if (extraRb != null)
+                    {
+                        extraRb.linearVelocity = directionWithInaccuracy * bullet.GetComponent<Player1Bullet>().speed;
+                    }
+                }
+            }
         }
         else if (Ammo == 0)
         {
@@ -114,6 +135,11 @@ public class Player1 : MonoBehaviour
         //var inputActions = new InputAction();
         shootAction = input.Player1.Shoot;
         shootAction.Enable();
+
+        if (ShotgunCount > 0)
+        {
+            GunInaccuracy = 5;
+        }
     }
 
     private void OnEnable()

@@ -549,8 +549,8 @@ MonoBehaviour:
   CardBody: {fileID: 8785173166664168708}
   BackSide: {fileID: 0}
   FrontSide: {fileID: 0}
-  ElementButton: {fileID: 0}
   CardText: []
+  Flipped: 0
   MovementSpeed: 1
   Health: 1
   Damage: 0.7
@@ -560,14 +560,14 @@ MonoBehaviour:
   BulletGrowth: 0
   BulletSlow: 1
   AttackSpeed: 1
-  Range: 0.2
+  Range: 0.35
   TeleportDistance: 0
   BulletBounces: 0
   BulletCount: 0
   ShotgunCount: 5
   FireRadius: 0
   ExplosionRadius: 0
-  GunInaccuracy: 0
+  GunInaccuracy: 30
   CardNumber: 0
   ReloadSpeed: 0.5
   Ammo: -1

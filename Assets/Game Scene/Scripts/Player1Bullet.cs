@@ -102,7 +102,6 @@ public class Player1Bullet : MonoBehaviour
         }
         if (other.gameObject.tag == "Wall")
         {
-
             timesBounced += 1;
             rangeTime = range;
 

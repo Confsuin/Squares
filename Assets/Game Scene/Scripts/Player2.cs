@@ -58,9 +58,6 @@ public class Player2 : MonoBehaviour
     public bool Player2Dead = false;
 
     //Status Effects
-
-    public bool IsPoisoned = false;
-    public bool Hitself = false;
     public bool canDoActions = true;
 
     //Refrences
