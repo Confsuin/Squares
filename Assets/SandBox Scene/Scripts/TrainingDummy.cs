@@ -15,6 +15,8 @@ public class TrainingDummy : MonoBehaviour
     public Player1 player1;
     public Player2 player2;
 
+    private GameObject hitIndicator;
+
     //Status Effects
 
     public PlayerHealthBar playerHealthBar;
@@ -24,6 +26,7 @@ public class TrainingDummy : MonoBehaviour
     {
         currentHealth = maxHealth;
         GetRefrences();
+        hitIndicator.SetActive(false);
     }
     private void UpdateHealthText()
     {
@@ -72,8 +75,15 @@ public class TrainingDummy : MonoBehaviour
     {
         StartCoroutine(PoisonTimerP2DMG());
     }
+    IEnumerator HitIndicator()
+    {
+        hitIndicator.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.2f);
+        hitIndicator.SetActive(false);
+    }
     public void TakeDamage(float DMG)
     {
+        StartCoroutine(HitIndicator());
         currentHealth -= DMG;
         MissingHealth = maxHealth - currentHealth;
         Debug.Log("Training Dummy took" + DMG + "damage. health: " + currentHealth);
@@ -82,6 +92,7 @@ public class TrainingDummy : MonoBehaviour
     }
     private void GetRefrences()
     {
+        hitIndicator = GameObject.FindWithTag("Training Dummy Hit Indicator");
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         playerHealthBar = GameObject.FindWithTag("Training Dummy Health Bar").GetComponent<PlayerHealthBar>();
