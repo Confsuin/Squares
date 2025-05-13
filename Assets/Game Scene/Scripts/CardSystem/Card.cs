@@ -8,7 +8,7 @@ public class Card : MonoBehaviour
 {
     // GameObjects
     private GameObject CardsPickerBackground;
-    public GameObject DebugMenu;
+    public GameObject[] DebugMenu;
     public GameObject CardBody;
     private Transform Parent;
     public Sprite BackSide;
@@ -85,7 +85,10 @@ public class Card : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.01f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            DebugMenu.SetActive(false);
+            foreach (GameObject gameObject in DebugMenu)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
     public void DoSelectCard()
@@ -188,7 +191,10 @@ public class Card : MonoBehaviour
             Time.timeScale = 1;
             if (debugMenuButtons.IsMenuActive == true)
             {
-                DebugMenu.SetActive(true);
+                foreach (GameObject gameObject in DebugMenu)
+                {
+                    gameObject.SetActive(true);
+                }
             }
         }
         if (pointSystem.Player2Won == true)
@@ -296,7 +302,7 @@ public class Card : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
             debugMenuButtons = GameObject.FindWithTag("Debug Menu Buttons").GetComponent<DebugMenuButtons>();
-            DebugMenu = GameObject.FindWithTag("Debug Menu");
+            DebugMenu = GameObject.FindGameObjectsWithTag("Debug Menu");
         }
     }
 }

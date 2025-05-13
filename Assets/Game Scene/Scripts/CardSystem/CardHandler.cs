@@ -20,8 +20,6 @@ public class CardHandler : MonoBehaviour
 
     private PointSystem pointSystem;
 
-    private EventSystemAccess eventSystemAccess;
-
     public TMP_Text XIspickingtext;
 
     private void Awake()

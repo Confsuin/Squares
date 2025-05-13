@@ -142,8 +142,6 @@ public class Player1 : MonoBehaviour
 
     }
 
-
-
     private void Start()
     {
         currentHealth = maxHealth;
@@ -175,6 +173,7 @@ public class Player1 : MonoBehaviour
     {
         if (canDoActions == true)
         {
+            //Movement
             input.Enable();
             input.Player1.Movement.performed += OnMovementPerformed;
             input.Player1.Movement.canceled += OnMovementCancelled;
@@ -198,6 +197,7 @@ public class Player1 : MonoBehaviour
     {
         if (canDoActions == true)
         {
+            //Movement
             input.Disable();
             input.Player1.Movement.performed -= OnMovementPerformed;
             input.Player1.Movement.canceled -= OnMovementCancelled;

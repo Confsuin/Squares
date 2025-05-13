@@ -1,9 +1,7 @@
+using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Player2 : MonoBehaviour
 {
@@ -13,12 +11,12 @@ public class Player2 : MonoBehaviour
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
+    public float Ammo;
+    public float StartingAmmo = 4;
     public float GunInaccuracy;
     public float AttackSpeed = 1;
     public float Range = 1;
     public float ReloadSpeed;
-    public float Ammo;
-    public float StartingAmmo = 4;
     //Bullet
     public float Damage = 25;
     public float BulletLifeSteal;
@@ -157,9 +155,13 @@ public class Player2 : MonoBehaviour
     {
         input = new PlayerInputs();
         rb = GetComponent<Rigidbody2D>();
+
         //var inputActions = new InputAction();
-        shootAction = input.Player2.Shoot;
+        shootAction = input.Player1.Shoot;
         shootAction.Enable();
+
+        teleportAction = input.Player1.Teleport;
+        teleportAction.Enable();
 
         if (ShotgunCount > 0)
         {
@@ -185,9 +187,9 @@ public class Player2 : MonoBehaviour
 
             //Escape
             escapeAction.performed += _ => Escape();
+
             //Shooting
             shootAction.performed += _ => BulletSpawner();
-
         }
     }
 
@@ -244,9 +246,6 @@ public class Player2 : MonoBehaviour
             StartReload();
         }
     }
-
-
-
 
 
     private void OnAimPerformed(InputAction.CallbackContext value)
