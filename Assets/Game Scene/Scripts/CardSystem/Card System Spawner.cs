@@ -33,12 +33,12 @@ public class CardSystemSpawner : MonoBehaviour
                 Debug.Log("Cards Spawned");
             }
         }
-        else
+        /*else
         {
             GameObject.Destroy(Cards);
-            //Cards = Instantiate(CardSpawner, CardsCanvas.transform);
+            Cards = Instantiate(CardSpawner, CardsCanvas.transform);
             Debug.Log("Cards Rerolled");
-        }
+        }*/
     }
     private void GetReferences()
     {

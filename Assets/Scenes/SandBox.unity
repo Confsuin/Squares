@@ -439,19 +439,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182141258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 563596776}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1093665872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &212655375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +648,10 @@ PrefabInstance:
     - target: {fileID: 4650071709894469731, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
       propertyPath: m_Name
       value: Debug Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650071709894469731, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5526377570014384231, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
       propertyPath: m_Pivot.x
@@ -1152,7 +1156,79 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c3e3eb55-9478-450d-9867-4b0f853fbc4d
+    m_ActionName: 'Player1/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6f9f738-8aec-45e8-9065-dd2b2f3d80a3
+    m_ActionName: 'Player1/Aim[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8f7a465-1d2a-4633-9f09-bd852c98bf02
+    m_ActionName: 'Player1/Shoot[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4984593d-a3b3-4e61-a88b-3213643d47ec
+    m_ActionName: 'Player1/Escape[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bbdc4685-8f36-430e-b3f1-d2d9b6dac122
+    m_ActionName: Player2/Movement
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 55f64d34-306e-45d9-a765-38ab571589a8
+    m_ActionName: Player2/Aim
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 179d7619-2740-44b6-a4e5-8f1f3252af2a
+    m_ActionName: Player2/Shoot
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bf34ecd4-6a6d-4792-97fa-8db70298f953
+    m_ActionName: Player2/Escape
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e5ba967-344c-44e3-a648-252a0d9ac48c
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3524e593-c6eb-43f4-abd2-b3c28ba70b3c
+    m_ActionName: 'UI/Submit[/Keyboard/enter,/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 81c43e23-3629-48f5-88d3-04c1e30cb7c7
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9369321f-e6d6-42d6-b303-5aea15e815fc
+    m_ActionName: 'UI/Point[/Mouse/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd0c4fc6-272c-4cbe-ac64-dd927118add3
+    m_ActionName: 'UI/Click[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9a8ee14c-f387-4de8-b362-57077271ecff
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 64ecfae0-591d-4cf5-8c3e-ef548f56c6c3
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd6eb6de-af6f-4f4f-b328-5ec2a51b9154
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bff563d6-980d-464e-ade9-6f0df578a72b
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: af3cc1f5-ff40-4d61-a92b-4325868c2900
+    m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -1663,6 +1739,12 @@ PrefabInstance:
     - {fileID: 8170184239538883669, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
     - {fileID: 8072406407396061006, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1875590203}
+    - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 182141262}
     - targetCorrespondingSourceObject: {fileID: 5362853912159408948, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
       insertIndex: -1
       addedObject: {fileID: 771188191}
@@ -2191,19 +2273,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875590199}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1299134132}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1093665872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885069827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2698,8 +2780,6 @@ SceneRoots:
   - {fileID: 1766975143}
   - {fileID: 1657437500}
   - {fileID: 1093665871}
-  - {fileID: 1875590203}
-  - {fileID: 182141262}
   - {fileID: 322152438}
   - {fileID: 1726001021}
   - {fileID: 993009474}
