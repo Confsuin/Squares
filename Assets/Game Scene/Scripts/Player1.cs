@@ -1,13 +1,13 @@
+using JetBrains.Annotations;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 
 public class Player1 : MonoBehaviour
 {
     //Stats
     public float moveSpeed;
+    public float teleportDistance;
     //Shooting
     public float BulletCount;
     public float ShotgunCount;
@@ -46,8 +46,10 @@ public class Player1 : MonoBehaviour
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb = null;
 
-    //Shoot
+    //InputSystem
     private InputAction shootAction;
+    private InputAction teleportAction;
+    private InputAction escapeAction;
 
     //Health
     public float maxHealth;
@@ -57,7 +59,7 @@ public class Player1 : MonoBehaviour
     public bool Player1Dead = false;
 
     //Status Effects
-    public bool canDoActions = true;
+    public bool canDoActions = false;
 
     //Refrences
     public Player2 player2;
@@ -117,6 +119,29 @@ public class Player1 : MonoBehaviour
     }
 
 
+    public void Teleport()
+    {
+        Debug.Log("AltFire Clicked");
+        if (teleportDistance > 0 && canDoActions == true)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+            Vector2 aimDirection = mousePosition - (Vector2)weapon.transform.position;
+
+            Vector2 RotationPointP = weapon.transform.position;
+
+            Ray2D ray = new Ray2D(RotationPointP, aimDirection);
+            Vector2 teleportTarget = ray.origin + ray.direction.normalized * teleportDistance;
+            transform.position = teleportTarget;
+        }
+    }
+
+    public void Escape()
+    {
+
+    }
+
+
 
     private void Start()
     {
@@ -134,6 +159,9 @@ public class Player1 : MonoBehaviour
         //var inputActions = new InputAction();
         shootAction = input.Player1.Shoot;
         shootAction.Enable();
+        
+        teleportAction = input.Player1.Teleport;
+        teleportAction.Enable();
 
         if (ShotgunCount > 0)
         {
@@ -153,6 +181,12 @@ public class Player1 : MonoBehaviour
             input.Player1.Aim.performed += OnAimPerformed;
             input.Player1.Aim.canceled += OnAimCanceled;
 
+            //Teleport
+            teleportAction.performed += _ => Teleport();
+
+            //Escape
+            escapeAction.performed += _ => Escape();
+
             //Shooting
             shootAction.performed += _ => BulletSpawner();
         }
@@ -165,6 +199,12 @@ public class Player1 : MonoBehaviour
             input.Disable();
             input.Player1.Movement.performed -= OnMovementPerformed;
             input.Player1.Movement.canceled -= OnMovementCancelled;
+
+            //Teleport
+            teleportAction.performed -= _ => Teleport();
+
+            //Escape
+            escapeAction.performed -= _ => Escape();
 
             //Shooting
             shootAction.performed -= _ => BulletSpawner();
@@ -204,9 +244,6 @@ public class Player1 : MonoBehaviour
             StartReload();
         }
     }
-
-
-
 
 
     private void OnAimPerformed(InputAction.CallbackContext value)

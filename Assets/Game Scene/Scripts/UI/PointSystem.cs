@@ -171,6 +171,8 @@ public class PointSystem : MonoBehaviour
         {
             if (player1.Player1Dead || player2.Player2Dead == true)
             {
+                player1.canDoActions = false;
+                player2.canDoActions = false;
                 IncreasePoints();
             }
         }

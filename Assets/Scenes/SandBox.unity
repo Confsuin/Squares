@@ -1516,6 +1516,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6226715653902017349, guid: 47dddd79e59309b49a21cdd6dfa18a8b, type: 3}
   m_PrefabInstance: {fileID: 1036688171}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1723193534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8588622872557913663, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+  m_PrefabInstance: {fileID: 1726001021}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1726001021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1532,6 +1537,10 @@ PrefabInstance:
       propertyPath: BulletBounces
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 232454222952807659, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
+      propertyPath: rotationPoint
+      value: 
+      objectReference: {fileID: 1723193534}
     - target: {fileID: 522230284982273392, guid: dd95aa9e395220546b92c815e7f436db, type: 3}
       propertyPath: m_Name
       value: Player1

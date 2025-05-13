@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class LevelManager : MonoBehaviour
     private GameObject Player2;
     private PlayerHealthBar player1HealthBar;
     private PlayerHealthBar player2HealthBar;
+
+    public Player1 player1;
+    public Player2 player2;
 
     public List<GameObject> Maps; 
 
@@ -58,9 +62,13 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         SquareOff.SetActive(false);
         Time.timeScale = 1;
+        player1.canDoActions = true;
+        player2.canDoActions = true;
     }
     private void GetReferences()
     {
+        player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
+        player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         Player1 = GameObject.FindWithTag("Player");
         Player2 = GameObject.FindWithTag("PlayerAlt");
         player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
