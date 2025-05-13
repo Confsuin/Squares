@@ -2,25 +2,46 @@ using UnityEngine;
 
 public class CardSystemSpawner : MonoBehaviour
 {
+    private PointSystem pointSystem;
+
     public GameObject CardSpawner;
-    public GameObject CardsCanvas;
+    public GameObject CardsCanvasP1;
+    public GameObject CardsCanvasP2;
     public GameObject Cards;
 
     public bool CardsSpawned = false;
-    
+
+    void Start()
+    {
+        GetReferences();
+    }
+
     public void DoSpawnCards()
     {
         if (CardsSpawned == false)
         {
-            Cards = Instantiate(CardSpawner, CardsCanvas.transform);
-            CardsSpawned = true;
-            Debug.Log("Cards Spawned");
+            if (pointSystem.Player1Won == true)
+            {
+                Cards = Instantiate(CardSpawner, CardsCanvasP2.transform);
+                CardsSpawned = true;
+                Debug.Log("Cards Spawned");
+            }
+            else if (pointSystem.Player2Won == true)
+            {
+                Cards = Instantiate(CardSpawner, CardsCanvasP1.transform);
+                CardsSpawned = true;
+                Debug.Log("Cards Spawned");
+            }
         }
         else
         {
             GameObject.Destroy(Cards);
-            Cards = Instantiate(CardSpawner, CardsCanvas.transform);
+            //Cards = Instantiate(CardSpawner, CardsCanvas.transform);
             Debug.Log("Cards Rerolled");
         }
+    }
+    private void GetReferences()
+    {
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
     }
 }
