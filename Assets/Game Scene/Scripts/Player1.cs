@@ -63,6 +63,7 @@ public class Player1 : MonoBehaviour
 
     //Refrences
     public Player2 player2;
+    private GameObject hitIndicator;
 
 
     //public List<GameObject> BulletSpawnPoint = new();
@@ -148,6 +149,7 @@ public class Player1 : MonoBehaviour
         currentHealth = maxHealth;
         Ammo = StartingAmmo;
         GetRefrences();
+        hitIndicator.SetActive(false);
     }
 
 
@@ -337,8 +339,15 @@ public class Player1 : MonoBehaviour
     {
         StartCoroutine(PoisonTimerP2DMG());
     }
+    IEnumerator HitIndicator()
+    {
+        hitIndicator.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.2f);
+        hitIndicator.SetActive(false);
+    }
     public void TakeDamage(float DMG)
     {
+        StartCoroutine(HitIndicator());
         currentHealth -= DMG;
         MissingHealth = maxHealth - currentHealth;
         Debug.Log("Player took" + DMG + "damage. health: " + currentHealth);
@@ -346,6 +355,10 @@ public class Player1 : MonoBehaviour
         {
             player2.currentHealth += DMG * player2.BulletLifeSteal;
             player2.MissingHealth = player2.maxHealth - player2.currentHealth;
+            if (player2.currentHealth > player2.maxHealth)
+            {
+                player2.currentHealth = player2.maxHealth;
+            }
         }
         playerHealthBar.UpdateHealthBar();
         player2.playerHealthBar.UpdateHealthBar();
@@ -376,6 +389,7 @@ public class Player1 : MonoBehaviour
 
     private void GetRefrences()
     {
+        hitIndicator = GameObject.FindWithTag("Player 1 Hit Indicator");
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
     }

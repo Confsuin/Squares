@@ -198,7 +198,10 @@ public class PointSystem : MonoBehaviour
     }
     private void GetReferences()
     {
-        winScreen = GameObject.FindWithTag("Win Screen Parent").GetComponent<WinScreen>();
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByName("SandBox"))
+        {
+            winScreen = GameObject.FindWithTag("Win Screen Parent").GetComponent<WinScreen>();
+        }
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();

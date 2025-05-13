@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4535272577127525537}
   - component: {fileID: 8917326973316748750}
   - component: {fileID: 6215963943875342808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player1 Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -185,6 +185,11 @@ MonoBehaviour:
   bounce: 0
   fire: 0
   explosion: 0
+  range: 0
+  rangeTime: 0
+  isBounced: 0
+  TimesBouncedTimer: 0
+  BouncedTimerSpeed: 0.005
   explosionEffect: {fileID: 3152332661708199044, guid: ec1c8d40fdb4ef04aadedb1b7e4c8c30, type: 3}
   fireZoneEffect: {fileID: 8272710597617113087, guid: 5cb039baf77209542a3c999f0635cb22, type: 3}
   trainingDummy: {fileID: 0}

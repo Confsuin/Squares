@@ -572,7 +572,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1253,12 +1253,26 @@ MonoBehaviour:
   PointPlayer2: {fileID: 8006684128191459154, guid: ef124ff53caabae458e49602ccc25d40, type: 3}
   PointPlayer1Parent: {fileID: 2586042708007645226}
   PointPlayer2Parent: {fileID: 6401264804608290556}
+  PointsToWinSlider: {fileID: 8002529182286006555}
   Player1PointSpawnPoint: {fileID: 8889394918308730642}
   Player2PointSpawnPoint: {fileID: 8743582298361623865}
-  PointsToWinSlider: {fileID: 8002529182286006555}
+  PointCounterSlidersPlayer1: []
+  PointCounterSlidersPlayer2: []
+  PointCounters1: []
+  PointCounters2: []
+  pointCounter: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
   Player1Point: {x: 85, y: 1015}
   Player2Point: {x: 85, y: 940}
   PointsToWin: 1
+  TotalPlayer1Points: 0
+  TotalPlayer2Points: 0
+  TotalPointsToWin: 0
+  Player1Won: 0
+  Player2Won: 0
+  FirstCardSpawn: 1
+  MaxPointsPerSquare: 2
 --- !u!1 &8170184239538883669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,8 +1323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlaySettings: {fileID: 8170184239538883669}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
 --- !u!1 &8763383362388244278
 GameObject:
   m_ObjectHideFlags: 0

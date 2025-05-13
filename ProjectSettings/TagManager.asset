@@ -52,6 +52,9 @@ TagManager:
   - Flip A Card
   - Win Screen
   - Win Screen Parent
+  - Player 1 Hit Indicator
+  - Player 2 Hit Indicator
+  - Training Dummy Hit Indicator
   layers:
   - Default
   - TransparentFX
@@ -59,7 +62,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Bullets
   - 
   - 
   - 
