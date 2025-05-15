@@ -479,6 +479,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5259949209286198640}
+  - {fileID: 5434347164010640351}
   - {fileID: 5750818298341740837}
   - {fileID: 5001077225776144536}
   - {fileID: 6830171684583139112}
@@ -1271,3 +1272,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5750818298341740837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &253442065384086480
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3570666817918887392}
+    m_Modifications:
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501811589961797772, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_Name
+      value: Ammo Counter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+--- !u!4 &5434347164010640351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+  m_PrefabInstance: {fileID: 253442065384086480}
+  m_PrefabAsset: {fileID: 0}
