@@ -163,6 +163,9 @@ public class Player1 : MonoBehaviour
         teleportAction = input.Player1.Teleport;
         teleportAction.Enable();
 
+        escapeAction = input.Player1.Escape; ;
+        escapeAction.Enable();
+
         if (ShotgunCount > 0)
         {
             GunInaccuracy = 5;

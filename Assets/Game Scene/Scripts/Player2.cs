@@ -157,11 +157,14 @@ public class Player2 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //var inputActions = new InputAction();
-        shootAction = input.Player1.Shoot;
+        shootAction = input.Player2.Shoot;
         shootAction.Enable();
 
-        teleportAction = input.Player1.Teleport;
+        teleportAction = input.Player2.Teleport;
         teleportAction.Enable();
+
+        escapeAction = input.Player2.Escape;
+        escapeAction.Enable();
 
         if (ShotgunCount > 0)
         {

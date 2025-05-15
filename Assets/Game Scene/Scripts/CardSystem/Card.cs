@@ -189,12 +189,9 @@ public class Card : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
             Time.timeScale = 1;
-            if (debugMenuButtons.IsMenuActive == true)
+            foreach (GameObject gameObject in DebugMenu)
             {
-                foreach (GameObject gameObject in DebugMenu)
-                {
-                    gameObject.SetActive(true);
-                }
+                gameObject.SetActive(true);
             }
         }
         if (pointSystem.Player2Won == true)
