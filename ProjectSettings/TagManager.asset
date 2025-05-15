@@ -55,6 +55,8 @@ TagManager:
   - Player 1 Hit Indicator
   - Player 2 Hit Indicator
   - Training Dummy Hit Indicator
+  - Player 1 Event System
+  - Player 2 Event System
   layers:
   - Default
   - TransparentFX

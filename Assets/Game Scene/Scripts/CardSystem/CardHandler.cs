@@ -15,9 +15,6 @@ public class CardHandler : MonoBehaviour
     public List<GameObject> CardSpawnPoint = new();
     public GameObject pos;
 
-    public FlipaCard flipaCardScript;
-    public GameObject flipaCard;
-
     private PointSystem pointSystem;
 
     public TMP_Text XIspickingtext;
@@ -43,9 +40,17 @@ public class CardHandler : MonoBehaviour
             if (i == 0)
             {
                 g.gameObject.tag = "FirstCardToSelect";
-                EventSystem.current.SetSelectedGameObject(g);
+                if (pointSystem.Player1Won == true)
+                {
+                    EventSystem.current = GameObject.FindWithTag("Player 2 Event System").GetComponent<EventSystem>();
+                    EventSystem.current.SetSelectedGameObject(g);
+                }
+                if (pointSystem.Player2Won == true)
+                {
+                    EventSystem.current = GameObject.FindWithTag("Player 1 Event System").GetComponent<EventSystem>();
+                    EventSystem.current.SetSelectedGameObject(g);
+                }
             }
-//            flipaCardScript.SpawnedCards.Add(g.GetComponent<Card>());
             Cards.Remove(Cards[n]);
         }
     }
@@ -62,8 +67,6 @@ public class CardHandler : MonoBehaviour
     }
     private void GetReferences()
     {
-        //flipaCardScript = GameObject.FindWithTag("Flip A Card").GetComponent<FlipaCard>();
-        //flipaCard = GameObject.FindWithTag("Flip A Card");
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         XIspickingtext = GameObject.FindWithTag("X Is picking text").GetComponent<TMP_Text>();
     }

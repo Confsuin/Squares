@@ -94,7 +94,6 @@ public class Card : MonoBehaviour
     public void DoSelectCard()
     {
         DoAddStatsToPlayer();
-        levelManager.StartSquareOff();
         Destroy(GameObject.FindWithTag("Cards Menu"));
         if (pointSystem.FirstCardSpawn == true)
         {
@@ -102,7 +101,11 @@ public class Card : MonoBehaviour
             pointSystem.FirstCardSpawn = false;
             cardSystemSpawner.DoSpawnCards();
         }
-        Debug.Log("Card Clicked");
+        else if (pointSystem.FirstCardSpawn == false)
+        {
+            levelManager.StartSquareOff();
+            Debug.Log("Card Clicked");
+        }
     }
 
     public void MoveToSpawnPoint()
@@ -215,6 +218,9 @@ public class Card : MonoBehaviour
             }
             player1.Ammo = player1.StartingAmmo;
 
+            // Adds AltFire Stats
+            player1.teleportDistance = player1.teleportDistance + TeleportDistance;
+
             // Adds Core Bullet Stats
             player1.Damage = player1.Damage * Damage;
             player1.BulletLifeSteal = player1.BulletLifeSteal + BulletLifeSteal;
@@ -257,6 +263,9 @@ public class Card : MonoBehaviour
                 player2.StartingAmmo = 1;
             }
             player2.Ammo = player2.StartingAmmo;
+
+            // Adds AltFire Stats
+            player2.teleportDistance = player2.teleportDistance + TeleportDistance;
 
             // Adds Core Bullet Stats
             player2.Damage = player2.Damage * Damage;
