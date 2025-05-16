@@ -1,5 +1,8 @@
 using JetBrains.Annotations;
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -75,11 +78,11 @@ public class Player1 : MonoBehaviour
     public void BulletSpawner()
     {
         if (Ammo > 0 && shootTimer >= AttackSpeed && canDoActions == true)
-        {
-
+        {            
             shootTimer = 0f;
 
             Ammo--; //Reduces the ammo amount
+            UpdateAmmoCounter();
 
             Vector2 direction = (Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - weapon.transform.position).normalized;
 
@@ -304,22 +307,36 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
-
+        UpdateAmmoCounter();
     }
+    private float AmmoPosition = -0.21f;
+    private float AmmoHeight = 0;
+    public List<GameObject> AmmoCounterObjects;
     private void UpdateAmmoCounter()
     {
+        if (AmmoCounterObjects.Count > 0)
+        {
+            foreach (GameObject AmmoCounterBullet in AmmoCounterObjects)
+            {
+                Destroy(AmmoCounterBullet);
+            }
+        }
         for (int i = 0; i < Ammo; i++)
         {
             GameObject g = Instantiate(ammoCounterBullet, ammoCounter.transform);
-
+            AmmoCounterObjects.Add(g);
             if (i % 4 == 0)
             {
-                g.transform.localPosition = new Vector2(0.21f + (-0.14f * i), 0.14f * i);
+                AmmoPosition = -0.21f;
+                AmmoHeight = 0.035f * i;
+                
+                //g.transform.localPosition = new Vector2(0.21f + (-0.14f * i), 0.14f * i);
             }
             else
             {
-                g.transform.localPosition = new Vector2(0.21f + (-0.14f * i), 0);
+                AmmoPosition += 0.14f;
             }
+            g.transform.localPosition = new Vector2(AmmoPosition, AmmoHeight);
         }
     }
 
