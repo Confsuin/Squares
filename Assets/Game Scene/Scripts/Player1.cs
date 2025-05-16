@@ -1,8 +1,6 @@
-using JetBrains.Annotations;
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -157,7 +155,7 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         GetRefrences();
         hitIndicator.SetActive(false);
-        UpdateAmmoCounter();
+        SetAmmoCounter();
     }
 
 
@@ -298,7 +296,6 @@ public class Player1 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
-
         }
     }
 
@@ -307,30 +304,33 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
-        UpdateAmmoCounter();
+        SetAmmoCounter();
     }
+
+    // Ammo Counter
     private float AmmoPosition = -0.21f;
     private float AmmoHeight = 0;
+    public int AmmoCount = 0;
     public List<GameObject> AmmoCounterObjects;
-    private void UpdateAmmoCounter()
+    private void SetAmmoCounter()
     {
         if (AmmoCounterObjects.Count > 0)
         {
-            foreach (GameObject AmmoCounterBullet in AmmoCounterObjects)
+            foreach (GameObject AmmoCounterBullet in AmmoCounterObjects.ToList())
             {
                 Destroy(AmmoCounterBullet);
+                AmmoCounterObjects.Remove(AmmoCounterBullet);
             }
         }
         for (int i = 0; i < Ammo; i++)
         {
             GameObject g = Instantiate(ammoCounterBullet, ammoCounter.transform);
+            AmmoCount = i;
             AmmoCounterObjects.Add(g);
             if (i % 4 == 0)
             {
                 AmmoPosition = -0.21f;
                 AmmoHeight = 0.035f * i;
-                
-                //g.transform.localPosition = new Vector2(0.21f + (-0.14f * i), 0.14f * i);
             }
             else
             {
@@ -338,6 +338,11 @@ public class Player1 : MonoBehaviour
             }
             g.transform.localPosition = new Vector2(AmmoPosition, AmmoHeight);
         }
+    }
+    private void UpdateAmmoCounter()
+    {
+        GameObject.Destroy(AmmoCounterObjects[AmmoCount]);
+        AmmoCount -= 1;
     }
 
     public IEnumerator PoisonTimerP1DMG()

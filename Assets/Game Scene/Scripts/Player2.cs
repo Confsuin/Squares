@@ -1,5 +1,6 @@
-using JetBrains.Annotations;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -39,6 +40,8 @@ public class Player2 : MonoBehaviour
     //Weapon/Bullet
     public GameObject weapon;
     public GameObject bullet;
+    public GameObject ammoCounter;
+    public GameObject ammoCounterBullet;
 
     //Movement/Aiming
     private Vector2 aimDirection;
@@ -78,6 +81,7 @@ public class Player2 : MonoBehaviour
             shootTimer = 0f;
 
             Ammo--; //Reduces the ammo amount
+            UpdateAmmoCounter();
 
             Vector2 direction = weapon.transform.right.normalized;
 
@@ -295,9 +299,46 @@ public class Player2 : MonoBehaviour
         Ammo = StartingAmmo;
         isReloading = false;
         ReloadTimer = 0f;
-
+        SetAmmoCounter();
     }
 
+    // Ammo Counter
+    private float AmmoPosition = -0.21f;
+    private float AmmoHeight = 0;
+    public int AmmoCount = 0;
+    public List<GameObject> AmmoCounterObjects;
+    private void SetAmmoCounter()
+    {
+        if (AmmoCounterObjects.Count > 0)
+        {
+            foreach (GameObject AmmoCounterBullet in AmmoCounterObjects.ToList())
+            {
+                Destroy(AmmoCounterBullet);
+                AmmoCounterObjects.Remove(AmmoCounterBullet);
+            }
+        }
+        for (int i = 0; i < Ammo; i++)
+        {
+            GameObject g = Instantiate(ammoCounterBullet, ammoCounter.transform);
+            AmmoCount = i;
+            AmmoCounterObjects.Add(g);
+            if (i % 4 == 0)
+            {
+                AmmoPosition = -0.21f;
+                AmmoHeight = 0.035f * i;
+            }
+            else
+            {
+                AmmoPosition += 0.14f;
+            }
+            g.transform.localPosition = new Vector2(AmmoPosition, AmmoHeight);
+        }
+    }
+    private void UpdateAmmoCounter()
+    {
+        GameObject.Destroy(AmmoCounterObjects[AmmoCount]);
+        AmmoCount -= 1;
+    }
     public IEnumerator PoisonTimerP1DMG()
     {
 

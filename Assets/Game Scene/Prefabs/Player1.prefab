@@ -647,7 +647,7 @@ MonoBehaviour:
   ExplosionDMG: 0
   weapon: {fileID: 3740147305532607841}
   bullet: {fileID: 77882264689708298, guid: 264103366618a2640abf5279ca884cfb, type: 3}
-  ammoCounter: {fileID: 6467022857211530076}
+  ammoCounter: {fileID: 8508574989328798653}
   ammoCounterBullet: {fileID: 4267305427013949155, guid: 044bdd626ed99c1409c2a257b2da54fb, type: 3}
   maxHealth: 100
   currentHealth: 0
@@ -657,6 +657,8 @@ MonoBehaviour:
   canDoActions: 1
   player2: {fileID: 0}
   bulpos: {fileID: 628496077966744305}
+  AmmoCount: 0
+  AmmoCounterObjects: []
 --- !u!114 &4450145544091386121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,7 +718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5434347164010640351}
+  - {fileID: 7260173328027675454}
   - {fileID: 8881086064052088026}
   - {fileID: 7835016069451678968}
   - {fileID: 5579251713379381624}
@@ -1242,7 +1244,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1001 &253442065384086480
+--- !u!1001 &3183927212563202865
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1250,17 +1252,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5750818298341740837}
     m_Modifications:
-    - target: {fileID: 1524520062518666284, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4954345159161470280, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0900002
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1276,15 +1270,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1298,18 +1292,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5386228975118647426, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5666896930607606818, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-      propertyPath: m_Name
-      value: Ammo Counter Bullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 5666896930607606818, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6501811589961797772, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_Name
       value: Ammo Counter
@@ -1319,13 +1301,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
---- !u!4 &5434347164010640351 stripped
+--- !u!4 &7260173328027675454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-  m_PrefabInstance: {fileID: 253442065384086480}
+  m_PrefabInstance: {fileID: 3183927212563202865}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6467022857211530076 stripped
+--- !u!1 &8508574989328798653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6501811589961797772, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
-  m_PrefabInstance: {fileID: 253442065384086480}
+  m_PrefabInstance: {fileID: 3183927212563202865}
   m_PrefabAsset: {fileID: 0}
