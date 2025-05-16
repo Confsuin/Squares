@@ -479,7 +479,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5259949209286198640}
-  - {fileID: 5434347164010640351}
   - {fileID: 5750818298341740837}
   - {fileID: 5001077225776144536}
   - {fileID: 6830171684583139112}
@@ -648,6 +647,8 @@ MonoBehaviour:
   ExplosionDMG: 0
   weapon: {fileID: 3740147305532607841}
   bullet: {fileID: 77882264689708298, guid: 264103366618a2640abf5279ca884cfb, type: 3}
+  ammoCounter: {fileID: 6467022857211530076}
+  ammoCounterBullet: {fileID: 4267305427013949155, guid: 044bdd626ed99c1409c2a257b2da54fb, type: 3}
   maxHealth: 100
   currentHealth: 0
   MissingHealth: 0
@@ -715,7 +716,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8551218879687434058}
+  - {fileID: 5434347164010640351}
   - {fileID: 8881086064052088026}
   - {fileID: 7835016069451678968}
   - {fileID: 5579251713379381624}
@@ -1241,48 +1242,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &9111245966010409860
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8551218879687434058}
-  m_Layer: 3
-  m_Name: Ammo Counter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8551218879687434058
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9111245966010409860}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.09, y: 0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5750818298341740837}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &253442065384086480
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3570666817918887392}
+    m_TransformParent: {fileID: 5750818298341740837}
     m_Modifications:
+    - target: {fileID: 1524520062518666284, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4954345159161470280, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.09
+      value: 1.0900002
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1298,15 +1276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1318,6 +1296,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5386228975118647426, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666896930607606818, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_Name
+      value: Ammo Counter Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 5666896930607606818, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6501811589961797772, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
@@ -1332,5 +1322,10 @@ PrefabInstance:
 --- !u!4 &5434347164010640351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5255355257560328207, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
+  m_PrefabInstance: {fileID: 253442065384086480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6467022857211530076 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6501811589961797772, guid: ab12e48d25741d94e9910e58156f7859, type: 3}
   m_PrefabInstance: {fileID: 253442065384086480}
   m_PrefabAsset: {fileID: 0}

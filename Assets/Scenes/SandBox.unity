@@ -1795,6 +1795,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 364069608}
+    - target: {fileID: 8341703786007918719, guid: f72a5e6dc41acb448bc3cdc8630c5c17, type: 3}
+      propertyPath: StartingAmmo
+      value: 257
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

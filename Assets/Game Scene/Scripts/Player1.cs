@@ -39,6 +39,8 @@ public class Player1 : MonoBehaviour
     //Weapon/Bullet
     public GameObject weapon;
     public GameObject bullet;
+    public GameObject ammoCounter;
+    public GameObject ammoCounterBullet;
 
     //Movement/Aiming
     private Vector2 aimDirection;
@@ -141,6 +143,10 @@ public class Player1 : MonoBehaviour
     {
 
     }
+    public void DebugMenu()
+    {
+
+    }
 
     private void Start()
     {
@@ -148,6 +154,7 @@ public class Player1 : MonoBehaviour
         Ammo = StartingAmmo;
         GetRefrences();
         hitIndicator.SetActive(false);
+        UpdateAmmoCounter();
     }
 
 
@@ -298,6 +305,22 @@ public class Player1 : MonoBehaviour
         isReloading = false;
         ReloadTimer = 0f;
 
+    }
+    private void UpdateAmmoCounter()
+    {
+        for (int i = 0; i < Ammo; i++)
+        {
+            GameObject g = Instantiate(ammoCounterBullet, ammoCounter.transform);
+
+            if (i % 4 == 0)
+            {
+                g.transform.localPosition = new Vector2(0.21f + (-0.14f * i), 0.14f * i);
+            }
+            else
+            {
+                g.transform.localPosition = new Vector2(0.21f + (-0.14f * i), 0);
+            }
+        }
     }
 
     public IEnumerator PoisonTimerP1DMG()
