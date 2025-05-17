@@ -237,7 +237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2932765300534078825}
         m_TargetAssemblyTypeName: EscapeMenuButtons, Assembly-CSharp
-        m_MethodName: Resume
+        m_MethodName: ToggleEscapeMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -433,6 +433,7 @@ MonoBehaviour:
   ShouldUnpause: 1
   escapeMenu: {fileID: 0}
   firstSelected: {fileID: 565255680230515517}
+  gameBehaviour: {fileID: 0}
 --- !u!1 &6671531890927960419
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,40 +27,34 @@ public class DebugMenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    public void DebugMenu()
+    public void ToggleDebugMenu()
     {
         if (gameBehaviour.IsADebugMenuActive == false)
         {
-            Debug.Log("D0");
             if (IsMenuActive == false)
             {
-                Debug.Log("D1");
                 gameBehaviour.IsADebugMenuActive = true;
                 IsMenuActive = true;
                 debugMenu.SetActive(true);
             }
             if (player1.OpenedByPlayer1 == true)
             {
-                Debug.Log("D2");
                 EventSystem.current = GameObject.FindWithTag("Player 1 Event System").GetComponent<EventSystem>();
                 EventSystem.current.SetSelectedGameObject(firstSelected);
             }
             if (player2.OpenedByPlayer2 == true)
             {
-                Debug.Log("D3");
                 EventSystem.current = GameObject.FindWithTag("Player 2 Event System").GetComponent<EventSystem>();
                 EventSystem.current.SetSelectedGameObject(firstSelected);
             }
 
         }
-        if (IsMenuActive == true)
+        else if (gameBehaviour.IsADebugMenuActive == true && IsMenuActive == true)
         {
-            Debug.Log("D4");
             gameBehaviour.IsADebugMenuActive = false;
             IsMenuActive = false;
             debugMenu.SetActive(false);
         }
-        Debug.Log("HI");
     }
     public void SpawnCardsPlayer1()
     {

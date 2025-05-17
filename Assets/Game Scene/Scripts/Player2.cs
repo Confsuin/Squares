@@ -146,14 +146,14 @@ public class Player2 : MonoBehaviour
 
     public void Escape()
     {
-        escapeMenu.EscapeMenu();
+        escapeMenu.ToggleEscapeMenu();
     }
     public bool OpenedByPlayer2 = true;
     public void DebugMenu()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            debugMenu.DebugMenu();
+            debugMenu.ToggleDebugMenu();
         }
     }
 
