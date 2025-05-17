@@ -1,15 +1,17 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class DebugMenuButtons : MonoBehaviour
 {
     // References
-    public GameObject DebugMenu;
-    public GameObject[] DebugMenuButton;
+    public GameObject debugMenu;
+    public GameObject firstSelected;
 
     private Player1 player1;
     private Player2 player2;
 
+    public GameBehaviour gameBehaviour;
     private CardSystemSpawner cardSystemSpawner;
     private PointSystem pointSystem;
 
@@ -19,29 +21,46 @@ public class DebugMenuButtons : MonoBehaviour
     void Start()
     {
         GetReferences();
-        DebugMenu.SetActive(false);
+        debugMenu.SetActive(false);
     }
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
     }
-    public void OpenDebugMenu()
+    public void DebugMenu()
     {
-        IsMenuActive = true;
-        DebugMenu.SetActive(true);
-        foreach (GameObject gameObject in DebugMenuButton)
+        if (gameBehaviour.IsADebugMenuActive == false)
         {
-            gameObject.SetActive(false);
+            Debug.Log("D0");
+            if (IsMenuActive == false)
+            {
+                Debug.Log("D1");
+                gameBehaviour.IsADebugMenuActive = true;
+                IsMenuActive = true;
+                debugMenu.SetActive(true);
+            }
+            if (player1.OpenedByPlayer1 == true)
+            {
+                Debug.Log("D2");
+                EventSystem.current = GameObject.FindWithTag("Player 1 Event System").GetComponent<EventSystem>();
+                EventSystem.current.SetSelectedGameObject(firstSelected);
+            }
+            if (player2.OpenedByPlayer2 == true)
+            {
+                Debug.Log("D3");
+                EventSystem.current = GameObject.FindWithTag("Player 2 Event System").GetComponent<EventSystem>();
+                EventSystem.current.SetSelectedGameObject(firstSelected);
+            }
+
         }
-    }
-    public void CloseDebugMenu()
-    {
-        IsMenuActive = false;
-        DebugMenu.SetActive(false);
-        foreach (GameObject gameObject in DebugMenuButton)
+        if (IsMenuActive == true)
         {
-            gameObject.SetActive(true);
+            Debug.Log("D4");
+            gameBehaviour.IsADebugMenuActive = false;
+            IsMenuActive = false;
+            debugMenu.SetActive(false);
         }
+        Debug.Log("HI");
     }
     public void SpawnCardsPlayer1()
     {
@@ -70,8 +89,8 @@ public class DebugMenuButtons : MonoBehaviour
     }
     private void GetReferences()
     {
-        DebugMenu = GameObject.FindWithTag("Debug Menu");
-        DebugMenuButton = GameObject.FindGameObjectsWithTag("Debug Menu Button");
+        gameBehaviour = GameObject.FindWithTag("Game Behaviour").GetComponent<GameBehaviour>();
+        debugMenu = GameObject.FindWithTag("Debug Menu");
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();

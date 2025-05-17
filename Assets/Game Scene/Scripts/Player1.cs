@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player1 : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class Player1 : MonoBehaviour
     private InputAction shootAction;
     private InputAction teleportAction;
     private InputAction escapeAction;
+    private InputAction debugAction;
 
     //Health
     public float maxHealth;
@@ -67,7 +69,9 @@ public class Player1 : MonoBehaviour
     //Refrences
     public Player2 player2;
     private GameObject hitIndicator;
-
+    // Menus
+    private EscapeMenuButtons escapeMenu;
+    private DebugMenuButtons debugMenu;
 
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
@@ -142,11 +146,15 @@ public class Player1 : MonoBehaviour
 
     public void Escape()
     {
-
+        escapeMenu.EscapeMenu();
     }
+    public bool OpenedByPlayer1 = true;
     public void DebugMenu()
     {
-
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            debugMenu.DebugMenu();
+        }
     }
 
     private void Start()
@@ -174,10 +182,8 @@ public class Player1 : MonoBehaviour
         escapeAction = input.Player1.Escape; ;
         escapeAction.Enable();
 
-        if (ShotgunCount > 0)
-        {
-            GunInaccuracy = 5;
-        }
+        debugAction = input.Player1.Debug;
+        debugAction.Enable();
     }
 
     private void OnEnable()
@@ -199,6 +205,9 @@ public class Player1 : MonoBehaviour
             //Escape
             escapeAction.performed += _ => Escape();
 
+            //Debug
+            debugAction.performed += _ => DebugMenu();
+
             //Shooting
             shootAction.performed += _ => BulletSpawner();
         }
@@ -218,6 +227,9 @@ public class Player1 : MonoBehaviour
 
             //Escape
             escapeAction.performed -= _ => Escape();
+
+            //Debug
+            debugAction.performed -= _ => DebugMenu();
 
             //Shooting
             shootAction.performed -= _ => BulletSpawner();
@@ -437,6 +449,8 @@ public class Player1 : MonoBehaviour
 
     private void GetRefrences()
     {
+        escapeMenu = gameObject.transform.GetComponentInChildren<EscapeMenuButtons>();
+        debugMenu = gameObject.transform.GetComponentInChildren<DebugMenuButtons>();
         hitIndicator = GameObject.FindWithTag("Player 1 Hit Indicator");
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         playerHealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();

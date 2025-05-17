@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3739823086197649912}
   m_Layer: 5
-  m_Name: EscapeMenu
-  m_TagString: Untagged
+  m_Name: Escape Menu
+  m_TagString: Escape Menu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -221,8 +221,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    m_SelectedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -237,7 +237,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2932765300534078825}
         m_TargetAssemblyTypeName: EscapeMenuButtons, Assembly-CSharp
-        m_MethodName: doResume
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -354,8 +354,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    m_SelectedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -370,7 +370,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2932765300534078825}
         m_TargetAssemblyTypeName: EscapeMenuButtons, Assembly-CSharp
-        m_MethodName: doMainMenu
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -391,12 +391,12 @@ GameObject:
   - component: {fileID: 6226715653902017349}
   - component: {fileID: 2932765300534078825}
   m_Layer: 5
-  m_Name: Escape Menu Buttons
-  m_TagString: Untagged
+  m_Name: Escape Menu Parent
+  m_TagString: Escape Menu Parent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6226715653902017349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -430,7 +430,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EscapeMenuActive: 0
+  ShouldUnpause: 1
   escapeMenu: {fileID: 0}
+  firstSelected: {fileID: 565255680230515517}
 --- !u!1 &6671531890927960419
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,8 +812,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
+    m_SelectedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal

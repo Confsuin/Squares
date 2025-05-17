@@ -57,6 +57,9 @@ TagManager:
   - Training Dummy Hit Indicator
   - Player 1 Event System
   - Player 2 Event System
+  - Escape Menu Parent
+  - Universal Behaviour
+  - Game Behaviour
   layers:
   - Default
   - TransparentFX

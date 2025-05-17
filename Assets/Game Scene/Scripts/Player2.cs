@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player2 : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class Player2 : MonoBehaviour
     private InputAction shootAction;
     private InputAction teleportAction;
     private InputAction escapeAction;
+    private InputAction debugAction;
 
     //Health
     public float maxHealth;
@@ -67,7 +69,9 @@ public class Player2 : MonoBehaviour
     //Refrences
     public Player1 player1;
     private GameObject hitIndicator;
-
+    // Menus
+    private EscapeMenuButtons escapeMenu;
+    private DebugMenuButtons debugMenu;
 
     //public List<GameObject> BulletSpawnPoint = new();
     public GameObject bulpos;
@@ -77,7 +81,6 @@ public class Player2 : MonoBehaviour
     {
         if (Ammo > 0 && shootTimer >= AttackSpeed && canDoActions == true)
         {
-
             shootTimer = 0f;
 
             Ammo--; //Reduces the ammo amount
@@ -143,7 +146,15 @@ public class Player2 : MonoBehaviour
 
     public void Escape()
     {
-
+        escapeMenu.EscapeMenu();
+    }
+    public bool OpenedByPlayer2 = true;
+    public void DebugMenu()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            debugMenu.DebugMenu();
+        }
     }
 
     private void Start()
@@ -152,6 +163,7 @@ public class Player2 : MonoBehaviour
         Ammo = StartingAmmo;
         GetRefrences();
         hitIndicator.SetActive(false);
+        SetAmmoCounter();
     }
 
 
@@ -170,10 +182,8 @@ public class Player2 : MonoBehaviour
         escapeAction = input.Player2.Escape;
         escapeAction.Enable();
 
-        if (ShotgunCount > 0)
-        {
-            GunInaccuracy = 5;
-        }
+        debugAction = input.Player2.Debug;
+        debugAction.Enable();
     }
 
     private void OnEnable()
@@ -195,6 +205,9 @@ public class Player2 : MonoBehaviour
             //Escape
             escapeAction.performed += _ => Escape();
 
+            //Debug
+            debugAction.performed += _ => DebugMenu();
+
             //Shooting
             shootAction.performed += _ => BulletSpawner();
         }
@@ -214,6 +227,9 @@ public class Player2 : MonoBehaviour
 
             //Escape
             escapeAction.performed -= _ => Escape();
+
+            //Debug
+            debugAction.performed -= _ => DebugMenu();
 
             //Shooting
             shootAction.performed -= _ => BulletSpawner();
@@ -438,6 +454,8 @@ public class Player2 : MonoBehaviour
 
     private void GetRefrences()
     {
+        escapeMenu = gameObject.transform.GetComponentInChildren<EscapeMenuButtons>();
+        debugMenu = gameObject.transform.GetComponentInChildren<DebugMenuButtons>();
         hitIndicator = GameObject.FindWithTag("Player 2 Hit Indicator");
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         playerHealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
