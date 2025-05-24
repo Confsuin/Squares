@@ -17,6 +17,8 @@ public class Card : MonoBehaviour
     // References
     private CardSystemSpawner cardSystemSpawner;
 
+    public GameBehaviour gameBehaviour;
+
     private LevelManager levelManager;
 
     private PointSystem pointSystem;
@@ -73,6 +75,7 @@ public class Card : MonoBehaviour
     {
         CardBody.transform.SetAsLastSibling();
         GetReferences();
+        gameBehaviour.IsCardsMenuActive = true;
         StartCoroutine(WaitForCardsSpawned());
         foreach (TMP_Text text in CardText)
         {
@@ -102,89 +105,10 @@ public class Card : MonoBehaviour
         }
         else if (pointSystem.FirstCardSpawn == false)
         {
+            gameBehaviour.IsCardsMenuActive = false;
             levelManager.StartSquareOff();
             Debug.Log("Card Clicked");
         }
-    }
-
-    public void MoveToSpawnPoint()
-    {
-        Parent.transform.localPosition = new Vector2(350 * CardNumber - 1050, 175);
-        Parent.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        Parent.transform.SetAsLastSibling();
-        CardsPickerBackground.transform.SetAsFirstSibling();
-    }
-    public void FlipCard()
-    {
-        if (Flipped == false)
-        {
-            Flipped = true;
-            StartCoroutine(FlipCardCoroutine());
-        }
-    }
-    IEnumerator FlipCardCoroutine()
-    {
-        transform.localRotation = Quaternion.Euler(0, 165, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 150, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 135, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 120, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 105, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 90, 0);
-        CardBody.transform.SetAsFirstSibling();
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 75, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 60, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 45, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 30, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 15, 0);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localRotation = Quaternion.Euler(0, 0, 0);
-        foreach (TMP_Text text in CardText)
-        {
-            text.enabled = true;
-        }
-    }
-    public void IncreaseCardSize()
-    {
-        FlipCard();
-        StartCoroutine(IncreaseCardSizeCoroutine());
-    }
-    public void DecreaseCardSize()
-    {
-        StartCoroutine(DecreaseCardSizeCoroutine());
-    }
-    IEnumerator IncreaseCardSizeCoroutine()
-    {
-        transform.localScale = new Vector2(1.066f, 1.066f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.132f, 1.132f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.2f, 1.2f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.266f, 1.266f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.32f, 1.32f);
-    }
-    IEnumerator DecreaseCardSizeCoroutine()
-    {
-        transform.localScale = new Vector2(1.266f, 1.266f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.2f, 1.2f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.132f, 1.132f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1.066f, 1.066f);
-        yield return new WaitForSecondsRealtime(0.02f);
-        transform.localScale = new Vector2(1f, 1f);
     }
     void DoAddStatsToPlayer()
     {
@@ -291,6 +215,78 @@ public class Card : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
     }
+    public void FlipCard()
+    {
+        if (Flipped == false)
+        {
+            Flipped = true;
+            StartCoroutine(FlipCardCoroutine());
+        }
+    }
+    IEnumerator FlipCardCoroutine()
+    {
+        transform.localRotation = Quaternion.Euler(0, 165, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 150, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 135, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 120, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 105, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 90, 0);
+        CardBody.transform.SetAsFirstSibling();
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 75, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 60, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 45, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 30, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 15, 0);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+        foreach (TMP_Text text in CardText)
+        {
+            text.enabled = true;
+        }
+    }
+    public void IncreaseCardSize()
+    {
+        FlipCard();
+        StartCoroutine(IncreaseCardSizeCoroutine());
+    }
+    public void DecreaseCardSize()
+    {
+        StartCoroutine(DecreaseCardSizeCoroutine());
+    }
+    IEnumerator IncreaseCardSizeCoroutine()
+    {
+        transform.localScale = new Vector2(1.066f, 1.066f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.132f, 1.132f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.266f, 1.266f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.32f, 1.32f);
+    }
+    IEnumerator DecreaseCardSizeCoroutine()
+    {
+        transform.localScale = new Vector2(1.266f, 1.266f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.2f, 1.2f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.132f, 1.132f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1.066f, 1.066f);
+        yield return new WaitForSecondsRealtime(0.02f);
+        transform.localScale = new Vector2(1f, 1f);
+    }
     private void GetReferences()
     {
         CardText = GetComponentsInChildren<TMP_Text>();
@@ -298,6 +294,7 @@ public class Card : MonoBehaviour
         Parent = this.gameObject.transform.parent;
         CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
+        gameBehaviour = GameObject.FindWithTag("Game Behaviour").GetComponent<GameBehaviour>();
         levelManager = GameObject.FindWithTag("Level Manager").GetComponent<LevelManager>();
         pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();

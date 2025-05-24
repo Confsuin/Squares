@@ -22,7 +22,7 @@ public class FlipaCard : MonoBehaviour
     }
     public void FlipCard()
     {
-        SpawnedCards[NextCardToBeFlipped].MoveToSpawnPoint();
+        //SpawnedCards[NextCardToBeFlipped].MoveToSpawnPoint();
         foreach (TMP_Text text in SpawnedCards[NextCardToBeFlipped].CardText)
         {
             text.enabled = true;

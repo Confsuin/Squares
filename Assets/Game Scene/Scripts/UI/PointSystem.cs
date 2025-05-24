@@ -60,6 +60,10 @@ public class PointSystem : MonoBehaviour
         GetReferences();
         UpdatePointsToWin();
         Debug.Log(PointsToWinSlider);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBOx"))
+        {
+            FirstCardSpawn = false;
+        }
     }
     public void UpdatePointsToWin()
     {

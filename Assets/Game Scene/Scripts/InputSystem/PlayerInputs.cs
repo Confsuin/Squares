@@ -80,6 +80,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close Cards Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""f72c61d9-a775-4008-921b-aacbaf826355"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Debug"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7599ff0f-10c4-4568-8828-1a7c5fa5be9d"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Close Cards Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -248,6 +268,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""name"": ""Debug"",
                     ""type"": ""Button"",
                     ""id"": ""1a5c81c7-f6dd-48b6-ac2f-ab2e46bf737a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close Cards Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""1ba4e82d-03b5-4947-b224-3f8397ca2ff5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -362,6 +391,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
                     ""action"": ""Debug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f209a63-76b7-4813-96ce-7da65679ae1e"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Close Cards Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -944,6 +984,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player1_Teleport = m_Player1.FindAction("Teleport", throwIfNotFound: true);
         m_Player1_Escape = m_Player1.FindAction("Escape", throwIfNotFound: true);
         m_Player1_Debug = m_Player1.FindAction("Debug", throwIfNotFound: true);
+        m_Player1_CloseCardsMenu = m_Player1.FindAction("Close Cards Menu", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
@@ -952,6 +993,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player2_Teleport = m_Player2.FindAction("Teleport", throwIfNotFound: true);
         m_Player2_Escape = m_Player2.FindAction("Escape", throwIfNotFound: true);
         m_Player2_Debug = m_Player2.FindAction("Debug", throwIfNotFound: true);
+        m_Player2_CloseCardsMenu = m_Player2.FindAction("Close Cards Menu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1038,6 +1080,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player1_Teleport;
     private readonly InputAction m_Player1_Escape;
     private readonly InputAction m_Player1_Debug;
+    private readonly InputAction m_Player1_CloseCardsMenu;
     public struct Player1Actions
     {
         private @PlayerInputs m_Wrapper;
@@ -1048,6 +1091,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Teleport => m_Wrapper.m_Player1_Teleport;
         public InputAction @Escape => m_Wrapper.m_Player1_Escape;
         public InputAction @Debug => m_Wrapper.m_Player1_Debug;
+        public InputAction @CloseCardsMenu => m_Wrapper.m_Player1_CloseCardsMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1075,6 +1119,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Debug.started += instance.OnDebug;
             @Debug.performed += instance.OnDebug;
             @Debug.canceled += instance.OnDebug;
+            @CloseCardsMenu.started += instance.OnCloseCardsMenu;
+            @CloseCardsMenu.performed += instance.OnCloseCardsMenu;
+            @CloseCardsMenu.canceled += instance.OnCloseCardsMenu;
         }
 
         private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -1097,6 +1144,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Debug.started -= instance.OnDebug;
             @Debug.performed -= instance.OnDebug;
             @Debug.canceled -= instance.OnDebug;
+            @CloseCardsMenu.started -= instance.OnCloseCardsMenu;
+            @CloseCardsMenu.performed -= instance.OnCloseCardsMenu;
+            @CloseCardsMenu.canceled -= instance.OnCloseCardsMenu;
         }
 
         public void RemoveCallbacks(IPlayer1Actions instance)
@@ -1124,6 +1174,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player2_Teleport;
     private readonly InputAction m_Player2_Escape;
     private readonly InputAction m_Player2_Debug;
+    private readonly InputAction m_Player2_CloseCardsMenu;
     public struct Player2Actions
     {
         private @PlayerInputs m_Wrapper;
@@ -1134,6 +1185,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Teleport => m_Wrapper.m_Player2_Teleport;
         public InputAction @Escape => m_Wrapper.m_Player2_Escape;
         public InputAction @Debug => m_Wrapper.m_Player2_Debug;
+        public InputAction @CloseCardsMenu => m_Wrapper.m_Player2_CloseCardsMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1161,6 +1213,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Debug.started += instance.OnDebug;
             @Debug.performed += instance.OnDebug;
             @Debug.canceled += instance.OnDebug;
+            @CloseCardsMenu.started += instance.OnCloseCardsMenu;
+            @CloseCardsMenu.performed += instance.OnCloseCardsMenu;
+            @CloseCardsMenu.canceled += instance.OnCloseCardsMenu;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
@@ -1183,6 +1238,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Debug.started -= instance.OnDebug;
             @Debug.performed -= instance.OnDebug;
             @Debug.canceled -= instance.OnDebug;
+            @CloseCardsMenu.started -= instance.OnCloseCardsMenu;
+            @CloseCardsMenu.performed -= instance.OnCloseCardsMenu;
+            @CloseCardsMenu.canceled -= instance.OnCloseCardsMenu;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -1353,6 +1411,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnTeleport(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
+        void OnCloseCardsMenu(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -1362,6 +1421,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnTeleport(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
+        void OnCloseCardsMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

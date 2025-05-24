@@ -23,7 +23,7 @@ public class EscapeMenuButtons : MonoBehaviour
     }
     public void ToggleEscapeMenu()
     {
-        if (gameBehaviour.IsAEscapeMenuActive == false)
+        if (gameBehaviour.IsAEscapeMenuActive == false && gameBehaviour.IsCardsMenuActive == false)
         {
             if (EscapeMenuActive == false)
             {
@@ -48,7 +48,7 @@ public class EscapeMenuButtons : MonoBehaviour
             }
 
         }
-        else if (gameBehaviour.IsAEscapeMenuActive == true && EscapeMenuActive == true)
+        else if (gameBehaviour.IsAEscapeMenuActive == true && EscapeMenuActive == true && gameBehaviour.IsCardsMenuActive == false)
         {
             if (ShouldUnpause == true)
             {

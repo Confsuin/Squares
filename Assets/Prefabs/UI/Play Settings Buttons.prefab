@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 7149439681788536003}
   - component: {fileID: 5786692248052015333}
   - component: {fileID: 1425323025232472084}
+  - component: {fileID: 4947963076113420194}
   m_Layer: 0
   m_Name: PointsToWinSlider
   m_TagString: Points To Win Slider
@@ -307,6 +308,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4947963076113420194}
+          m_TargetAssemblyTypeName: SetAsSelected, Assembly-CSharp
+          m_MethodName: SetButtonAsSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4947963076113420194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2756982886649094485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a951264c8eac9c5449cd173b976dd9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2889758884637646161
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1019,8 @@ GameObject:
   - component: {fileID: 7732721354812519710}
   - component: {fileID: 7539014032019985149}
   - component: {fileID: 9056191247327986395}
+  - component: {fileID: 5457294350407329975}
+  - component: {fileID: 557837790080238931}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1084,7 +1115,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
+    m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -9039256273923579169, guid: ec4130ce425253f438d16f4792af3051, type: 3}
     m_SelectedSprite: {fileID: 8185670722197784300, guid: f0c44cbfc742cd64a943509d0a2858ff, type: 3}
     m_DisabledSprite: {fileID: 0}
@@ -1135,6 +1166,47 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5457294350407329975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463472500764196761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 557837790080238931}
+          m_TargetAssemblyTypeName: SetAsSelected, Assembly-CSharp
+          m_MethodName: SetButtonAsSelected
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &557837790080238931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463472500764196761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a951264c8eac9c5449cd173b976dd9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9168622740703149410
 GameObject:
   m_ObjectHideFlags: 0

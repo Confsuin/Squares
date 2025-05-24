@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Close Cards Menu",
+                    "type": "Button",
+                    "id": "f72c61d9-a775-4008-921b-aacbaf826355",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -170,6 +179,17 @@
                     "action": "Debug",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7599ff0f-10c4-4568-8828-1a7c5fa5be9d",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Close Cards Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -226,6 +246,15 @@
                     "name": "Debug",
                     "type": "Button",
                     "id": "1a5c81c7-f6dd-48b6-ac2f-ab2e46bf737a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Close Cards Menu",
+                    "type": "Button",
+                    "id": "1ba4e82d-03b5-4947-b224-3f8397ca2ff5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -340,6 +369,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Debug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f209a63-76b7-4813-96ce-7da65679ae1e",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Close Cards Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

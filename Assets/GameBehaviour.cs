@@ -16,6 +16,7 @@ public class GameBehaviour : MonoBehaviour
 
     public bool IsAEscapeMenuActive = false;
     public bool IsADebugMenuActive = false;
+    public bool IsCardsMenuActive = false;
     void Start()
     {
         GetReferences();

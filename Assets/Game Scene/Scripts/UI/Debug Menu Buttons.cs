@@ -29,7 +29,7 @@ public class DebugMenuButtons : MonoBehaviour
     }
     public void ToggleDebugMenu()
     {
-        if (gameBehaviour.IsADebugMenuActive == false)
+        if (gameBehaviour.IsADebugMenuActive == false && gameBehaviour.IsCardsMenuActive == false)
         {
             if (IsMenuActive == false)
             {
@@ -49,7 +49,7 @@ public class DebugMenuButtons : MonoBehaviour
             }
 
         }
-        else if (gameBehaviour.IsADebugMenuActive == true && IsMenuActive == true)
+        else if (gameBehaviour.IsADebugMenuActive == true && IsMenuActive == true && gameBehaviour.IsCardsMenuActive == false)
         {
             gameBehaviour.IsADebugMenuActive = false;
             IsMenuActive = false;

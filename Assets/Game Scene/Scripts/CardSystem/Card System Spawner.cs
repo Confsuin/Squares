@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class CardSystemSpawner : MonoBehaviour
 {
     private PointSystem pointSystem;
@@ -39,6 +39,10 @@ public class CardSystemSpawner : MonoBehaviour
             Cards = Instantiate(CardSpawner, CardsCanvas.transform);
             Debug.Log("Cards Rerolled");
         }*/
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
+        {
+            GameObject.Find("Close Cards Menu Text(SandBox Only)").SetActive(false);
+        }
     }
     private void GetReferences()
     {

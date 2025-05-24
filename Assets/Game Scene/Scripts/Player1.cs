@@ -55,6 +55,7 @@ public class Player1 : MonoBehaviour
     private InputAction teleportAction;
     private InputAction escapeAction;
     private InputAction debugAction;
+    private InputAction closeCardsMenuAction;
 
     //Health
     public float maxHealth;
@@ -157,6 +158,27 @@ public class Player1 : MonoBehaviour
         }
     }
 
+    private GameBehaviour gameBehaviour;
+    private PointSystem pointSystem;
+    private CardSystemSpawner cardSystemSpawner;
+    public void CloseCardsMenu()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
+        {
+            Destroy(GameObject.FindWithTag("Cards Menu"));
+            gameBehaviour.IsCardsMenuActive = false;
+            gameBehaviour.IsADebugMenuActive = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+            pointSystem.Player1Won = false;
+            pointSystem.Player2Won = false;
+            debugMenu.IsMenuActive = false;
+
+            cardSystemSpawner.CardsSpawned = false;
+            Debug.Log("Close Cards Menu Pressed");
+        }
+    }
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -175,15 +197,18 @@ public class Player1 : MonoBehaviour
         //var inputActions = new InputAction();
         shootAction = input.Player1.Shoot;
         shootAction.Enable();
-        
+
         teleportAction = input.Player1.Teleport;
         teleportAction.Enable();
 
-        escapeAction = input.Player1.Escape; ;
+        escapeAction = input.Player1.Escape;
         escapeAction.Enable();
 
         debugAction = input.Player1.Debug;
         debugAction.Enable();
+
+        closeCardsMenuAction = input.Player1.CloseCardsMenu;
+        closeCardsMenuAction.Enable();
     }
 
     private void OnEnable()
@@ -208,6 +233,9 @@ public class Player1 : MonoBehaviour
             //Debug
             debugAction.performed += _ => DebugMenu();
 
+            // Close Cards Menu
+            closeCardsMenuAction.performed += _ => CloseCardsMenu();
+
             //Shooting
             shootAction.performed += _ => BulletSpawner();
         }
@@ -230,6 +258,9 @@ public class Player1 : MonoBehaviour
 
             //Debug
             debugAction.performed -= _ => DebugMenu();
+
+            // Close Cards Menu
+            closeCardsMenuAction.performed -= _ => CloseCardsMenu();
 
             //Shooting
             shootAction.performed -= _ => BulletSpawner();
@@ -456,6 +487,10 @@ public class Player1 : MonoBehaviour
 
     private void GetRefrences()
     {
+        cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();
+        gameBehaviour = GameObject.FindWithTag("Game Behaviour").GetComponent<GameBehaviour>();
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
+
         escapeMenu = gameObject.transform.GetComponentInChildren<EscapeMenuButtons>();
         debugMenu = gameObject.transform.GetComponentInChildren<DebugMenuButtons>();
         hitIndicator = GameObject.FindWithTag("Player 1 Hit Indicator");
