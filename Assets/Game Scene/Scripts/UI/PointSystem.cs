@@ -55,10 +55,6 @@ public class PointSystem : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
-        {
-            Time.timeScale = 0;
-        }
         GetReferences();
         UpdatePointsToWin();
         Debug.Log(PointsToWinSlider);

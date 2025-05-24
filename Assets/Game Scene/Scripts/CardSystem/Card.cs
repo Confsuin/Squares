@@ -56,8 +56,8 @@ public class Card : MonoBehaviour
     public float BulletCount;
     public float ShotgunCount;
 
-    public float FireRadius;
-    public float ExplosionRadius;
+    public float FireZoneDamage;
+    public float ExplosionDMG;
     public float GunInaccuracy;
 
     public float CardNumber;
@@ -71,7 +71,6 @@ public class Card : MonoBehaviour
 
     void Awake()
     {
-        Time.timeScale = 0;
         CardBody.transform.SetAsLastSibling();
         GetReferences();
         StartCoroutine(WaitForCardsSpawned());
@@ -231,8 +230,8 @@ public class Card : MonoBehaviour
             player1.BulletBounces = player1.BulletBounces + BulletBounces;
 
             // Adds Bullet Effect Stats
-            player1.FireRadius = player1.FireRadius + FireRadius;
-            player1.ExplosionDMG = player1.ExplosionDMG + ExplosionRadius;
+            player1.FireZoneDamage = player1.FireZoneDamage + FireZoneDamage;
+            player1.ExplosionDMG = player1.ExplosionDMG + ExplosionDMG;
 
             pointSystem.Player2Won = false;
 
@@ -277,8 +276,8 @@ public class Card : MonoBehaviour
             player2.BulletBounces = player2.BulletBounces + BulletBounces;
 
             // Adds Bullet Effect Stats
-            player2.FireRadius = player2.FireRadius + FireRadius;
-            player2.ExplosionDMG = player2.ExplosionDMG + ExplosionRadius;
+            player2.FireZoneDamage = player2.FireZoneDamage + FireZoneDamage;
+            player2.ExplosionDMG = player2.ExplosionDMG + ExplosionDMG;
 
             pointSystem.Player1Won = false;
 

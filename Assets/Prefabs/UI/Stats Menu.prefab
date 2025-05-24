@@ -2307,7 +2307,7 @@ GameObject:
   - component: {fileID: 7032886482994900370}
   - component: {fileID: 5260222481700197241}
   m_Layer: 5
-  m_Name: Fire Radius Stat
+  m_Name: Fire Zone Damage Stat
   m_TagString: Fire Radius Stat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fire Radius: X'
+  m_text: 'Fire Zone Damage: X'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}

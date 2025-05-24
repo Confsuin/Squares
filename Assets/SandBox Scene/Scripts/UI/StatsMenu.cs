@@ -122,7 +122,7 @@ public class StatsMenu : MonoBehaviour
         BulletBouncesStat.text = "Bullet Bounces: " + BulletBounces;
         BulletGrowthStat.text = "Bullet Growth: " + player1.BulletGrowth;
         ExplosionDMGStat.text = "Explosion DMG: " + player1.ExplosionDMG;
-        FireRadiusStat.text = "Fire Radius: " + player1.FireRadius;
+        FireRadiusStat.text = "Fire Zone Damage: " + player1.FireZoneDamage;
     }
     public void UpdateShownStatsPlayer2()
     {
@@ -144,7 +144,7 @@ public class StatsMenu : MonoBehaviour
         BulletBouncesStat.text = "Bullet Bounces: " + BulletBounces;
         BulletGrowthStat.text = "Bullet Growth: " + player2.BulletGrowth;
         ExplosionDMGStat.text = "Explosion DMG: " + player2.ExplosionDMG;
-        FireRadiusStat.text = "Fire Radius: " + player2.FireRadius;
+        FireRadiusStat.text = "Fire Zone Damage: " + player2.FireZoneDamage;
     }
     private void ShowStatsInfo()
     {

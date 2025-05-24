@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
     public Player1 player1;
     public Player2 player2;
 
+    private GameBehaviour gameBehaviour;
+
     public List<GameObject> Maps; 
 
     void Start()
@@ -32,8 +34,6 @@ public class LevelManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
         {
-            Time.timeScale = 0;
-
             SelectMap();
             StartCoroutine(SquareOffCoolDown());
         }
@@ -49,24 +49,21 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator SquareOffCoolDown()
     {
-        player1HealthBar.UpdateHealthBar();
-        player2HealthBar.UpdateHealthBar();
         SquareOff.SetActive(true);
         SquareOffCountdown.text = "3!";
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         SquareOffCountdown.text = "2!";
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         SquareOffCountdown.text = "1!";
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         SquareOffCountdown.text = "Go!";
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSeconds(0.5f);
         SquareOff.SetActive(false);
-        Time.timeScale = 1;
-        player1.canDoActions = true;
-        player2.canDoActions = true;
+        gameBehaviour.DisableEnablePlayerInput(1);
     }
     private void GetReferences()
     {
+        gameBehaviour = GameObject.FindWithTag("Game Behaviour").GetComponent<GameBehaviour>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         Player1 = GameObject.FindWithTag("Player");

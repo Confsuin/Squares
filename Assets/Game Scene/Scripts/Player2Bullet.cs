@@ -42,7 +42,7 @@ public class Player2Bullet : MonoBehaviour
         size = player2.BulletSize;
         slow = player2.BulletSlow;
         bounce = player2.BulletBounces;
-        fire = player2.FireRadius;
+        fire = player2.FireZoneDamage;
         explosion = player2.ExplosionDMG;
         range = player1.Range;
 
@@ -65,6 +65,7 @@ public class Player2Bullet : MonoBehaviour
         if (rangeTime <= 0)
         {
             Destroy(gameObject);
+            OnKill();
         }
     }
 
@@ -75,6 +76,7 @@ public class Player2Bullet : MonoBehaviour
             player1.TakeDamage(damage);
 
             Destroy(gameObject);
+            OnKill();
             if (poison > 0)
             {
                 player1.StartPoisonTimerP2DMG();
@@ -85,6 +87,7 @@ public class Player2Bullet : MonoBehaviour
             player2.TakeDamage(damage);
 
             Destroy(gameObject);
+            OnKill();
             if (poison > 0)
             {
                 player2.StartPoisonTimerP2DMG();
@@ -95,6 +98,7 @@ public class Player2Bullet : MonoBehaviour
             trainingDummy.TakeDamage(damage);
 
             Destroy(gameObject);
+            OnKill();
             if (poison > 0)
             {
                 trainingDummy.StartPoisonTimerP2DMG();
@@ -114,27 +118,36 @@ public class Player2Bullet : MonoBehaviour
         if (other.gameObject.tag == "Wall" && timesBounced >= bounce)
         {
             Destroy(gameObject);
-
+            OnKill();
         }
 
 
 
         if (explosion > 0 && other.gameObject.tag == "Wall")
         {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            SpawnExplosion();
         }
     }
-
-    public void OnDestroy()
+    public void OnKill()
     {
         if (explosion > 0)
         {
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            SpawnExplosion();
         }
         if (fire > 0)
         {
-            Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
+            SpawnFireZone();
         }
+    }
+    private void SpawnExplosion()
+    {
+        GameObject g = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        g.GetComponent<Explosion>().ExplosionDamagePlayer(2);
+    }
+    private void SpawnFireZone()
+    {
+        GameObject g = Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
+        g.GetComponent<FireZone>().FireZoneDamagePlayer(2);
     }
 
 

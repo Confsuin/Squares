@@ -30,7 +30,7 @@ public class Player2 : MonoBehaviour
     public float BulletSlow = 1;
     public float BulletBounces;
     //BulletSpawn
-    public float FireRadius;
+    public float FireZoneDamage;
     public float ExplosionDMG;
 
     //Reloading
@@ -290,7 +290,10 @@ public class Player2 : MonoBehaviour
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
-        moveVector = value.ReadValue<Vector2>();
+        if (canDoActions == true)
+        {
+            moveVector = value.ReadValue<Vector2>();
+        }
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext value)

@@ -93,7 +93,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardSpawnAmount: 5
   Cards:
-  - {fileID: 8421034208990630424, guid: 6d3870419fd090543b4d948744d643d0, type: 3}
   - {fileID: 8421034208990630424, guid: 010bbba88e075a2479b1327a0966e07d, type: 3}
   - {fileID: 8421034208990630424, guid: e4b39333683861f49b43fc10d6ecc06e, type: 3}
   - {fileID: 8421034208990630424, guid: 401b3fb616fb2634aba39a88d51d1b10, type: 3}
@@ -117,8 +116,7 @@ MonoBehaviour:
   - {fileID: 6867721143290512406}
   - {fileID: 532159455670246714}
   pos: {fileID: 3701352662667000618}
-  flipaCardScript: {fileID: 0}
-  flipaCard: {fileID: 0}
+  XIspickingtext: {fileID: 0}
 --- !u!114 &8544731092600599605
 MonoBehaviour:
   m_ObjectHideFlags: 0
