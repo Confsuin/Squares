@@ -25,7 +25,9 @@ public class Player2Bullet : MonoBehaviour
 
     private Player1 player1;
     private Player2 player2;
-    public TrainingDummy trainingDummy;
+    private TrainingDummy trainingDummy;
+
+    private PointSystem pointSystem;
 
     Rigidbody2D rb2d;
 
@@ -33,6 +35,8 @@ public class Player2Bullet : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         GetRefrences();
+
+        pointSystem.BulletAndEffectsInWorld.Add(gameObject);
 
         //Get Stats From Player2
         damage = player2.Damage;
@@ -138,16 +142,19 @@ public class Player2Bullet : MonoBehaviour
         {
             SpawnFireZone();
         }
+        pointSystem.BulletAndEffectsInWorld.Remove(gameObject);
     }
     private void SpawnExplosion()
     {
         GameObject g = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         g.GetComponent<Explosion>().ExplosionDamagePlayer(2);
+        pointSystem.BulletAndEffectsInWorld.Add(g);
     }
     private void SpawnFireZone()
     {
         GameObject g = Instantiate(fireZoneEffect, transform.position, Quaternion.identity);
         g.GetComponent<FireZone>().FireZoneDamagePlayer(2);
+        pointSystem.BulletAndEffectsInWorld.Add(g);
     }
 
 
@@ -155,6 +162,7 @@ public class Player2Bullet : MonoBehaviour
 
     private void GetRefrences()
     {
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         trainingDummy = GameObject.FindWithTag("Training Dummy").GetComponent<TrainingDummy>();

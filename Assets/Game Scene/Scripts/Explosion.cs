@@ -3,15 +3,17 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public float ExplosionDMG;
+    public float Duration = 0.5f;
 
     public Player1 player1;
     public Player2 player2;
     public TrainingDummy trainingDummy;
 
+    private PointSystem pointSystem;
+
     private void Awake()
     {
         GetReferences();
-        Destroy(gameObject, 0.5f);
     }
 
     public void ExplosionDamagePlayer(int Player)
@@ -40,10 +42,24 @@ public class Explosion : MonoBehaviour
             trainingDummy.TakeDamage(ExplosionDMG);
         }
     }
+    private void FixedUpdate()
+    {
+        Duration -= Time.deltaTime;
+        if (Duration <= 0)
+        {
+            Destroy(gameObject);
+            OnKill();
+        }
+    }
+    private void OnKill()
+    {
+        pointSystem.BulletAndEffectsInWorld.Remove(gameObject);
+    }
     private void GetReferences()
     {
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         trainingDummy = GameObject.FindWithTag("Training Dummy").GetComponent<TrainingDummy>();
+        pointSystem = GameObject.FindWithTag("Point System").GetComponent<PointSystem>();
     }
 }

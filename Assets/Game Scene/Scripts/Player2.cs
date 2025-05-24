@@ -65,6 +65,7 @@ public class Player2 : MonoBehaviour
 
     //Status Effects
     public bool canDoActions = false;
+    public bool IsInFireZone = false;
 
     //Refrences
     public Player1 player1;
@@ -355,8 +356,11 @@ public class Player2 : MonoBehaviour
     }
     private void UpdateAmmoCounter()
     {
-        GameObject.Destroy(AmmoCounterObjects[AmmoCount]);
-        AmmoCount -= 1;
+        if (AmmoCount >= 0)
+        {
+            GameObject.Destroy(AmmoCounterObjects[AmmoCount]);
+            AmmoCount -= 1;
+        }
     }
     public IEnumerator PoisonTimerP1DMG()
     {

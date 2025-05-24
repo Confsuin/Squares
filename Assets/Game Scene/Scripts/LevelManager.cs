@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour
     public Player1 player1;
     public Player2 player2;
 
+    private GameObject Player1Barrier;
+    private GameObject Player2Barrier;
+
     private GameBehaviour gameBehaviour;
 
     public List<GameObject> Maps; 
@@ -25,6 +28,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         GetReferences();
+        Player1Barrier.SetActive(false);
+        Player2Barrier.SetActive(false);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
         {
             SquareOff.SetActive(false);
@@ -40,6 +45,8 @@ public class LevelManager : MonoBehaviour
     }
     public void SelectMap()
     {
+        Player1Barrier.SetActive(true);
+        Player2Barrier.SetActive(true);
         Player1.transform.position = new Vector2(-20, 0);
         Player2.transform.position = new Vector2(20, 0);
 
@@ -59,6 +66,8 @@ public class LevelManager : MonoBehaviour
         SquareOffCountdown.text = "Go!";
         yield return new WaitForSeconds(0.5f);
         SquareOff.SetActive(false);
+        Player1Barrier.SetActive(false);
+        Player2Barrier.SetActive(false);
         gameBehaviour.DisableEnablePlayerInput(1);
     }
     private void GetReferences()
@@ -70,6 +79,8 @@ public class LevelManager : MonoBehaviour
         Player2 = GameObject.FindWithTag("PlayerAlt");
         player1HealthBar = GameObject.FindWithTag("Player 1 Health Bar").GetComponent<PlayerHealthBar>();
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
+        Player1Barrier = GameObject.FindWithTag("Player 1 Barrier");
+        Player2Barrier = GameObject.FindWithTag("Player 2 Barrier");
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Game"))
         {
             SquareOff = GameObject.FindWithTag("Square Off");

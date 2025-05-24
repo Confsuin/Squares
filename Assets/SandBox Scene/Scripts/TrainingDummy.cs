@@ -18,6 +18,7 @@ public class TrainingDummy : MonoBehaviour
     private GameObject hitIndicator;
 
     //Status Effects
+    public bool IsInFireZone = false;
 
     public PlayerHealthBar playerHealthBar;
     TMP_Text HealthText;

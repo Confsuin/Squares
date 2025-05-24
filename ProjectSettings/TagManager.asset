@@ -60,6 +60,8 @@ TagManager:
   - Escape Menu Parent
   - Universal Behaviour
   - Game Behaviour
+  - Player 1 Barrier
+  - Player 2 Barrier
   layers:
   - Default
   - TransparentFX

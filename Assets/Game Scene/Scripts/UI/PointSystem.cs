@@ -5,6 +5,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class PointSystem : MonoBehaviour
 {
@@ -25,7 +26,8 @@ public class PointSystem : MonoBehaviour
 
     public List<PointCounter> PointCounters1;
     public List<PointCounter> PointCounters2;
-    
+
+    public List<GameObject> BulletAndEffectsInWorld;
 
     public PointCounter pointCounter;
 
@@ -188,6 +190,13 @@ public class PointSystem : MonoBehaviour
             {
                 player1.canDoActions = false;
                 player2.canDoActions = false;
+                
+                foreach (GameObject BulletOrEffect in BulletAndEffectsInWorld.ToList())
+                {
+                    Destroy(BulletOrEffect);
+                    BulletAndEffectsInWorld.Remove(BulletOrEffect);
+                }
+
                 IncreasePoints();
             }
         }
