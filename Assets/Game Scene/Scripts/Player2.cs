@@ -65,7 +65,6 @@ public class Player2 : MonoBehaviour
 
     //Status Effects
     public bool canDoActions = false;
-    public bool IsInFireZone = false;
 
     //Refrences
     public Player1 player1;
@@ -133,13 +132,11 @@ public class Player2 : MonoBehaviour
         Debug.Log("AltFire Clicked");
         if (teleportDistance > 0 && canDoActions == true)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-            Vector2 aimDirection = mousePosition - (Vector2)weapon.transform.position;
+            Vector2 teleportDirection = weapon.transform.right.normalized;
 
             Vector2 RotationPointP = weapon.transform.position;
 
-            Ray2D ray = new Ray2D(RotationPointP, aimDirection);
+            Ray2D ray = new Ray2D(RotationPointP, teleportDirection);
             Vector2 teleportTarget = ray.origin + ray.direction.normalized * teleportDistance;
             transform.position = teleportTarget;
         }

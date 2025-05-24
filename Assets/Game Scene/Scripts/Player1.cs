@@ -65,7 +65,6 @@ public class Player1 : MonoBehaviour
 
     //Status Effects
     public bool canDoActions = false;
-    public bool IsInFireZone = false;
 
     //Refrences
     public Player2 player2;
