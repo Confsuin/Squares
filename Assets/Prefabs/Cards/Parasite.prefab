@@ -543,12 +543,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMenu: {fileID: 0}
+  DebugMenu: []
   CardBody: {fileID: 8785173166664168708}
   BackSide: {fileID: 0}
   FrontSide: {fileID: 0}
-  ElementButton: {fileID: 0}
+  gameBehaviour: {fileID: 0}
   CardText: []
+  Flipped: 0
   MovementSpeed: 1
   Health: 1.15
   Damage: 1
@@ -563,8 +564,8 @@ MonoBehaviour:
   BulletBounces: 0
   BulletCount: 0
   ShotgunCount: 0
-  FireRadius: 0
-  ExplosionRadius: 0
+  FireZoneDamage: 0
+  ExplosionDMG: 0
   GunInaccuracy: 0
   CardNumber: 0
   ReloadSpeed: 0

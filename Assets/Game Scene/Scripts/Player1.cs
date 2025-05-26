@@ -145,17 +145,25 @@ public class Player1 : MonoBehaviour
         }
     }
 
-    public void Escape()
-    {
-        escapeMenu.ToggleEscapeMenu();
-    }
-    public bool OpenedByPlayer1 = true;
+    public bool OpenedByPlayer1 = false;
     public void DebugMenu()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
+            if (escapeMenu.EscapeMenuActive == false && debugMenu.IsMenuActive == false)
+            {
+                OpenedByPlayer1 = true;
+            }
             debugMenu.ToggleDebugMenu();
         }
+    }
+    public void Escape()
+    {
+        if (escapeMenu.EscapeMenuActive == false && debugMenu.IsMenuActive == false)
+        {
+            OpenedByPlayer1 = true;
+        }
+        escapeMenu.ToggleEscapeMenu();
     }
 
     private GameBehaviour gameBehaviour;

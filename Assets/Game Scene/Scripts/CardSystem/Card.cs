@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class Card : MonoBehaviour
 {
     // GameObjects
     private GameObject CardsPickerBackground;
-    public GameObject[] DebugMenu;
+    public List<GameObject> DebugMenu;
     public GameObject CardBody;
     private Transform Parent;
     public Sprite BackSide;
@@ -87,9 +88,9 @@ public class Card : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.01f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            foreach (GameObject gameObject in DebugMenu)
+            foreach (GameObject debugMenu in DebugMenu)
             {
-                gameObject.SetActive(false);
+                debugMenu.SetActive(false);
             }
         }
     }
@@ -115,9 +116,9 @@ public class Card : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
             Time.timeScale = 1;
-            foreach (GameObject gameObject in DebugMenu)
+            foreach (GameObject debugMenu in DebugMenu)
             {
-                gameObject.SetActive(true);
+                debugMenu.SetActive(true);
             }
         }
         if (pointSystem.Player2Won == true)
@@ -303,16 +304,15 @@ public class Card : MonoBehaviour
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            var parentGameObject = this.transform.root.gameObject;
-            if (parentGameObject.tag == ("Player"))
+            if (GameObject.FindWithTag("Player 1 Debug Menu") != null)
             {
-                debugMenuButtons = GameObject.FindWithTag("Player 1 Debug Menu Parent").GetComponent<DebugMenuButtons>(); ;
-                DebugMenu = GameObject.FindGameObjectsWithTag("Player 1 Debug Menu");
+                DebugMenu.Add(GameObject.FindWithTag("Player 1 Debug Menu"));
+                debugMenuButtons = GameObject.FindWithTag("Player 1 Debug Menu Parent").GetComponent<DebugMenuButtons>();
             }
-            else if (parentGameObject.tag == ("PlayerAlt"))
+            else if (GameObject.FindWithTag("Player 2 Debug Menu") != null)
             {
-                debugMenuButtons = GameObject.FindWithTag("Player 2 Debug Menu Parent").GetComponent<DebugMenuButtons>();
-                DebugMenu = GameObject.FindGameObjectsWithTag("Player 2 Debug Menu");
+                DebugMenu.Add(GameObject.FindWithTag("Player 2 Debug Menu"));
+                debugMenuButtons = GameObject.FindWithTag("Player 1 Debug Menu Parent").GetComponent<DebugMenuButtons>();
             }
         }
     }

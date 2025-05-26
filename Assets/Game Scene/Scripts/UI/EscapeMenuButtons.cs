@@ -18,6 +18,8 @@ public class EscapeMenuButtons : MonoBehaviour
     private void Start()
     {
         escapeMenu.SetActive(false);
+        var parentGameObject = this.transform.root.gameObject;
+        Debug.Log(parentGameObject);
     }
     void Awake()
     {
@@ -25,7 +27,7 @@ public class EscapeMenuButtons : MonoBehaviour
     }
     public void ToggleEscapeMenu()
     {
-        if (gameBehaviour.IsAEscapeMenuActive == false && gameBehaviour.IsCardsMenuActive == false)
+        if (gameBehaviour.IsAEscapeMenuActive == false && gameBehaviour.IsADebugMenuActive == false && gameBehaviour.IsCardsMenuActive == false)
         {
             if (EscapeMenuActive == false)
             {
@@ -42,11 +44,15 @@ public class EscapeMenuButtons : MonoBehaviour
             {
                 EventSystem.current = GameObject.FindWithTag("Player 1 Event System").GetComponent<EventSystem>();
                 EventSystem.current.SetSelectedGameObject(firstSelected);
+                player1.OpenedByPlayer1 = false;
+                Debug.Log("Escape Menu opened by Player 1");
             }
             if (player2.OpenedByPlayer2 == true)
             {
                 EventSystem.current = GameObject.FindWithTag("Player 2 Event System").GetComponent<EventSystem>();
                 EventSystem.current.SetSelectedGameObject(firstSelected);
+                player2.OpenedByPlayer2 = false;
+                Debug.Log("Escape Menu opened by Player 2");
             }
 
         }

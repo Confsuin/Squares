@@ -20,8 +20,13 @@ public class DebugMenuButtons : MonoBehaviour
 
     void Start()
     {
-        GetReferences();
         debugMenu.SetActive(false);
+        var parentGameObject = this.transform.root.gameObject;
+        Debug.Log(parentGameObject);
+    }
+    private void Awake()
+    {
+        GetReferences();
     }
     public void MainMenu()
     {
@@ -29,7 +34,7 @@ public class DebugMenuButtons : MonoBehaviour
     }
     public void ToggleDebugMenu()
     {
-        if (gameBehaviour.IsADebugMenuActive == false && gameBehaviour.IsCardsMenuActive == false)
+        if (gameBehaviour.IsADebugMenuActive == false && gameBehaviour.IsAEscapeMenuActive == false && gameBehaviour.IsCardsMenuActive == false)
         {
             if (IsMenuActive == false)
             {
@@ -41,11 +46,15 @@ public class DebugMenuButtons : MonoBehaviour
             {
                 EventSystem.current = GameObject.FindWithTag("Player 1 Event System").GetComponent<EventSystem>();
                 EventSystem.current.SetSelectedGameObject(firstSelected);
+                player1.OpenedByPlayer1 = false;
+                Debug.Log("Debug Menu opened by Player 1");
             }
             if (player2.OpenedByPlayer2 == true)
             {
                 EventSystem.current = GameObject.FindWithTag("Player 2 Event System").GetComponent<EventSystem>();
                 EventSystem.current.SetSelectedGameObject(firstSelected);
+                player2.OpenedByPlayer2 = false;
+                Debug.Log("Debug Menu opened by Player 2");
             }
 
         }

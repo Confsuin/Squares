@@ -62,6 +62,14 @@ TagManager:
   - Game Behaviour
   - Player 1 Barrier
   - Player 2 Barrier
+  - Player 1 Debug Menu
+  - Player 1 Debug Menu Parent
+  - Player 1 Escape Menu
+  - Player 1 Escape Menu Parent
+  - Player 2 Debug Menu
+  - Player 2 Debug Menu Parent
+  - Player 2 Escape Menu
+  - Player 2 Escape Menu Parent
   layers:
   - Default
   - TransparentFX

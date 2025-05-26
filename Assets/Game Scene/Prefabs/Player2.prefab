@@ -921,7 +921,7 @@ MonoBehaviour:
   canDoActions: 1
   player1: {fileID: 0}
   bulpos: {fileID: 3473961818406983589}
-  OpenedByPlayer2: 1
+  OpenedByPlayer2: 0
   AmmoCount: 0
   AmmoCounterObjects: []
 --- !u!114 &8626111870408504961
