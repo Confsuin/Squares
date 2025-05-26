@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8655593798298542112}
   - component: {fileID: 3271828761430960731}
   - component: {fileID: 8983062741027989986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4847,7 +4847,7 @@ GameObject:
   - component: {fileID: 1750192073058337951}
   - component: {fileID: 4340409281999114850}
   - component: {fileID: 1058360881129802984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9680,7 +9680,7 @@ GameObject:
   - component: {fileID: 8839847584099904106}
   - component: {fileID: 4012402176463430297}
   - component: {fileID: 6927498002221682761}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9763,8 +9763,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionDMG: 0
+  Duration: 0.5
   player1: {fileID: 0}
   player2: {fileID: 0}
+  trainingDummy: {fileID: 0}
 --- !u!1 &3561036735751974750
 GameObject:
   m_ObjectHideFlags: 0
@@ -9776,7 +9778,7 @@ GameObject:
   - component: {fileID: 3938786602979834933}
   - component: {fileID: 1688437179173135111}
   - component: {fileID: 5761786110736280495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14609,7 +14611,7 @@ GameObject:
   - component: {fileID: 5466248779034623725}
   - component: {fileID: 4746007362537413965}
   - component: {fileID: 3043253851721989885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19441,7 +19443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5582234034049097484}
   - component: {fileID: 5836691066242365446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Explosion Radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

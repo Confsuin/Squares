@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 7883331545883570250}
   m_Layer: 5
   m_Name: Bouncy
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -541,11 +541,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMenu: []
+  DebugMenu: {fileID: 0}
   CardBody: {fileID: 8785173166664168708}
   BackSide: {fileID: 0}
   FrontSide: {fileID: 0}
   gameBehaviour: {fileID: 0}
+  debugMenuButtons: {fileID: 0}
   CardText: []
   Flipped: 0
   MovementSpeed: 1

@@ -70,6 +70,7 @@ TagManager:
   - Player 2 Debug Menu Parent
   - Player 2 Escape Menu
   - Player 2 Escape Menu Parent
+  - Card
   layers:
   - Default
   - TransparentFX

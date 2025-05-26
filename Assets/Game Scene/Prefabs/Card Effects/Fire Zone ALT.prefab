@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7263030972215250551}
   - component: {fileID: 3071061627936077517}
   - component: {fileID: 8488628280256729696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Zone ALT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,8 +94,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireZoneDamage: 0
+  FireZoneTickDelay: 0.15
+  Duration: 5
+  Player1IsInFireZone: 0
+  Player2IsInFireZone: 0
+  TrainingDummyIsInFireZone: 0
   player1: {fileID: 0}
   player2: {fileID: 0}
+  trainingDummy: {fileID: 0}
 --- !u!1 &6645151334451320395
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6889074311397665380}
   - component: {fileID: 291045055522454635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Zone Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +200,7 @@ GameObject:
   - component: {fileID: 6509608720129931158}
   - component: {fileID: 3394464567001527234}
   - component: {fileID: 1353658623710142736}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fire Zone Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

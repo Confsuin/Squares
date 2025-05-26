@@ -96,9 +96,7 @@ MonoBehaviour:
   Cards:
   - {fileID: 8421034208990630424, guid: 010bbba88e075a2479b1327a0966e07d, type: 3}
   - {fileID: 8421034208990630424, guid: e4b39333683861f49b43fc10d6ecc06e, type: 3}
-  - {fileID: 8421034208990630424, guid: 401b3fb616fb2634aba39a88d51d1b10, type: 3}
   - {fileID: 8421034208990630424, guid: dada7af1678703c41b42985dcd2f8554, type: 3}
-  - {fileID: 8421034208990630424, guid: 5d52740beb8c33f40b97701cfa5ba0f4, type: 3}
   - {fileID: 8421034208990630424, guid: fe76d6bd3fe46f34ca65d1529cf1c9b8, type: 3}
   - {fileID: 8421034208990630424, guid: b27f5198dd785af48a099e7fbc12b411, type: 3}
   - {fileID: 7143588706635471266, guid: bcf29430794abca4388a37caa95ff38f, type: 3}
@@ -108,6 +106,7 @@ MonoBehaviour:
   - {fileID: 8421034208990630424, guid: 5bcd5eccaff8e4e4099f5b5d8ea42701, type: 3}
   - {fileID: 8421034208990630424, guid: 9e31b8dadac45924c85c2220e1ef0678, type: 3}
   - {fileID: 8421034208990630424, guid: 654c83378c5e9bb42b89f1cc622ca7e6, type: 3}
+  - {fileID: 8421034208990630424, guid: 5f204d2935c219640b11ff15ee32ffa6, type: 3}
   - {fileID: 8421034208990630424, guid: da54f7bdbeeb22a4181dc197371fc743, type: 3}
   - {fileID: 8421034208990630424, guid: ae230e5db1cc1f041b533e160167155f, type: 3}
   CardSpawnPoint:

@@ -4,12 +4,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour
 {
     // GameObjects
     private GameObject CardsPickerBackground;
-    public List<GameObject> DebugMenu;
+    public GameObject DebugMenuP1;
+    public GameObject DebugMenuP2;
     public GameObject CardBody;
     private Transform Parent;
     public Sprite BackSide;
@@ -30,7 +32,8 @@ public class Card : MonoBehaviour
     private PlayerHealthBar player1HealthBar;
     private PlayerHealthBar player2HealthBar;
 
-    private DebugMenuButtons debugMenuButtons;
+    public DebugMenuButtons debugMenuButtonsP1;
+    public DebugMenuButtons debugMenuButtonsP2;
 
     public TMP_Text[] CardText;
 
@@ -86,11 +89,34 @@ public class Card : MonoBehaviour
     IEnumerator WaitForCardsSpawned()
     {
         yield return new WaitForSecondsRealtime(0.01f);
+        HideDebugMenu();
+    }
+    public void ShowDebugMenu()
+    {
+        if (DebugMenuP1 != null)
+        {
+            DebugMenuP1.SetActive(true);
+            EventSystem.current = GameObject.FindWithTag("Player 1 Event System").GetComponent<EventSystem>();
+            EventSystem.current.SetSelectedGameObject(debugMenuButtonsP1.firstSelected);
+        }
+        else if (DebugMenuP2 != null)
+        {
+            DebugMenuP2.SetActive(true);
+            EventSystem.current = GameObject.FindWithTag("Player 2 Event System").GetComponent<EventSystem>();
+            EventSystem.current.SetSelectedGameObject(debugMenuButtonsP2.firstSelected);
+        }
+    }
+    public void HideDebugMenu()
+    {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            foreach (GameObject debugMenu in DebugMenu)
+            if (DebugMenuP1 != null)
             {
-                debugMenu.SetActive(false);
+                DebugMenuP1.SetActive(false);
+            }
+            else if (DebugMenuP2 != null)
+            {
+                DebugMenuP2.SetActive(false);
             }
         }
     }
@@ -116,10 +142,7 @@ public class Card : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
             Time.timeScale = 1;
-            foreach (GameObject debugMenu in DebugMenu)
-            {
-                debugMenu.SetActive(true);
-            }
+            ShowDebugMenu();
         }
         if (pointSystem.Player2Won == true)
         {
@@ -304,16 +327,10 @@ public class Card : MonoBehaviour
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            if (GameObject.FindWithTag("Player 1 Debug Menu") != null)
-            {
-                DebugMenu.Add(GameObject.FindWithTag("Player 1 Debug Menu"));
-                debugMenuButtons = GameObject.FindWithTag("Player 1 Debug Menu Parent").GetComponent<DebugMenuButtons>();
-            }
-            else if (GameObject.FindWithTag("Player 2 Debug Menu") != null)
-            {
-                DebugMenu.Add(GameObject.FindWithTag("Player 2 Debug Menu"));
-                debugMenuButtons = GameObject.FindWithTag("Player 1 Debug Menu Parent").GetComponent<DebugMenuButtons>();
-            }
+            DebugMenuP1 = (GameObject.FindWithTag("Player 1 Debug Menu"));
+            debugMenuButtonsP1 = GameObject.FindWithTag("Player 1 Debug Menu Parent").GetComponent<DebugMenuButtons>();
+            DebugMenuP2 = (GameObject.FindWithTag("Player 2 Debug Menu"));
+            debugMenuButtonsP2 = GameObject.FindWithTag("Player 2 Debug Menu Parent").GetComponent<DebugMenuButtons>();
         }
     }
 }

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardSpawner: {fileID: 3196293051979769787, guid: c6a61a4568fa6ea48a78a26d0d67f70a, type: 3}
-  CardsCanvas: {fileID: 0}
+  CardsCanvasP1: {fileID: 0}
+  CardsCanvasP2: {fileID: 0}
   Cards: {fileID: 0}
   CardsSpawned: 0

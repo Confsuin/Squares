@@ -127,11 +127,11 @@ public class Player2 : MonoBehaviour
         }
     }
 
-
+    public float TeleportCoolDown = 5f;
     public void Teleport()
     {
         Debug.Log("AltFire Clicked");
-        if (teleportDistance > 0 && canDoActions == true)
+        if (teleportDistance > 0 && canDoActions == true && TeleportCoolDown <= 0)
         {
 
 
@@ -142,6 +142,7 @@ public class Player2 : MonoBehaviour
             Ray2D ray = new Ray2D(RotationPointP, teleportDirection);
             Vector2 teleportTarget = ray.origin + ray.direction.normalized * teleportDistance;
             transform.position = teleportTarget;
+            TeleportCoolDown = 5f;
         }
     }
 
@@ -173,17 +174,20 @@ public class Player2 : MonoBehaviour
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            Destroy(GameObject.FindWithTag("Cards Menu"));
-            gameBehaviour.IsCardsMenuActive = false;
-            gameBehaviour.IsADebugMenuActive = false;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            pointSystem.Player1Won = false;
-            pointSystem.Player2Won = false;
-            debugMenu.IsMenuActive = false;
+            if (GameObject.FindWithTag("Cards Menu") != null)
+            {
+                var Cards = GameObject.FindWithTag("Card").GetComponent<Card>();
+                Cards.ShowDebugMenu();
+                Destroy(GameObject.FindWithTag("Cards Menu"));
+                gameBehaviour.IsCardsMenuActive = false;
+                Cursor.lockState = CursorLockMode.Confined;
+                Cursor.visible = true;
+                pointSystem.Player1Won = false;
+                pointSystem.Player2Won = false;
 
-            cardSystemSpawner.CardsSpawned = false;
-            Debug.Log("Close Cards Menu Pressed");
+                cardSystemSpawner.CardsSpawned = false;
+                Debug.Log("Close Cards Menu Pressed");
+            }
         }
     }
 
@@ -277,6 +281,7 @@ public class Player2 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        TeleportCoolDown -= Time.deltaTime;
         rb.linearVelocity = moveVector * moveSpeed;
 
         if (Player2Dead == false && currentHealth <= 0)
@@ -297,11 +302,11 @@ public class Player2 : MonoBehaviour
             }
         }
 
-        //Starts reload automaticly after 2 seconds of not shooting or when ammo hits 0
+        //Starts reload automaticly after Reload speed seconds of not shooting or when ammo hits 0
         shootTimer += Time.deltaTime;
-        if (shootTimer >= 2f && Ammo > 0 && !isReloading)
+        if (shootTimer >= ReloadSpeed && Ammo > 0 && !isReloading)
         {
-            StartReload();
+            FinishReload();
         }
         if (Ammo <= 0 && !isReloading)
         {
@@ -312,6 +317,8 @@ public class Player2 : MonoBehaviour
 
     private void OnAimPerformed(InputAction.CallbackContext value)
     {
+
+
         aimDirection = value.ReadValue<Vector2>();
 
         //Rotation of Gun
@@ -348,7 +355,6 @@ public class Player2 : MonoBehaviour
         {
             isReloading = true;
             ReloadTimer = 0f;
-
         }
     }
 
