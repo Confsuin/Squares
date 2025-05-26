@@ -15,10 +15,13 @@ public class EscapeMenuButtons : MonoBehaviour
     private Player1 player1;
     private Player2 player2;
 
-    void Start()
+    private void Start()
+    {
+        escapeMenu.SetActive(false);
+    }
+    void Awake()
     {
         GetReferences();
-        escapeMenu.SetActive(false);
     }
     public void ToggleEscapeMenu()
     {

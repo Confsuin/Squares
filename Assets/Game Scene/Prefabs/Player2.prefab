@@ -907,7 +907,7 @@ MonoBehaviour:
   BulletSize: 1
   BulletSlow: 1
   BulletBounces: 1
-  FireRadius: 0
+  FireZoneDamage: 0
   ExplosionDMG: 0
   weapon: {fileID: 3609442930874555138}
   bullet: {fileID: 5767354925039902421, guid: a0acbe4b7dad11c43abbab495edcb32f, type: 3}
@@ -1879,6 +1879,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4650071709894469731, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_TagString
+      value: Player 2 Debug Menu Parent
+      objectReference: {fileID: 0}
     - target: {fileID: 5526377570014384231, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1999,6 +2003,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7165442816200591271, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
+      propertyPath: m_TagString
+      value: Player 2 Debug Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2954205880786496226, guid: ded7ddf39bfdd804c8e43eb78eda1854, type: 3}
@@ -2018,9 +2026,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5057690855354770210}
     m_Modifications:
+    - target: {fileID: 34309596794541220, guid: 47dddd79e59309b49a21cdd6dfa18a8b, type: 3}
+      propertyPath: m_TagString
+      value: Player 2 Escape Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1330490510220835373, guid: 47dddd79e59309b49a21cdd6dfa18a8b, type: 3}
       propertyPath: m_Name
       value: Escape Menu Parent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330490510220835373, guid: 47dddd79e59309b49a21cdd6dfa18a8b, type: 3}
+      propertyPath: m_TagString
+      value: Player 2 Escape Menu Parent
       objectReference: {fileID: 0}
     - target: {fileID: 6226715653902017349, guid: 47dddd79e59309b49a21cdd6dfa18a8b, type: 3}
       propertyPath: m_Pivot.x
