@@ -484,7 +484,7 @@ public class Player1 : MonoBehaviour
 
 
 
-
+    
     private void GetRefrences()
     {
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();

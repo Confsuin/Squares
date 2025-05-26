@@ -84,7 +84,15 @@ public class DebugMenuButtons : MonoBehaviour
     private void GetReferences()
     {
         gameBehaviour = GameObject.FindWithTag("Game Behaviour").GetComponent<GameBehaviour>();
-        debugMenu = GameObject.FindWithTag("Debug Menu");
+        var parentGameObject = this.transform.root.gameObject;
+        if (parentGameObject.tag == ("Player"))
+        {
+            debugMenu = GameObject.FindWithTag("Player 1 Debug Menu");
+        }
+        else if (parentGameObject.tag == ("PlayerAlt"))
+        {
+            debugMenu = GameObject.FindWithTag("Player 2 Debug Menu");
+        }
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
         cardSystemSpawner = GameObject.FindWithTag("Cards System").GetComponent<CardSystemSpawner>();

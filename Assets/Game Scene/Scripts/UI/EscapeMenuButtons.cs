@@ -67,6 +67,14 @@ public class EscapeMenuButtons : MonoBehaviour
         gameBehaviour = GameObject.FindWithTag("Game Behaviour").GetComponent<GameBehaviour>();
         player1 = GameObject.FindWithTag("Player").GetComponent<Player1>();
         player2 = GameObject.FindWithTag("PlayerAlt").GetComponent<Player2>();
-        escapeMenu = GameObject.FindWithTag("Escape Menu");
+        var parentGameObject = this.transform.root.gameObject;
+        if (parentGameObject.tag == ("Player"))
+        {
+            escapeMenu = GameObject.FindWithTag("Player 1 Escape Menu");
+        }
+        else if (parentGameObject.tag == ("PlayerAlt"))
+        {
+            escapeMenu = GameObject.FindWithTag("Player 2 Escape Menu");
+        }
     }
 }

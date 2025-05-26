@@ -303,8 +303,17 @@ public class Card : MonoBehaviour
         player2HealthBar = GameObject.FindWithTag("Player 2 Health Bar").GetComponent<PlayerHealthBar>();
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("SandBox"))
         {
-            debugMenuButtons = GameObject.FindWithTag("Debug Menu Buttons").GetComponent<DebugMenuButtons>();
-            DebugMenu = GameObject.FindGameObjectsWithTag("Debug Menu");
+            var parentGameObject = this.transform.root.gameObject;
+            if (parentGameObject.tag == ("Player"))
+            {
+                debugMenuButtons = GameObject.FindWithTag("Player 1 Debug Parent").GetComponent<DebugMenuButtons>(); ;
+                DebugMenu = GameObject.FindGameObjectsWithTag("Player 1 Debug Menu");
+            }
+            else if (parentGameObject.tag == ("PlayerAlt"))
+            {
+                debugMenuButtons = GameObject.FindWithTag("Player 2 Debug Parent").GetComponent<DebugMenuButtons>();
+                DebugMenu = GameObject.FindGameObjectsWithTag("Player 2 Debug Menu");
+            }
         }
     }
 }

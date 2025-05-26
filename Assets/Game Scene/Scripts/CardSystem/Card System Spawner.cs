@@ -11,7 +11,7 @@ public class CardSystemSpawner : MonoBehaviour
 
     public bool CardsSpawned = false;
 
-    void Start()
+    void Awake()
     {
         GetReferences();
     }
