@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2240181022788076902, guid: 8e1ee010f711bc344b5cd3f5a7d34f19, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+125%</color> Bullet Speed
+  m_text: '<color=green>+300%</color> Bullet Speed
 
     <color=red>-25%</color> Atk
     Speed'
@@ -684,12 +684,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMenu: {fileID: 0}
+  DebugMenuP1: {fileID: 0}
+  DebugMenuP2: {fileID: 0}
   CardBody: {fileID: 8785173166664168708}
-  BackSide: {fileID: 0}
+  CardBodyImage: {fileID: 0}
+  BackSide: {fileID: -8505912449965029563, guid: e1c9fe55317a6cf419f526b744e1d1c0, type: 3}
   FrontSide: {fileID: 0}
   gameBehaviour: {fileID: 0}
-  debugMenuButtons: {fileID: 0}
+  debugMenuButtonsP1: {fileID: 0}
+  debugMenuButtonsP2: {fileID: 0}
   CardText: []
   Flipped: 0
   MovementSpeed: 1
@@ -697,7 +700,7 @@ MonoBehaviour:
   Damage: 1
   BulletLifeSteal: 0
   BulletPoison: 0
-  BulletSpeed: 2.25
+  BulletSpeed: 4
   BulletGrowth: 0
   BulletSlow: 0
   AttackSpeed: 1.25

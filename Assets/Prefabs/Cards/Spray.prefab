@@ -278,12 +278,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+8</color> Ammo
-
-    <color=green>+300%</color> Atk speed
-
-    <color=red>-60%</color>
-    Dmg'
+  m_text: "<color=green>+8</color> Ammo \n<color=green>+300%</color> Atk speed \n<color=red>-60%</color>
+    Dmg <color=red>+0.5s</color> Reload"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -550,7 +546,8 @@ MonoBehaviour:
   DebugMenuP1: {fileID: 0}
   DebugMenuP2: {fileID: 0}
   CardBody: {fileID: 8785173166664168708}
-  BackSide: {fileID: 0}
+  CardBodyImage: {fileID: 0}
+  BackSide: {fileID: -8505912449965029563, guid: e1c9fe55317a6cf419f526b744e1d1c0, type: 3}
   FrontSide: {fileID: 0}
   gameBehaviour: {fileID: 0}
   debugMenuButtonsP1: {fileID: 0}
@@ -575,7 +572,7 @@ MonoBehaviour:
   ExplosionDMG: 0
   GunInaccuracy: 0
   CardNumber: 0
-  ReloadSpeed: 0
+  ReloadSpeed: 0.5
   Ammo: 8
   BlockCoolDown: 0
   BlockCount: 0

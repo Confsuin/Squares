@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class Card : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Card : MonoBehaviour
     public GameObject DebugMenuP1;
     public GameObject DebugMenuP2;
     public GameObject CardBody;
+    public Image CardBodyImage;
     private Transform Parent;
     public Sprite BackSide;
     public Sprite FrontSide;
@@ -85,6 +87,10 @@ public class Card : MonoBehaviour
         {
             text.enabled = false;
         }
+    }
+    private void Start()
+    {
+        CardBodyImage.sprite = BackSide;
     }
     IEnumerator WaitForCardsSpawned()
     {
@@ -261,6 +267,7 @@ public class Card : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.02f);
         transform.localRotation = Quaternion.Euler(0, 90, 0);
         CardBody.transform.SetAsFirstSibling();
+        CardBodyImage.sprite = FrontSide;
         yield return new WaitForSecondsRealtime(0.02f);
         transform.localRotation = Quaternion.Euler(0, 75, 0);
         yield return new WaitForSecondsRealtime(0.02f);
@@ -314,6 +321,7 @@ public class Card : MonoBehaviour
     private void GetReferences()
     {
         CardText = GetComponentsInChildren<TMP_Text>();
+        CardBodyImage = CardBody.GetComponent<Image>();
 
         Parent = this.gameObject.transform.parent;
         CardsPickerBackground = GameObject.FindWithTag("Cards Picker Background");

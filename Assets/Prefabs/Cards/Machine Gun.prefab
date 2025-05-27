@@ -276,12 +276,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+50%</color> Atk Speed
+  m_text: '<color=green>+150%</color> Atk Speed
 
     <color=green>+3</color> Ammo
+    <color=red>-35%</color> Dmg
 
-    <color=red>-35%</color>
-    Dmg'
+    <color=red>+0.25s</color> Reload speed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -543,12 +543,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f0a478f4d72f141b00d1b9063ae8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugMenu: {fileID: 0}
+  DebugMenuP1: {fileID: 0}
+  DebugMenuP2: {fileID: 0}
   CardBody: {fileID: 8785173166664168708}
-  BackSide: {fileID: 0}
+  CardBodyImage: {fileID: 0}
+  BackSide: {fileID: -8505912449965029563, guid: e1c9fe55317a6cf419f526b744e1d1c0, type: 3}
   FrontSide: {fileID: 0}
   gameBehaviour: {fileID: 0}
-  debugMenuButtons: {fileID: 0}
+  debugMenuButtonsP1: {fileID: 0}
+  debugMenuButtonsP2: {fileID: 0}
   CardText: []
   Flipped: 0
   MovementSpeed: 1
@@ -559,7 +562,7 @@ MonoBehaviour:
   BulletSpeed: 1
   BulletGrowth: 0
   BulletSlow: 0
-  AttackSpeed: 0.75
+  AttackSpeed: 0.4
   Range: 1
   TeleportDistance: 0
   BulletBounces: 0
@@ -569,7 +572,7 @@ MonoBehaviour:
   ExplosionDMG: 0
   GunInaccuracy: 0
   CardNumber: 0
-  ReloadSpeed: 0
+  ReloadSpeed: 0.25
   Ammo: 3
   BlockCoolDown: 0
   BlockCount: 0

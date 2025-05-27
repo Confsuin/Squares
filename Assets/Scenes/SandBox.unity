@@ -396,6 +396,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1464074988557698069, guid: 673ae3c36ccfacd4b9f6799a1b84efd1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3331200583696962927, guid: 673ae3c36ccfacd4b9f6799a1b84efd1, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -973,6 +977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2300746531235514322, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4659046644457484845, guid: b74e3e45d83ebe3488ff0c0ea606c640, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -1215,6 +1223,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 697025040163698790, guid: f72a5e6dc41acb448bc3cdc8630c5c17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1736072881686424316, guid: f72a5e6dc41acb448bc3cdc8630c5c17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

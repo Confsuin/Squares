@@ -78,53 +78,60 @@ public class Player2 : MonoBehaviour
     public GameObject bulpos;
 
 
-    public void BulletSpawner()
+
+    public bool isShooting = false;
+    IEnumerator BulletSpawner()
     {
         if (Ammo > 0 && shootTimer >= AttackSpeed && canDoActions == true)
         {
-            shootTimer = 0f;
-
-            Ammo--; //Reduces the ammo amount
-            UpdateAmmoCounter();
-
-            Vector2 direction = weapon.transform.right.normalized;
-
-            float inaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy); // Random inaccuracy angle in degrees
-            float angleWithInaccuracy = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + inaccuracy;
-
-            Vector2 inaccuracyDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleWithInaccuracy), Mathf.Sin(Mathf.Deg2Rad * angleWithInaccuracy));
-
-            GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, angleWithInaccuracy));
-            Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
-            if (bulletRb != null)
+            for (int b = 0; b < BulletCount; b++)
             {
-                bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player2Bullet>().speed;
-            }
-            if (ShotgunCount >= 1)
-            {
-                for (int i = 0; i < ShotgunCount - 1; i++) // -1 because one was already fired
+                shootTimer = 0f;
+
+                Ammo--; //Reduces the ammo amount
+                UpdateAmmoCounter();
+
+                Vector2 direction = weapon.transform.right.normalized;
+
+                float inaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy); // Random inaccuracy angle in degrees
+                float angleWithInaccuracy = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + inaccuracy;
+
+                Vector2 inaccuracyDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angleWithInaccuracy), Mathf.Sin(Mathf.Deg2Rad * angleWithInaccuracy));
+
+                GameObject spawnedBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, angleWithInaccuracy));
+                Rigidbody2D bulletRb = spawnedBullet.GetComponent<Rigidbody2D>();
+                if (bulletRb != null)
                 {
-                    // Recalculate fresh direction and inaccuracy for this pellet
-                    Vector2 randomDirection = weapon.transform.right.normalized;
-
-                    float randomInaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy);
-                    float randomAngle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg + randomInaccuracy;
-
-                    Vector2 directionWithInaccuracy = new Vector2(Mathf.Cos(Mathf.Deg2Rad * randomAngle), Mathf.Sin(Mathf.Deg2Rad * randomAngle));
-
-                    GameObject extraBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, randomAngle));
-                    Rigidbody2D extraRb = extraBullet.GetComponent<Rigidbody2D>();
-                    if (extraRb != null)
+                    bulletRb.linearVelocity = inaccuracyDirection * bullet.GetComponent<Player2Bullet>().speed;
+                }
+                if (ShotgunCount >= 1)
+                {
+                    for (int i = 0; i < ShotgunCount - 1; i++) // -1 because one was already fired
                     {
-                        extraRb.linearVelocity = directionWithInaccuracy * bullet.GetComponent<Player2Bullet>().speed;
+                        // Recalculate fresh direction and inaccuracy for this pellet
+                        Vector2 randomDirection = weapon.transform.right.normalized;
+
+                        float randomInaccuracy = Random.Range(-GunInaccuracy, GunInaccuracy);
+                        float randomAngle = Mathf.Atan2(randomDirection.y, randomDirection.x) * Mathf.Rad2Deg + randomInaccuracy;
+
+                        Vector2 directionWithInaccuracy = new Vector2(Mathf.Cos(Mathf.Deg2Rad * randomAngle), Mathf.Sin(Mathf.Deg2Rad * randomAngle));
+
+                        GameObject extraBullet = Instantiate(bullet, bulpos.transform.position, Quaternion.Euler(0f, 0f, randomAngle));
+                        Rigidbody2D extraRb = extraBullet.GetComponent<Rigidbody2D>();
+                        if (extraRb != null)
+                        {
+                            extraRb.linearVelocity = directionWithInaccuracy * bullet.GetComponent<Player2Bullet>().speed;
+                        }
                     }
                 }
+                yield return new WaitForSeconds(0.05f);
             }
         }
         else if (Ammo == 0)
         {
             Debug.Log("Out Of Ammo!");
         }
+
     }
 
     public float TeleportCoolDown = 5f;
@@ -249,7 +256,8 @@ public class Player2 : MonoBehaviour
             closeCardsMenuAction.performed += _ => CloseCardsMenu();
 
             //Shooting
-            shootAction.performed += _ => BulletSpawner();
+            shootAction.started += _ => isShooting = true;
+            shootAction.canceled += _ => isShooting = false;
         }
     }
 
@@ -275,7 +283,8 @@ public class Player2 : MonoBehaviour
             closeCardsMenuAction.performed -= _ => CloseCardsMenu();
 
             //Shooting
-            shootAction.performed -= _ => BulletSpawner();
+            shootAction.started -= _ => isShooting = true;
+            shootAction.canceled -= _ => isShooting = false;
         }
     }
 
@@ -290,7 +299,10 @@ public class Player2 : MonoBehaviour
             Debug.Log("Player2 Died");
         }
 
-
+        if (isShooting == true)
+        {
+            StartCoroutine(BulletSpawner());
+        }
 
         if (isReloading)
         {

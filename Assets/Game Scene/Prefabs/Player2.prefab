@@ -890,7 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   teleportDistance: 0
-  BulletCount: 0
+  BulletCount: 1
   ShotgunCount: 0
   Ammo: 0
   StartingAmmo: 4
@@ -921,6 +921,7 @@ MonoBehaviour:
   canDoActions: 1
   player1: {fileID: 0}
   bulpos: {fileID: 3473961818406983589}
+  TeleportCoolDown: 5
   OpenedByPlayer2: 0
   AmmoCount: 0
   AmmoCounterObjects: []

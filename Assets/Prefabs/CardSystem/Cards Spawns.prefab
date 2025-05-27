@@ -96,6 +96,7 @@ MonoBehaviour:
   Cards:
   - {fileID: 8421034208990630424, guid: 010bbba88e075a2479b1327a0966e07d, type: 3}
   - {fileID: 8421034208990630424, guid: e4b39333683861f49b43fc10d6ecc06e, type: 3}
+  - {fileID: 8421034208990630424, guid: 401b3fb616fb2634aba39a88d51d1b10, type: 3}
   - {fileID: 8421034208990630424, guid: dada7af1678703c41b42985dcd2f8554, type: 3}
   - {fileID: 8421034208990630424, guid: fe76d6bd3fe46f34ca65d1529cf1c9b8, type: 3}
   - {fileID: 8421034208990630424, guid: b27f5198dd785af48a099e7fbc12b411, type: 3}
