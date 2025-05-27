@@ -282,7 +282,7 @@ MonoBehaviour:
 
     <color=green>+300%</color> Atk speed
 
-    <color=red>+60%</color>
+    <color=red>-60%</color>
     Dmg'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}

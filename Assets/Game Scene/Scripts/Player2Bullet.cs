@@ -48,7 +48,7 @@ public class Player2Bullet : MonoBehaviour
         bounce = player2.BulletBounces;
         fire = player2.FireZoneDamage;
         explosion = player2.ExplosionDMG;
-        range = player1.Range;
+        range = player2.Range;
 
         rb2d.AddForce(transform.right * speed);
         rangeTime = range;
