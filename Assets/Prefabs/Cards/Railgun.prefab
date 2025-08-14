@@ -278,7 +278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+50%</color> Dmg
+  m_text: '<color=green>+65%</color> Dmg
 
     <color=green>+100%</color> Bullet Speed
 
@@ -560,7 +560,7 @@ MonoBehaviour:
   Flipped: 0
   MovementSpeed: 1
   Health: 1
-  Damage: 1.5
+  Damage: 1.65
   BulletLifeSteal: 0
   BulletPoison: 0
   BulletSpeed: 2
@@ -578,8 +578,7 @@ MonoBehaviour:
   CardNumber: 0
   ReloadSpeed: 0
   Ammo: -2
-  BlockCoolDown: 0
-  BlockCount: 0
+  AltFireCoolDown: 0
 --- !u!114 &484056922016707206
 MonoBehaviour:
   m_ObjectHideFlags: 0

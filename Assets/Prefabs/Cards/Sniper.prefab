@@ -278,7 +278,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<color=green>+35%</color> Dmg
 
-    <color=green>+50%</color> Bullet Speed
+    <color=green>+75%</color> Bullet Speed
 
     <color=red>-1</color>
     Ammo <color=red>-25%</color> Atk speed'
@@ -561,7 +561,7 @@ MonoBehaviour:
   Damage: 1.35
   BulletLifeSteal: 0
   BulletPoison: 0
-  BulletSpeed: 1.5
+  BulletSpeed: 1.75
   BulletGrowth: 0
   BulletSlow: 1
   AttackSpeed: 1.25
@@ -576,8 +576,7 @@ MonoBehaviour:
   CardNumber: 0
   ReloadSpeed: 0
   Ammo: -1
-  BlockCoolDown: 0
-  BlockCount: 0
+  AltFireCoolDown: 0
 --- !u!114 &8435837765025777312
 MonoBehaviour:
   m_ObjectHideFlags: 0

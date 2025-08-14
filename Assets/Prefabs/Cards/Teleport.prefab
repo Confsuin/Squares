@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6652240752788528491, guid: e0b0b4aad07383f49aba17e7e484c08e, type: 3}
+  m_Sprite: {fileID: 1320761110985423309, guid: 210df06ee02270244bb4d62c7e4d79fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_text: '<color=green>+5</color> Teleport Distance
 
     <color=red>+0.5s</color>
-    Bloock Cooldown'
+    Alt Fire Cooldown'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
   m_sharedMaterial: {fileID: 4355170320146860372, guid: 8050016e6c9f461498cbab47f3d2f249, type: 2}
@@ -572,8 +572,7 @@ MonoBehaviour:
   CardNumber: 0
   ReloadSpeed: 0
   Ammo: 0
-  BlockCoolDown: 0.5
-  BlockCount: 0
+  AltFireCoolDown: 0.5
 --- !u!114 &2001907742883547328
 MonoBehaviour:
   m_ObjectHideFlags: 0

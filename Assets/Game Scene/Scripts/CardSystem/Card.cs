@@ -74,8 +74,8 @@ public class Card : MonoBehaviour
     public float ReloadSpeed;
     public float Ammo;
 
-    public float BlockCoolDown;
-    public float BlockCount;
+    public float AltFireCoolDown;
+    // public float BlockCount; (Scrapped)
 
     void Awake()
     {
@@ -173,6 +173,7 @@ public class Card : MonoBehaviour
 
             // Adds AltFire Stats
             player1.teleportDistance = player1.teleportDistance + TeleportDistance;
+            player1.AltFireCoolDown = player1.AltFireCoolDown + AltFireCoolDown;
 
             // Adds Core Bullet Stats
             player1.Damage = player1.Damage * Damage;
@@ -219,6 +220,7 @@ public class Card : MonoBehaviour
 
             // Adds AltFire Stats
             player2.teleportDistance = player2.teleportDistance + TeleportDistance;
+            player2.AltFireCoolDown = player2.AltFireCoolDown + AltFireCoolDown;
 
             // Adds Core Bullet Stats
             player2.Damage = player2.Damage * Damage;

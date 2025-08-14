@@ -83,7 +83,11 @@ public class Player1Bullet : MonoBehaviour
             OnKill();
             if (poison > 0)
             {
-                player1.StartPoisonTimerP1DMG();
+                if (poison >= player1.poisonPercentDMG)
+                {
+                    player1.poisonPercentDMG = poison;
+                }
+                player1.RefreshPoisonTimer();
             }
         }
         if (other.gameObject.tag == "PlayerAlt")
@@ -94,7 +98,11 @@ public class Player1Bullet : MonoBehaviour
             OnKill();
             if (poison > 0)
             {
-                player2.StartPoisonTimerP1DMG();
+                if (poison >= player2.poisonPercentDMG)
+                {
+                    player2.poisonPercentDMG = poison;
+                }
+                player2.RefreshPoisonTimer();
             }
         }
         if (other.gameObject.tag == "Training Dummy")
@@ -105,7 +113,11 @@ public class Player1Bullet : MonoBehaviour
             OnKill();
             if (poison > 0)
             {
-                trainingDummy.StartPoisonTimerP1DMG();
+                if (poison >= trainingDummy.poisonPercentDMG)
+                {
+                    trainingDummy.poisonPercentDMG = poison;
+                }
+                trainingDummy.RefreshPoisonTimer();
             }
         }
         if (other.gameObject.tag == "Wall")

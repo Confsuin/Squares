@@ -1,2 +1,20 @@
 fileFormatVersion: 2
 guid: 14f0a478f4d72f141b00d1b9063ae8a9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - DebugMenuP1: {instanceID: 0}
+  - DebugMenuP2: {instanceID: 0}
+  - CardBody: {instanceID: 0}
+  - CardBodyImage: {instanceID: 0}
+  - BackSide: {fileID: -1259060089429995056, guid: 89a768239f4ec584b8cdc1d7d8bf884a, type: 3}
+  - FrontSide: {instanceID: 0}
+  - gameBehaviour: {instanceID: 0}
+  - debugMenuButtonsP1: {instanceID: 0}
+  - debugMenuButtonsP2: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5328104982336953044, guid: 131eaec761217af4a96932fa9eb22a27, type: 3}
+  m_Sprite: {fileID: 9010129430437520927, guid: 71755835f4c05b649a7640d1a278a4b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -569,8 +569,7 @@ MonoBehaviour:
   CardNumber: 0
   ReloadSpeed: -0.75
   Ammo: 0
-  BlockCoolDown: 0
-  BlockCount: 0
+  AltFireCoolDown: 0
 --- !u!114 &7481180005674866424
 MonoBehaviour:
   m_ObjectHideFlags: 0

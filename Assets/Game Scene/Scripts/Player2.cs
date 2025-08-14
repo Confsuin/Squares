@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player2 : MonoBehaviour
 {
@@ -131,14 +132,14 @@ public class Player2 : MonoBehaviour
         {
             Debug.Log("Out Of Ammo!");
         }
-
     }
 
-    public float TeleportCoolDown = 5f;
+    public float AltFireCoolDown = 3f;
+    private float AltFireCurrentCooldown;
     public void Teleport()
     {
         Debug.Log("AltFire Clicked");
-        if (teleportDistance > 0 && canDoActions == true && TeleportCoolDown <= 0)
+        if (teleportDistance > 0 && canDoActions == true && AltFireCurrentCooldown >= AltFireCoolDown)
         {
 
 
@@ -149,7 +150,7 @@ public class Player2 : MonoBehaviour
             Ray2D ray = new Ray2D(RotationPointP, teleportDirection);
             Vector2 teleportTarget = ray.origin + ray.direction.normalized * teleportDistance;
             transform.position = teleportTarget;
-            TeleportCoolDown = 5f;
+            AltFireCurrentCooldown = 0;
         }
     }
 
@@ -290,7 +291,22 @@ public class Player2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        TeleportCoolDown -= Time.deltaTime;
+        UpdateAltFireIndicator();
+
+        poisonCurrentDuration -= Time.deltaTime;
+        poisonTickTimer -= Time.deltaTime;
+
+        if (poisonTickTimer <= 0 && poisonCurrentDuration > 0)
+        {
+            PoisonTick();
+            poisonTickTimer = 1f;
+        }
+        if (poisonCurrentDuration <= 0)
+        {
+            poisonPercentDMG = 0;
+        }
+
+        AltFireCurrentCooldown += Time.deltaTime;
         rb.linearVelocity = moveVector * moveSpeed;
 
         if (Player2Dead == false && currentHealth <= 0)
@@ -418,48 +434,40 @@ public class Player2 : MonoBehaviour
             AmmoCount -= 1;
         }
     }
-    public IEnumerator PoisonTimerP1DMG()
-    {
 
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP1DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP1DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP1DMG();
-    }
-    public IEnumerator PoisonTimerP2DMG()
+    [SerializeField] private Slider AltFireIndicator;
+    [SerializeField] private Image AltFireIndicatorImage;
+    private void UpdateAltFireIndicator()
     {
-
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP2DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP2DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP2DMG();
+        AltFireIndicator.value = AltFireCurrentCooldown;
+        if (AltFireIndicator.value == AltFireIndicator.maxValue)
+        {
+            AltFireIndicatorImage.color = new Color(0f, 0.827f, 1f);
+        }
+        else if (AltFireIndicator.value != AltFireIndicator.maxValue)
+        {
+            AltFireIndicatorImage.color = new Color(0.416f, 0.557f, 0.765f);
+        }
     }
 
+    [SerializeField] float poisonMaxDuration, poisonCurrentDuration, poisonTickTimer = 1f;
+    public float poisonPercentDMG;
 
-    public void PoisonDMGP1DMG()
+    public void RefreshPoisonTimer()
     {
+        poisonCurrentDuration = poisonMaxDuration;
+    }
+    public void PoisonTick()
+    {
+        PoisonDMG();
+    }
 
-        BulletPoisonDamage = MissingHealth * player1.BulletPoison;
+    public void PoisonDMG()
+    {
+        BulletPoisonDamage = MissingHealth * poisonPercentDMG;
         TakeDamage(BulletPoisonDamage);
     }
-    public void PoisonDMGP2DMG()
-    {
 
-        BulletPoisonDamage = MissingHealth * BulletPoison;
-        TakeDamage(BulletPoisonDamage);
-    }
-    public void StartPoisonTimerP1DMG()
-    {
-        StartCoroutine(PoisonTimerP1DMG());
-    }
-    public void StartPoisonTimerP2DMG()
-    {
-        StartCoroutine(PoisonTimerP2DMG());
-    }
     IEnumerator HitIndicator()
     {
         hitIndicator.SetActive(true);
@@ -484,13 +492,6 @@ public class Player2 : MonoBehaviour
         playerHealthBar.UpdateHealthBar();
         player1.playerHealthBar.UpdateHealthBar();
     }
-
-
-
-
-
-
-
 
 
 

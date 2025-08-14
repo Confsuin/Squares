@@ -276,7 +276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>+5%</color> Poison
+  m_text: '<color=green>+7.5%</color> Poison
 
     <color=green>+15%</color> Lifesteal
 
@@ -557,8 +557,8 @@ MonoBehaviour:
   MovementSpeed: 1
   Health: 1.15
   Damage: 1
-  BulletLifeSteal: 0.15
-  BulletPoison: 0.05
+  BulletLifeSteal: 0.2
+  BulletPoison: 0.075
   BulletSpeed: 1
   BulletGrowth: 0
   BulletSlow: 0
@@ -574,8 +574,7 @@ MonoBehaviour:
   CardNumber: 0
   ReloadSpeed: 0
   Ammo: 0
-  BlockCoolDown: 0
-  BlockCount: 0
+  AltFireCoolDown: 0
 --- !u!114 &2001907742883547328
 MonoBehaviour:
   m_ObjectHideFlags: 0

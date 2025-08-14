@@ -22,6 +22,21 @@ public class TrainingDummy : MonoBehaviour
     public PlayerHealthBar playerHealthBar;
     TMP_Text HealthText;
 
+    private void FixedUpdate()
+    {
+        poisonCurrentDuration -= Time.deltaTime;
+        poisonTickTimer -= Time.deltaTime;
+
+        if (poisonTickTimer <= 0 && poisonCurrentDuration > 0)
+        {
+            PoisonTick();
+            poisonTickTimer = 1f;
+        }
+        if (poisonCurrentDuration <= 0)
+        {
+            poisonPercentDMG = 0;
+        }
+    }
     void Start()
     {
         currentHealth = maxHealth;
@@ -33,47 +48,22 @@ public class TrainingDummy : MonoBehaviour
         HealthText.text = "" + currentHealth;
     }
 
-    public IEnumerator PoisonTimerP1DMG()
+    [SerializeField] float poisonMaxDuration, poisonCurrentDuration, poisonTickTimer = 1f;
+    public float poisonPercentDMG;
+
+    public void RefreshPoisonTimer()
     {
-        Debug.Log("Player1 Poisoned");
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP1DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP1DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP1DMG();
+        poisonCurrentDuration = poisonMaxDuration;
     }
-    public IEnumerator PoisonTimerP2DMG()
+    public void PoisonTick()
     {
-        Debug.Log("Player2 Poisoned");
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP2DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP2DMG();
-        yield return new WaitForSecondsRealtime(1f);
-        PoisonDMGP2DMG();
+        PoisonDMG();
     }
 
-
-    public void PoisonDMGP1DMG()
+    public void PoisonDMG()
     {
-        Debug.Log("Player1 Took Poison damage");
-        BulletPoisonDamage = MissingHealth * player1.BulletPoison;
+        BulletPoisonDamage = MissingHealth * poisonPercentDMG;
         TakeDamage(BulletPoisonDamage);
-    }
-    public void PoisonDMGP2DMG()
-    {
-        Debug.Log("Player1 Took Poison damage");
-        BulletPoisonDamage = MissingHealth * player2.BulletPoison;
-        TakeDamage(BulletPoisonDamage);
-    }
-    public void StartPoisonTimerP1DMG()
-    {
-        StartCoroutine(PoisonTimerP1DMG());
-    }
-    public void StartPoisonTimerP2DMG()
-    {
-        StartCoroutine(PoisonTimerP2DMG());
     }
     IEnumerator HitIndicator()
     {
