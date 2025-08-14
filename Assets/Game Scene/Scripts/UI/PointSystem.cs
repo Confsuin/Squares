@@ -179,6 +179,10 @@ public class PointSystem : MonoBehaviour
             }
             UpdatePoints();
         }
+        player1.poisonCurrentDuration = 0;
+        player2.poisonCurrentDuration = 0;
+        player1.AltFireCurrentCooldown = 0;
+        player2.AltFireCurrentCooldown = 0;
     }
     public void FirstCardSpawns()
     {

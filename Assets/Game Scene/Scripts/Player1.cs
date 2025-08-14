@@ -135,7 +135,7 @@ public class Player1 : MonoBehaviour
     }
 
     public float AltFireCoolDown = 3f;
-    private float AltFireCurrentCooldown;
+    public float AltFireCurrentCooldown;
     public void Teleport()
     {
         Debug.Log("AltFire Clicked");
@@ -345,13 +345,16 @@ public class Player1 : MonoBehaviour
 
     private void OnAimPerformed(InputAction.CallbackContext value)
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        if (weapon != null)
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        Vector2 aimDirection = mousePosition - (Vector2)weapon.transform.position;
+            Vector2 aimDirection = mousePosition - (Vector2)weapon.transform.position;
 
-        //Rotation of Gun
-        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-        weapon.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            //Rotation of Gun
+            float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+            weapon.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
     }
     private void OnAimCanceled(InputAction.CallbackContext value)
     {
@@ -440,6 +443,7 @@ public class Player1 : MonoBehaviour
     private void UpdateAltFireIndicator()
     {
         AltFireIndicator.value = AltFireCurrentCooldown;
+        AltFireIndicator.maxValue = AltFireCoolDown;
         if (AltFireIndicator.value == AltFireIndicator.maxValue)
         {
             AltFireIndicatorImage.color = new Color(0f, 0.827f, 1f);
@@ -450,7 +454,8 @@ public class Player1 : MonoBehaviour
         }
     }
 
-    [SerializeField] float poisonMaxDuration, poisonCurrentDuration, poisonTickTimer = 1f;
+    [SerializeField] float poisonTickTimer = 1f;
+    public float poisonMaxDuration, poisonCurrentDuration;
     public float poisonPercentDMG;
 
     public void RefreshPoisonTimer()

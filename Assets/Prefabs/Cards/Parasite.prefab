@@ -278,7 +278,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<color=green>+7.5%</color> Poison
 
-    <color=green>+15%</color> Lifesteal
+    <color=green>+20%</color> Lifesteal
 
     <color=red>-15%</color>
     Health'
@@ -555,7 +555,7 @@ MonoBehaviour:
   CardText: []
   Flipped: 0
   MovementSpeed: 1
-  Health: 1.15
+  Health: 0.85
   Damage: 1
   BulletLifeSteal: 0.2
   BulletPoison: 0.075
